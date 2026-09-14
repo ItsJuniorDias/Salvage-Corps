@@ -1,0 +1,921 @@
+{
+  "dialogues": [
+    {
+      "id": "petrov_warning",
+      "npc": "petrov",
+      "act": 1,
+      "lines": [
+        {
+          "speaker": "PETROV",
+          "text": "Tenente. Senta. Pega um chá antes que esfrie."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Você queria falar comigo, Sargento?"
+        },
+        {
+          "speaker": "PETROV",
+          "text": "No Front Oriental, em 1915, minha unidade encontrou uma coisa perto de um vilarejo chamado Kholm. Uma coisa que os alemães também estavam procurando. Não uma coisa. Um lugar."
+        },
+        {
+          "speaker": "PETROV",
+          "text": "Vinte e três homens comigo. Voltaram três. Nenhum falou daquilo depois. Nem eu."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "E por que está me contando agora?"
+        },
+        {
+          "speaker": "PETROV",
+          "text": "Porque a última operação que fizemos… tinha o mesmo cheiro. Preste atenção no que os inimigos dizem quando morrem, Tenente. Às vezes não é alemão."
+        },
+        {
+          "speaker": "NARRADOR",
+          "text": "Petrov termina o chá em silêncio e volta pro fogo. Não olha mais pra você."
+        }
+      ]
+    },
+    {
+      "id": "petrov_2",
+      "npc": "petrov",
+      "act": 1,
+      "lines": [
+        {
+          "speaker": "PETROV",
+          "text": "Você tem irmão?"
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Tinha. Henry. Loos, 1915."
+        },
+        {
+          "speaker": "PETROV",
+          "text": "Ah. Loos. Corpo?"
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Não."
+        },
+        {
+          "speaker": "PETROV",
+          "text": "Mmh. Melhor assim, às vezes. Meu irmão eu enterrei com essas mãos. Preferia não ter."
+        },
+        {
+          "speaker": "NARRADOR",
+          "text": "Você quer perguntar mais, mas ele já se levantou."
+        }
+      ]
+    },
+    {
+      "id": "wren_1",
+      "npc": "wren",
+      "act": 1,
+      "lines": [
+        {
+          "speaker": "WREN",
+          "text": "Tira o casaco. Deixa eu ver esse braço."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Estou bem, Doutora."
+        },
+        {
+          "speaker": "WREN",
+          "text": "Todo mundo está bem. Até estar morto. Depois estão calados, que é diferente. Tira o casaco."
+        },
+        {
+          "speaker": "NARRADOR",
+          "text": "Ela examina o corte, limpa com algo que arde, costura com pontos irregulares."
+        },
+        {
+          "speaker": "WREN",
+          "text": "Ouvi você gritando à noite. Nome de mulher?"
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Meu irmão."
+        },
+        {
+          "speaker": "WREN",
+          "text": "Ah. Ainda pior. Toma isto."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "O que é?"
+        },
+        {
+          "speaker": "WREN",
+          "text": "Basicamente uísque. Costume da profissão."
+        }
+      ]
+    },
+    {
+      "id": "wren_2",
+      "npc": "wren",
+      "act": 1,
+      "lines": [
+        {
+          "speaker": "WREN",
+          "text": "Curiosidade profissional, Tenente. Aquele último corpo que você trouxe. O que morreu na Trincheira 47."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "O quê tem ele?"
+        },
+        {
+          "speaker": "WREN",
+          "text": "O coração dele tinha parado três horas antes de eu recebê-lo. E ainda assim ele estava quente."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Erro seu. Sol de meio-dia."
+        },
+        {
+          "speaker": "WREN",
+          "text": "Choveu o dia inteiro, Tenente. Não teve sol nenhum."
+        },
+        {
+          "speaker": "NARRADOR",
+          "text": "Ela guarda os instrumentos com movimentos precisos. Não olha pra você."
+        },
+        {
+          "speaker": "WREN",
+          "text": "Vá dormir. Ordem médica."
+        }
+      ]
+    },
+    {
+      "id": "ashcroft_1",
+      "npc": "ashcroft",
+      "act": 1,
+      "lines": [
+        {
+          "speaker": "ASHCROFT",
+          "text": "Ah, Vale. Sente-se, sente-se. Estava relendo um manuscrito interessante — cópia coptic de um texto do século IV."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "No meio de uma guerra?"
+        },
+        {
+          "speaker": "ASHCROFT",
+          "text": "Especialmente no meio de uma guerra. Estudos gnósticos sobre o que os antigos chamavam de \"Kenoma\". O espaço vazio entre os planos. Fascinante."
+        },
+        {
+          "speaker": "ASHCROFT",
+          "text": "Alguns padres do 2º século acreditavam que certos lugares na terra eram… mais finos. Que a barreira era mais permeável ali. Poços antigos. Cruzamentos. Campos de batalha."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "E o senhor acha que…"
+        },
+        {
+          "speaker": "ASHCROFT",
+          "text": "Ah, eu não acho nada. Sou apenas um coletor de curiosidades. Mas se você notar um cheiro de sal marinho onde não deveria haver, ou luz que projeta sombras erradas — anote a hora exata. Por favor. É importante pra minha pesquisa."
+        }
+      ]
+    },
+    {
+      "id": "ashcroft_2",
+      "npc": "ashcroft",
+      "act": 1,
+      "lines": [
+        {
+          "speaker": "ASHCROFT",
+          "text": "Você já pensou por que este Salvage Corps existe, Tenente?"
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Pra conter incidentes. Foi o que me disseram."
+        },
+        {
+          "speaker": "ASHCROFT",
+          "text": "Contenção pressupõe conhecimento. Alguém, em algum escritório escuro em Whitehall, sabia o suficiente pra formar esta unidade antes mesmo de você e eu chegarmos aqui."
+        },
+        {
+          "speaker": "ASHCROFT",
+          "text": "A questão é: eles sabem porque estudaram? Ou porque foram avisados?"
+        },
+        {
+          "speaker": "NARRADOR",
+          "text": "Ele fecha o manuscrito devagar."
+        },
+        {
+          "speaker": "ASHCROFT",
+          "text": "Enfim. Descanso é importante. Boa noite, Vale."
+        }
+      ]
+    },
+    {
+      "id": "wardell_1",
+      "npc": "wardell",
+      "act": 1,
+      "lines": [
+        {
+          "speaker": "WARDELL",
+          "text": "Tenente. Sente aqui, longe do fogo. Ninguém escuta."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Tem alguma coisa a dizer, Cabo?"
+        },
+        {
+          "speaker": "WARDELL",
+          "text": "Estou na guerra desde catorze. Mons, Ypres, Somme. Não vi tudo, mas vi bastante."
+        },
+        {
+          "speaker": "WARDELL",
+          "text": "Esta unidade é diferente. Os oficiais não perguntam onde a gente foi. Só perguntam quantos corpos trouxemos. E às vezes se irritam quando trazemos."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "O que está sugerindo?"
+        },
+        {
+          "speaker": "WARDELL",
+          "text": "Sugerindo? Nada. Só te avisando que quando você achar que a missão faz sentido, cheque duas vezes. Quando fizer sentido demais, cheque três."
+        },
+        {
+          "speaker": "NARRADOR",
+          "text": "Ele acende um cigarro. A mão treme quase imperceptivelmente."
+        }
+      ]
+    },
+    {
+      "id": "wardell_2",
+      "npc": "wardell",
+      "act": 1,
+      "lines": [
+        {
+          "speaker": "WARDELL",
+          "text": "Você mata bem, Tenente. Notei."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Isso é elogio ou acusação?"
+        },
+        {
+          "speaker": "WARDELL",
+          "text": "Nem uma coisa nem outra. Observação. Você mata como quem termina uma tarefa. Sem raiva, sem prazer. Chefes gostam disso."
+        },
+        {
+          "speaker": "WARDELL",
+          "text": "Só cuidado. Homem que mata sem sentir esquece que os outros sentem. Aí quando o corpo cai, você não entende por que o resto da unidade fica quieto."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "E você? Sente?"
+        },
+        {
+          "speaker": "WARDELL",
+          "text": "Sinto demais. Por isso ainda estou vivo. Boa noite, Tenente."
+        }
+      ]
+    },
+    {
+      "id": "petrov_act2",
+      "npc": "petrov",
+      "act": 2,
+      "lines": [
+        {
+          "speaker": "PETROV",
+          "text": "Tenente. Você está pálido."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Ontem à noite ouvi uma voz. Chamando meu nome."
+        },
+        {
+          "speaker": "PETROV",
+          "text": "Voz de mulher?"
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Sim. Você também escutou?"
+        },
+        {
+          "speaker": "PETROV",
+          "text": "Não. Mas em Kholm, foi assim que começou. Sempre uma voz. Sempre chamando um nome específico. Uma pessoa por vez."
+        },
+        {
+          "speaker": "PETROV",
+          "text": "Os três que sobreviveram comigo — todos escutamos vozes primeiro. Os vinte que morreram, também escutaram. Escutar não decide nada."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "O que decide?"
+        },
+        {
+          "speaker": "PETROV",
+          "text": "O que você RESPONDE. Se responde. E a quem."
+        },
+        {
+          "speaker": "NARRADOR",
+          "text": "Petrov toma um gole de chá. Não olha pra você, mas não sai também."
+        }
+      ]
+    },
+    {
+      "id": "wren_act2",
+      "npc": "wren",
+      "act": 2,
+      "lines": [
+        {
+          "speaker": "WREN",
+          "text": "Tenente. Sente."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Não tenho ferimentos hoje."
+        },
+        {
+          "speaker": "WREN",
+          "text": "Eu não pedi. Sente."
+        },
+        {
+          "speaker": "NARRADOR",
+          "text": "Você senta. Ela põe a mão fria no seu pulso, checa o pulso sem olhar pro relógio."
+        },
+        {
+          "speaker": "WREN",
+          "text": "Trinta e oito batimentos a mais que semana passada. Você está adormecendo tarde. Comendo pouco."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Guerra."
+        },
+        {
+          "speaker": "WREN",
+          "text": "Guerra é constante. Você não. Vi três homens desandarem desse jeito antes. Dois morreram no combate seguinte. O terceiro se matou."
+        },
+        {
+          "speaker": "WREN",
+          "text": "Você não vai fazer nem uma coisa nem outra. Vai voltar aqui amanhã à noite. Vou te dar algo pra dormir."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Não posso ficar sonolento em campo."
+        },
+        {
+          "speaker": "WREN",
+          "text": "Você não pode ficar acordado sem parar tampouco. Escolhe. Amanhã à noite."
+        }
+      ]
+    },
+    {
+      "id": "ashcroft_act2",
+      "npc": "ashcroft",
+      "act": 2,
+      "lines": [
+        {
+          "speaker": "ASHCROFT",
+          "text": "Você leu os livros?"
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Uma parte. O do capitão francês."
+        },
+        {
+          "speaker": "ASHCROFT",
+          "text": "Ah. Delacour. 1871. Sabia que ele voltou pra Paris depois? Escreveu três livros mais, todos suprimidos pela censura militar. Morreu em 1889, aos 43. Causa oficial: 'exaustão'. Causa real: parou de dormir."
+        },
+        {
+          "speaker": "ASHCROFT",
+          "text": "O padrão se repete. Delacour, o Corps de 1876, o Corps russo de 1915, nós agora. Sempre com o mesmo tipo de gente. Sempre com o mesmo tipo de encontro."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "E o que os que voltam vivos têm em comum?"
+        },
+        {
+          "speaker": "ASHCROFT",
+          "text": "Segundo minhas notas? Três coisas. Uma: acreditaram na conta oficial. Duas: nunca falaram do que viram. Três: morreram jovens de outras causas."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Isso não é sobreviver."
+        },
+        {
+          "speaker": "ASHCROFT",
+          "text": "Depende do que você chama de sobreviver, Vale. Estou entre eles. Você também vai estar. A questão é qual das três coisas você vai fazer diferente."
+        }
+      ]
+    },
+    {
+      "id": "wardell_act2",
+      "npc": "wardell",
+      "act": 2,
+      "lines": [
+        {
+          "speaker": "WARDELL",
+          "text": "Vi você jogar aquele frasco no combate de hoje. Gás alemão."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Funcionou."
+        },
+        {
+          "speaker": "WARDELL",
+          "text": "Funcionou. Matou dois deles rápido. Antes de morrerem, eles gritaram um som que eu vou ouvir no ouvido pelo resto da vida."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Cabo. Se você tem alguma coisa a dizer, diz."
+        },
+        {
+          "speaker": "WARDELL",
+          "text": "Não tenho ordem pra dizer nada. Não sou seu superior. Mas Ashcroft me disse uma coisa uma vez: usar arma do inimigo te aproxima dele por dentro. Não fisicamente. Espiritualmente."
+        },
+        {
+          "speaker": "WARDELL",
+          "text": "Eu não sei se acredito em espírito. Mas sei que você não é mais o mesmo Tenente que embarcou no navio."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Nenhum de nós é."
+        },
+        {
+          "speaker": "WARDELL",
+          "text": "Verdade. Só que uns viram outra coisa. Outros viram coisa nenhuma. E os que viram outra coisa raramente voltam. Boa noite, Tenente."
+        },
+        {
+          "speaker": "NARRADOR",
+          "text": "Ele apaga o cigarro no salto da bota e some no escuro."
+        }
+      ]
+    },
+    {
+      "id": "henry_act3_1",
+      "npc": "henry",
+      "act": 3,
+      "lines": [
+        {
+          "speaker": "NARRADOR",
+          "text": "Ele está sentado sozinho no canto do camp. Fumando um cigarro que você não viu ele acender."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "…Henry?"
+        },
+        {
+          "speaker": "NARRADOR",
+          "text": "Ele levanta os olhos. Sorri. É o mesmo sorriso de sempre."
+        },
+        {
+          "speaker": "HENRY",
+          "text": "Você chegou."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Você… Loos. Você morreu em Loos, em 1915. Eu vi—"
+        },
+        {
+          "speaker": "NARRADOR",
+          "text": "Ele acena com a cabeça. Não corrige. Não confirma."
+        },
+        {
+          "speaker": "HENRY",
+          "text": "Sente aqui."
+        },
+        {
+          "speaker": "NARRADOR",
+          "text": "Você senta. Ele te oferece o cigarro. Você recusa. Ele guarda de novo no bolso."
+        },
+        {
+          "speaker": "NARRADOR",
+          "text": "Vocês ficam em silêncio por muito tempo. Alguém em outro camp está tocando gaita — uma música que sua mãe cantava."
+        }
+      ]
+    },
+    {
+      "id": "henry_act3_2",
+      "npc": "henry",
+      "act": 3,
+      "lines": [
+        {
+          "speaker": "NARRADOR",
+          "text": "Ele está lá de novo. No mesmo canto. Como se nunca tivesse saído."
+        },
+        {
+          "speaker": "HENRY",
+          "text": "Você tem dormido?"
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Pouco."
+        },
+        {
+          "speaker": "HENRY",
+          "text": "Sonhos?"
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "…"
+        },
+        {
+          "speaker": "NARRADOR",
+          "text": "Ele não insiste. Você quer perguntar dez coisas. Não faz nenhuma."
+        },
+        {
+          "speaker": "HENRY",
+          "text": "Eu também não sonho mais."
+        },
+        {
+          "speaker": "NARRADOR",
+          "text": "Ele apaga o cigarro no salto da bota. Você reconhece o gesto — era o de Wardell. Ou era o dele antes."
+        }
+      ]
+    },
+    {
+      "id": "henry_act3_3",
+      "npc": "henry",
+      "act": 3,
+      "lines": [
+        {
+          "speaker": "NARRADOR",
+          "text": "Amanhã é o General. Você sabe. Todo mundo sabe."
+        },
+        {
+          "speaker": "NARRADOR",
+          "text": "Henry está sentado, mãos no colo. Não fuma dessa vez."
+        },
+        {
+          "speaker": "HENRY",
+          "text": "Edmund."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Sim?"
+        },
+        {
+          "speaker": "HENRY",
+          "text": "Quando você vir o rosto dele…"
+        },
+        {
+          "speaker": "NARRADOR",
+          "text": "Ele para. Olha pra suas próprias mãos por um longo tempo."
+        },
+        {
+          "speaker": "HENRY",
+          "text": "…não desvie o olhar."
+        },
+        {
+          "speaker": "NARRADOR",
+          "text": "Ele levanta. Toca no seu ombro. A mão dele é fria como você lembra."
+        },
+        {
+          "speaker": "HENRY",
+          "text": "Vai ficar tudo bem."
+        },
+        {
+          "speaker": "NARRADOR",
+          "text": "Ele sai do camp. Você não vê pra onde ele vai."
+        }
+      ]
+    },
+    {
+      "id": "petrov_act3_1",
+      "npc": "petrov",
+      "act": 3,
+      "lines": [
+        {
+          "speaker": "PETROV",
+          "text": "Vale. Senta. O chá tá quase."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Você guardou chá pro Ato Três."
+        },
+        {
+          "speaker": "PETROV",
+          "text": "Sempre. É o único que sobrou daquela lata que a Wren trouxe em janeiro."
+        },
+        {
+          "speaker": "NARRADOR",
+          "text": "Ele serve devagar. As mãos estão firmes. Sempre estiveram."
+        },
+        {
+          "speaker": "PETROV",
+          "text": "Quando isso acabar — de um jeito ou de outro — eu volto pra Rússia. Se ainda houver Rússia."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "E se não houver?"
+        },
+        {
+          "speaker": "PETROV",
+          "text": "Então planto batata em algum lugar. Batata não pergunta seu passado."
+        },
+        {
+          "speaker": "NARRADOR",
+          "text": "Ele te olha. Sorri sem alegria."
+        },
+        {
+          "speaker": "PETROV",
+          "text": "Você vai fazer o que precisa fazer amanhã, tenente. E eu vou estar do seu lado. Não porque foi ordenado. Porque escolhi."
+        }
+      ]
+    },
+    {
+      "id": "petrov_act3_2",
+      "npc": "petrov",
+      "act": 3,
+      "lines": [
+        {
+          "speaker": "NARRADOR",
+          "text": "Petrov está polindo uma coisa que você não reconhece — um medalhão de bronze, ortodoxo, gasto."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Nunca vi isso antes."
+        },
+        {
+          "speaker": "PETROV",
+          "text": "Não deixo ninguém ver. Era do Fyodor."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Seu irmão."
+        },
+        {
+          "speaker": "PETROV",
+          "text": "Meu irmão. Ele carregou até 1915. Depois eu carreguei. Nem sei mais o que peço quando aperto ele. Só peço."
+        },
+        {
+          "speaker": "NARRADOR",
+          "text": "Ele guarda o medalhão no bolso interno. Volta a olhar pro fogo."
+        },
+        {
+          "speaker": "PETROV",
+          "text": "Amanhã, quando o General vier, você vai estar sozinho na frente. Eu sei disso. Mas eu vou estar atrás de você. E se você cair, eu carrego. Como carreguei o Fyodor."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Petrov—"
+        },
+        {
+          "speaker": "PETROV",
+          "text": "Bebe o chá, tenente. Enquanto tá quente."
+        }
+      ]
+    },
+    {
+      "id": "wren_act3_1",
+      "npc": "wren",
+      "act": 3,
+      "lines": [
+        {
+          "speaker": "WREN",
+          "text": "Tenente. Deixa eu ver essa mão."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Não é nada."
+        },
+        {
+          "speaker": "WREN",
+          "text": "Você tá segurando ela do jeito que a Petrov segurou o ombro dele em Ypres. É alguma coisa."
+        },
+        {
+          "speaker": "NARRADOR",
+          "text": "Ela limpa o corte com um pano. O rosto dela não muda."
+        },
+        {
+          "speaker": "WREN",
+          "text": "Você sabe qual é a diferença entre um médico bom e um médico ruim, Vale?"
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Diagnóstico."
+        },
+        {
+          "speaker": "WREN",
+          "text": "Coragem de mentir. O bom mente melhor. Diz “vai ficar bem” com convicção mesmo quando sabe que não."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "E você?"
+        },
+        {
+          "speaker": "WREN",
+          "text": "Eu digo a verdade. Por isso as pessoas me odeiam eventualmente. Amanhã eu vou te dizer a verdade, se você precisar ouvir. Só me avisa qual verdade você quer."
+        }
+      ]
+    },
+    {
+      "id": "wren_act3_2",
+      "npc": "wren",
+      "act": 3,
+      "lines": [
+        {
+          "speaker": "NARRADOR",
+          "text": "Wren tá com uma garrafa. Não é a primeira do dia. Ela te oferece."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Não bebo antes de operação."
+        },
+        {
+          "speaker": "WREN",
+          "text": "Ainda bem que amanhã não é operação. Amanhã é outra coisa."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "O que é, então?"
+        },
+        {
+          "speaker": "WREN",
+          "text": "Enterro. Sei lá. Depende de quem enterra quem."
+        },
+        {
+          "speaker": "NARRADOR",
+          "text": "Ela bebe. Passa a manga na boca."
+        },
+        {
+          "speaker": "WREN",
+          "text": "Meu pai foi médico de trincheira na Bôer. Voltou pra casa e nunca mais dormiu num quarto fechado. Dormia no jardim, na chuva. Preferia."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "E você?"
+        },
+        {
+          "speaker": "WREN",
+          "text": "Eu ainda não voltei. Pergunte de novo quando eu voltar. Se voltar."
+        }
+      ]
+    },
+    {
+      "id": "ashcroft_act3_1",
+      "npc": "ashcroft",
+      "act": 3,
+      "lines": [
+        {
+          "speaker": "ASHCROFT",
+          "text": "Vale. Senta. Preciso que você leia isso."
+        },
+        {
+          "speaker": "NARRADOR",
+          "text": "Ele te entrega uma folha. Grega antiga. Você não consegue ler."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Não sei grego."
+        },
+        {
+          "speaker": "ASHCROFT",
+          "text": "Não importa. Segura na mão enquanto eu leio."
+        },
+        {
+          "speaker": "NARRADOR",
+          "text": "Ele lê. Devagar. Você não entende as palavras mas alguma coisa dentro de você tensiona, como um cabo se esticando."
+        },
+        {
+          "speaker": "ASHCROFT",
+          "text": "Pronto. Se algum dia amanhã algo tentar entrar em você usando um nome que não é seu, essa oração vai atrasar. Vai te dar dois, três segundos."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Dois, três segundos pra quê?"
+        },
+        {
+          "speaker": "ASHCROFT",
+          "text": "Pra decidir se você quer resistir. Você vai ter que decidir. E depende de você."
+        }
+      ]
+    },
+    {
+      "id": "ashcroft_act3_2",
+      "npc": "ashcroft",
+      "act": 3,
+      "lines": [
+        {
+          "speaker": "NARRADOR",
+          "text": "Ashcroft está sentado com um livro no colo, aberto, mas não está lendo. Está olhando pro fogo."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Capitão."
+        },
+        {
+          "speaker": "ASHCROFT",
+          "text": "Vale. Você já pensou por que Whitehall te escolheu? Não os outros oficiais. Você."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Não muito."
+        },
+        {
+          "speaker": "ASHCROFT",
+          "text": "Você devia. Eu pensei. Eu li os arquivos. Havia dezoito candidatos pra esta posição. Você foi o único que perdeu um irmão do jeito que perdeu."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Isso é qualificação?"
+        },
+        {
+          "speaker": "ASHCROFT",
+          "text": "É requisito. Essas coisas encontram você através do buraco que a perda deixa. Se você não tivesse buraco, você não seria útil pra eles. Nem pra Whitehall. Sinto muito, tenente. Devia ter dito isso antes."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Por que agora?"
+        },
+        {
+          "speaker": "ASHCROFT",
+          "text": "Porque amanhã pode ser tarde."
+        }
+      ]
+    },
+    {
+      "id": "wardell_act3_1",
+      "npc": "wardell",
+      "act": 3,
+      "lines": [
+        {
+          "speaker": "WARDELL",
+          "text": "Tenente. Eu tô jogando pôquer sozinho. Quer entrar?"
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Não sei jogar pôquer."
+        },
+        {
+          "speaker": "WARDELL",
+          "text": "Melhor ainda. Senta."
+        },
+        {
+          "speaker": "NARRADOR",
+          "text": "Ele distribui cartas. Você olha as suas. Ele olha as dele. Ninguém aposta."
+        },
+        {
+          "speaker": "WARDELL",
+          "text": "Meu pai me ensinou a jogar. Ele dizia: no pôquer, quem sabe a hora de sair ganha. Não quem tem a melhor mão."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Seu pai era jogador?"
+        },
+        {
+          "speaker": "WARDELL",
+          "text": "Meu pai era mineiro. Mas ele sabia sair de mina que ia desabar antes dos outros. Salvou trinta e sete homens em Aberfan em 1902."
+        },
+        {
+          "speaker": "NARRADOR",
+          "text": "Ele mostra as cartas. Ganha. Recolhe."
+        },
+        {
+          "speaker": "WARDELL",
+          "text": "Amanhã, se eu disser “vamo embora”, tenente, você vai me ouvir. Meu pai me ensinou. Eu ensino você."
+        }
+      ]
+    },
+    {
+      "id": "wardell_act3_2",
+      "npc": "wardell",
+      "act": 3,
+      "lines": [
+        {
+          "speaker": "NARRADOR",
+          "text": "Wardell está afiando a baioneta. Sem dramatismo. Como quem lava louça."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Precisa de alguma coisa?"
+        },
+        {
+          "speaker": "WARDELL",
+          "text": "Tô bem. Você que veio até mim."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "Vim."
+        },
+        {
+          "speaker": "WARDELL",
+          "text": "Amanhã vai ser feio. Você sabe. Eu sei. Mas eu quero te dizer uma coisa que ninguém te disse ainda."
+        },
+        {
+          "speaker": "EDMUND",
+          "text": "O quê?"
+        },
+        {
+          "speaker": "WARDELL",
+          "text": "Você é oficial ruim, Vale."
+        },
+        {
+          "speaker": "NARRADOR",
+          "text": "Você olha. Ele continua afiando."
+        },
+        {
+          "speaker": "WARDELL",
+          "text": "Não me olha assim. Você é oficial ruim porque escuta demais os praças. Um oficial bom manda e pronto. Você pergunta. Pesa. Duvida."
+        },
+        {
+          "speaker": "WARDELL",
+          "text": "Que é exatamente por isso que a gente segue você. Se fosse oficial bom eu já tinha desertado. Boa noite, tenente."
+        }
+      ]
+    }
+  ]
+}

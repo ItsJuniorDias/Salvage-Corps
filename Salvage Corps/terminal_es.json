@@ -1,0 +1,63 @@
+{
+  "acts": {
+    "1": {
+      "title": "Hauptmann Krüger Ha Caído",
+      "narrative": "Hauptmann Krüger cae al fin. Su boca aún se mueve — palabras que no son alemanas, no son inglesas, no son humanas. Sus ojos se fijan en algo detrás de ti. Después vacíos.\n\nTu unidad espera. Wardell no te quita los ojos de encima. Wren guarda las vendas en silencio. Petrov no mira a nadie.\n\nTienes que reportar esto al QG. LO QUE reportes define quién eres ahora."
+    },
+    "2": {
+      "title": "El Apóstol Ya No Respira",
+      "narrative": "El Apóstol Espinoso se desploma, y las espinas siguen creciendo por dentro de la sotana durante unos segundos antes de detenerse. En su pecho, un símbolo grabado a hierro — algo que Ashcroft, si estuviera aquí, llamaría el “sigilo del Kenoma”.\n\nTu unidad no habla. Nadie quiere tocar el cuerpo. Wardell arma el rifle otra vez, mirando el horizonte. Wren se arrodilla, pero no para examinar — para rezar. Petrov escupe en el suelo.\n\nDebes decidir qué hacer con el cuerpo. Y con el símbolo."
+    },
+    "3": {
+      "title": "El Archivo del Corps",
+      "narrative": "El General cae. Lo que queda de él no tiene rostro reconocible, no tiene forma reconocible. Los soldados detrás de él desaparecen uno a uno, como humo que alguien retiró de debajo del aire. Sólo queda el viento, y un olor a sal marina donde no debería haber mar.\n\nBajas por la escotilla que él guardaba. Al final de la escalera, una sala circular sin ventanas, iluminada por lámparas alemanas aún encendidas.\n\nEn las paredes: cinco décadas de archivos. Fichas de cada Salvage Corps que ha existido. Fotografías. Testimonios. Cinco carpetas gruesas con nombres que reconoces — Capitán Delacour, 1871. Coronel Ashfield, 1876. Sargento Petrov, 1915. Capitán Ashcroft, 1917. Y una carpeta en blanco.\n\nLa carpeta en blanco tiene TU nombre escrito a mano. La tinta aún seca.\n\nTienes una decisión que tomar. Es la última."
+    }
+  },
+  "choices": {
+    "reportContact": {
+      "label": "Reportar todo — cada detalle",
+      "costHint": "→ Alianza con el Corps",
+      "resultText": "Escribes el informe completo. Coordenadas, las palabras que dijo, lo que sentiste cuando miró por encima de tu hombro. El correo tardará días. Alguien en Londres lo leerá. Alguien en Londres ya lo sabía.\n\nFormas parte del sistema ahora. Parte de algo mayor. Pero no sientes que sea algo bueno."
+    },
+    "silenceIncident": {
+      "label": "Silenciar el incidente",
+      "costHint": "→ Protección de la unidad",
+      "resultText": "Escribes el informe oficial: “Hauptmann Krüger neutralizado en combate. Sin bajas de nuestro lado. Recomendación: contención estándar del sector.”\n\nLa unidad te agradece en silencio. Wren te toca el hombro al pasar. Petrov asiente una vez. Los protegiste — pero lo que viste queda encerrado sólo en ti ahora. Alguien tiene que cargarlo. Aceptas."
+    },
+    "doubtEverything": {
+      "label": "Dudar de todo — incluso de ti",
+      "costHint": "→ Preservación de la verdad",
+      "resultText": "No reportas nada. Marcas el incidente como “combate rutinario”. Pero en tu diario de campo, anotas cada palabra que dijo Krüger. Cada gesto. La luz que nadie más vio.\n\nNo sabes si crees nada de eso. Pero si un día alguien necesita la verdad, existirá. Alguien tiene que dar testimonio. Quizás ese alguien seas tú."
+    },
+    "recordAtoll": {
+      "label": "Grabar el sigilo en el informe oficial",
+      "costHint": "→ Alianza con el Corps",
+      "resultText": "Dibujas el sigilo en el informe con precisión de topógrafo. Escribes cada palabra que el Apóstol murmuró antes de caer. Anotas hasta el olor — algo entre incienso quemado y aire marino, donde no debía haber mar.\n\nDos semanas después, alguien del Corps llega a tu vivaque sin identificarse. Se lleva el informe. Nunca lo devuelve. Recibes un ascenso que nadie explica. Y órdenes nuevas que nadie cuestiona."
+    },
+    "buryWithUnit": {
+      "label": "Enterrar el cuerpo con tu unidad",
+      "costHint": "→ Protección de la unidad",
+      "resultText": "Cavan durante tres horas. Petrov corta una cruz improvisada con dos tablas, aunque el Apóstol no fuera cristiano. Nadie sabe qué era. Wren echa la primera palada de tierra. Wardell, la segunda.\n\nEl símbolo queda enterrado con él. Ninguno de ustedes hablará de eso otra vez, pero todos lo recordarán. Y la próxima vez que vean algo parecido, sabrán. Eso tendrá que ser suficiente."
+    },
+    "keepSymbol": {
+      "label": "Arrancar el símbolo y esconderlo",
+      "costHint": "→ Preservación de la verdad",
+      "resultText": "Arrancas el metal de su pecho con un cuchillo. Está más frío de lo que debería, más ligero de lo que debería. Lo guardas dentro del bolsillo interior del abrigo, junto a la carta de tu madre.\n\nEn el informe oficial: “Cultista neutralizado. Cuerpo abandonado en campo.” No sabes qué harás con el símbolo. Pero sabes que si lo entregaras al Corps, desaparecería. Y hay cosas que necesitan seguir existiendo — aunque sólo una persona lo sepa."
+    },
+    "salvageArchive": {
+      "label": "Preservar el archivo — entregarlo al Corps",
+      "costHint": "→ Continuidad",
+      "resultText": "No abres la carpeta con tu nombre. Empacas todo — cinco décadas de informes, fotografías, sigilos dibujados a lápiz — en tres cajones reforzados. Marcas cada uno: PROPIEDAD DE LA CORONA · SECTOR 12 · MANIPULAR SÓLO CON AUTORIZACIÓN DIRECTA.\n\nAlguien del Corps vendrá a buscarlos. Como siempre lo han hecho. El archivo continúa. El ciclo continúa. El próximo Salvage Corps leerá TU nombre en una carpeta y no entenderá qué te pasó — pero continuará.\n\nFormas parte de algo mayor que tu vida. Aceptaste eso."
+    },
+    "burnEverything": {
+      "label": "Quemarlo todo — que muera aquí",
+      "costHint": "→ Fin del ciclo",
+      "resultText": "Derramas el queroseno de las lámparas. Una carpeta por vez, empezando por la de Delacour, 1871. Las páginas resisten. Tardan en prender. Te quedas quieto hasta que cada una se vuelve ceniza.\n\nLa carpeta con tu nombre va la última. No la abres.\n\nCuando sales de la sala circular por última vez, los archivos son humo y nadie leerá jamás lo que costaron cincuenta años. El próximo Salvage Corps se formará desde cero — si se forma. Tendrán que descubrirlo todo de nuevo. Quizás yerren menos. Quizás igual.\n\nCierras la escotilla. La sellas con tierra. Nunca vuelves."
+    },
+    "walkAway": {
+      "label": "Salir sin tocar nada",
+      "costHint": "→ Rechazo",
+      "resultText": "Miras la carpeta con tu nombre. No la abres. Miras las otras cinco. No las tocas.\n\nSubes la escalera de vuelta. Cierras la escotilla detrás de ti sin sellarla. Alguien la encontrará. Alguien decidirá. No tú.\n\nCaminas hasta el horizonte y no miras atrás. Tu unidad te espera en el vivaque. Llegas tarde. Nadie pregunta por qué. No explicas.\n\nA la mañana siguiente pides una transferencia. La recibes. Pasas el resto de la guerra en una oficina en Rouen haciendo contabilidad de suministros. Sobrevives. Vuelves a Yorkshire en 1919. Vives hasta viejo. Nunca hablas de ello. Ni sueñas con ello — algo en ti tomó la decisión de no recordar, y la decisión aguanta.\n\nFue el precio de seguir siendo una persona. Aceptaste."
+    }
+  }
+}

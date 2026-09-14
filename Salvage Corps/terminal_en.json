@@ -1,0 +1,63 @@
+{
+  "acts": {
+    "1": {
+      "title": "Hauptmann Krüger Has Fallen",
+      "narrative": "Hauptmann Krüger finally falls. His mouth still moves — words that are not German, not English, not human. His eyes fix on something behind you. Then empty.\n\nYour unit waits. Wardell does not take his eyes off you. Wren puts the bandages away in silence. Petrov looks at no one.\n\nYou have to report this to HQ. WHAT you report defines who you are now."
+    },
+    "2": {
+      "title": "The Apostle Breathes No More",
+      "narrative": "The Barbed Apostle collapses, and the thorns keep growing inside the cassock for a few seconds before stopping. On his chest, a symbol branded in iron — something Ashcroft, were he here, would call the “sigil of the Kenoma”.\n\nYour unit does not speak. No one wants to touch the body. Wardell readies his rifle again, watching the horizon. Wren kneels, but not to examine — to pray. Petrov spits on the ground.\n\nYou must decide what to do with the body. And with the symbol."
+    },
+    "3": {
+      "title": "The Archive of the Corps",
+      "narrative": "The General falls. What remains of him has no recognisable face, no recognisable form. The soldiers behind him vanish one by one, like smoke someone pulled out from under the air. Only the wind is left, and a smell of sea salt where there should be no sea.\n\nYou descend through the hatch he was guarding. At the bottom of the ladder, a circular room with no windows, lit by German lanterns still burning.\n\nOn the walls: five decades of files. Records of every Salvage Corps that has ever existed. Photographs. Testimonies. Five thick folders with names you recognise — Captain Delacour, 1871. Colonel Ashfield, 1876. Sergeant Petrov, 1915. Captain Ashcroft, 1917. And one blank folder.\n\nThe blank folder has YOUR name written by hand. The ink still drying.\n\nYou have a decision to make. It is the last."
+    }
+  },
+  "choices": {
+    "reportContact": {
+      "label": "Report everything — every detail",
+      "costHint": "→ Alliance with the Corps",
+      "resultText": "You write the full report. Coordinates, the words he said, what you felt when he looked over your shoulder. The post will take days. Someone in London will read it. Someone in London already knew.\n\nYou are part of the system now. Part of something bigger. But you do not feel it is a good thing."
+    },
+    "silenceIncident": {
+      "label": "Silence the incident",
+      "costHint": "→ Protection of the unit",
+      "resultText": "You write the official report: “Hauptmann Krüger neutralised in combat. No losses on our side. Recommendation: standard sector containment.”\n\nThe unit thanks you silently. Wren touches your shoulder as she passes. Petrov nods once. You protected them — but what you saw is locked only in you now. Someone must carry it. You accept."
+    },
+    "doubtEverything": {
+      "label": "Doubt everything — even yourself",
+      "costHint": "→ Preservation of truth",
+      "resultText": "You report nothing. You mark the incident as “routine combat”. But in your field journal, you write down every word Krüger said. Every gesture. The light no one else saw.\n\nYou do not know if you believe any of it. But if one day someone needs the truth, it will exist. Someone must bear witness. Perhaps that someone is you."
+    },
+    "recordAtoll": {
+      "label": "Record the sigil in the official report",
+      "costHint": "→ Alliance with the Corps",
+      "resultText": "You draw the sigil in the report with a surveyor's precision. You write down every word the Apostle murmured before falling. You note even the smell — something between burnt incense and sea air, where there should be no sea.\n\nTwo weeks later, someone from the Corps arrives at your bivouac without identifying himself. He takes the report. Never returns it. You receive a promotion no one explains. And new orders no one questions."
+    },
+    "buryWithUnit": {
+      "label": "Bury the body with your unit",
+      "costHint": "→ Protection of the unit",
+      "resultText": "You dig for three hours. Petrov cuts an improvised cross from two boards, even though the Apostle was not Christian. No one knows what he was. Wren throws the first shovel of earth. Wardell, the second.\n\nThe symbol stays buried with him. None of you will ever speak of it again, but all of you will remember. And the next time you see something similar, you will know. That will have to be enough."
+    },
+    "keepSymbol": {
+      "label": "Cut out the symbol and hide it",
+      "costHint": "→ Preservation of truth",
+      "resultText": "You cut the metal from his chest with a knife. It is colder than it should be, lighter than it should be. You keep it inside your coat's inner pocket, beside your mother's letter.\n\nIn the official report: “Cultist neutralised. Body abandoned in the field.” You do not know what you will do with the symbol. But you know that if you handed it to the Corps, it would disappear. And there are things that must go on existing — even if only one person knows."
+    },
+    "salvageArchive": {
+      "label": "Preserve the archive — hand it to the Corps",
+      "costHint": "→ Continuity",
+      "resultText": "You do not open the folder with your name. You pack everything — five decades of reports, photographs, sigils drawn in pencil — into three reinforced crates. You mark each one: PROPERTY OF THE CROWN · SECTOR 12 · HANDLE ONLY UNDER DIRECT AUTHORISATION.\n\nSomeone from the Corps will come to fetch them. As they always have. The archive continues. The cycle continues. The next Salvage Corps will read YOUR name in a folder and will not understand what happened to you — but they will continue.\n\nYou are part of something bigger than your life. You have accepted that."
+    },
+    "burnEverything": {
+      "label": "Burn it all — let it die here",
+      "costHint": "→ End of the cycle",
+      "resultText": "You pour the kerosene from the lanterns. One folder at a time, starting with Delacour's, 1871. The pages resist. They take time to catch. You stand still until each becomes ash.\n\nThe folder with your name goes last. You do not open it.\n\nWhen you leave the circular room for the last time, the archives are smoke and no one will ever read what fifty years cost. The next Salvage Corps will be formed from nothing — if it is formed at all. They will have to discover everything again. Perhaps they will err less. Perhaps the same.\n\nYou close the hatch. Seal it with earth. You never return."
+    },
+    "walkAway": {
+      "label": "Walk out without touching anything",
+      "costHint": "→ Refusal",
+      "resultText": "You look at the folder with your name. You do not open it. You look at the other five. You do not touch.\n\nYou climb the ladder back. Close the hatch behind you without sealing. Someone will find it. Someone will decide. Not you.\n\nYou walk to the horizon and do not look back. Your unit waits for you at the bivouac. You arrive late. No one asks why. You do not explain.\n\nThe next morning you request a transfer. You receive it. You spend the rest of the war in an office in Rouen doing supply accounting. You survive. You return to Yorkshire in 1919. You live to be old. You never speak of it. You do not even dream of it — something in you took the decision not to remember, and the decision holds.\n\nIt was the price of remaining a person. You accepted."
+    }
+  }
+}

@@ -1,0 +1,1292 @@
+{
+  "fixed": [
+    {
+      "id": "petrov_warning",
+      "act": 1,
+      "title": "Petrov Wants to Speak",
+      "narrative": "Petrov calls you out of the dugout. He holds an unlit cigarette between his fingers. He does not look at you when he speaks.\n\n“Lieutenant. About the last operation. I need to tell you something before it gets too late.”",
+      "backgroundArt": "bg_trench",
+      "choices": [
+        {
+          "id": "listen",
+          "label": "Listen to the end",
+          "costHint": "+5 Morale",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 5
+            }
+          ],
+          "resultText": "He speaks low, direct, without drama. Kholm, 1915. Twenty-three men, three survivors. A thing that was not German. A thing that whispered in a language no one had learned.\n\nYou do not know if you believe him, but the relief of knowing that someone before you had seen it — that you are not alone in the madness — is worth more than any explanation."
+        },
+        {
+          "id": "reject",
+          "label": "Reject the warning",
+          "costHint": "-3 Morale · +5 Max HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -3
+            },
+            {
+              "type": "gainMaxHP",
+              "value": 5
+            }
+          ],
+          "resultText": "You cut him off: “Sergeant. We are in a war. We focus on real things.”\n\nPetrov nods slowly. He puts the cigarette away. He leaves without a word.\n\nThe rejection costs something in you. But focus also strengthens — if you do not allow yourself to believe in ghosts, your body endures more than those who do."
+        },
+        {
+          "id": "ask_brother",
+          "label": "Ask about his brother",
+          "costHint": "+3 Morale · +3 Max Morale",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 3
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": 3
+            }
+          ],
+          "resultText": "You changed the subject. He looks at you for the first time.\n\n“Fyodor. Buried him with these hands. Twenty years old. He believed in God, and in the Tsar, and in the end I think he believed I was going to save him. But I did not.”\n\nThe silence after is long. Neither of you knows what to say. But something between you turns different. Stronger, perhaps."
+        }
+      ],
+      "narrativeID": "petrov_warning"
+    },
+    {
+      "id": "ashcroft_revelation",
+      "act": 2,
+      "title": "Ashcroft, at Last, Speaks",
+      "narrative": "Ashcroft calls you to his tent at midnight. No champagne tonight. No Latin manuscript on the desk. Only him, a candle, three thick books and an envelope sealed with wax.\n\n“Vale. I need to tell you everything. If you interrupt me, I stop. You decide if you want to hear.”",
+      "backgroundArt": "bg_camp",
+      "choices": [
+        {
+          "id": "trust",
+          "label": "Trust him — ask for the books",
+          "costHint": "+3 Morale · +5 Max HP · +Card",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 3
+            },
+            {
+              "type": "gainMaxHP",
+              "value": 5
+            },
+            {
+              "type": "addCard",
+              "templateID": "silent_reserve"
+            }
+          ],
+          "resultText": "Ashcroft hands you three books he had been carrying in secret: Latin translations of gnostic texts, field notes from a French captain in 1871, and a diary of the Salvage Corps itself from 1876.\n\nYou read all of it that night. You do not sleep. But by dawn, you know what you are facing. And knowing has weight — but also gives structure. You can prepare for structure.\n\nAshcroft also teaches you an old technique of reserving resources in silence, without alerting the enemy. “You will need it.”"
+        },
+        {
+          "id": "distance",
+          "label": "Listen but keep uncommitted",
+          "costHint": "+5 Morale · -5 Max Morale",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 5
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": -5
+            }
+          ],
+          "resultText": "He speaks for two hours. You take mental notes. You do not take the books. As you leave, he looks at you with an odd pity.\n\n“Good night, Vale. I shall hope the distance serves you.”\n\nYou feel comfort in the moment — you did not dirty yourself. But days later, when the nightmares begin, you realise distance protects the body and wounds the mind."
+        },
+        {
+          "id": "report_him",
+          "label": "Report Ashcroft to HQ for suspicious conduct",
+          "costHint": "+5 Max HP · -8 Max Morale",
+          "effects": [
+            {
+              "type": "gainMaxHP",
+              "value": 5
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": -8
+            }
+          ],
+          "resultText": "You write the report with precision. Ashcroft is transferred within 48 hours. No one asks where to. You are quietly promoted and gain access to better supplies.\n\nFor months afterwards, you dream of him in a small cell, reading the same three books. You do not know if it is premonition or guilt. Probably both."
+        }
+      ],
+      "narrativeID": "ashcroft_revelation"
+    },
+    {
+      "id": "henry_appears",
+      "act": 3,
+      "title": "Someone Walking Ahead",
+      "narrative": "The column moves slowly down the road. Thirty meters ahead you see a silhouette — a British soldier in a plain greatcoat, out of line, out of step. You know those shoulders. You buried those shoulders in 1914.\n\n“Henry?”\n\nHe doesn't turn. Just keeps walking at the same pace. Petrov, next to you, looks forward, then at you. He doesn't ask what you saw. He asks only: “You know him?”",
+      "backgroundArt": "bg_no_mans_land",
+      "narrativeID": "henry_appears",
+      "choices": [
+        {
+          "id": "run_to_him",
+          "label": "Run to him",
+          "costHint": "-8 HP · +8 Max Morale",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": -8
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": 8
+            }
+          ],
+          "resultText": "You break formation. Run. The road is longer than it looked. Every step doubles the distance. When you reach the spot where he was, there's no one — only footprints in the mud, same size as yours, same boot pattern.\n\nYou drag yourself back to the column. Petrov gives you his arm the last few meters. Asks no questions. You learn, right there, that you can chase something without waiting to understand it — and that kind of courage will weigh at the end."
+        },
+        {
+          "id": "hold_position",
+          "label": "Hold position · don't break formation",
+          "costHint": "+5 Morale · +5 Max HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 5
+            },
+            {
+              "type": "gainMaxHP",
+              "value": 5
+            }
+          ],
+          "resultText": "You grip the rifle. Keep marching at the column's pace. Your eyes don't leave the silhouette ahead. It walks another two minutes and vanishes at a bend — as if it turned, though the road has no bend there.\n\nPetrov doesn't speak. No one speaks. You march on with the unit and something in you gets HARDER — the discipline of not obeying your own heart is armor the war rewards."
+        },
+        {
+          "id": "call_out",
+          "label": "Shout his name",
+          "costHint": "-5 Morale · +Whispered Truth",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -5
+            },
+            {
+              "type": "addCard",
+              "templateID": "whisper_truth"
+            }
+          ],
+          "resultText": "“HENRY!”\n\nYour voice cuts the silence of the road. The silhouette stops. Stands still one full second. Then turns slowly. It's not Henry's face — it's ITS face trying to be Henry's, and almost getting there, missing by a comma.\n\nYou learn in that instant that these things wear false names, and that calling them by the wrong one SLOWS them. You now know a weapon. And nobody should know this weapon."
+        }
+      ]
+    },
+    {
+      "id": "mirror_test",
+      "act": 3,
+      "title": "The Mirror Test",
+      "narrative": "Ashcroft calls you into the command tent. On the table: a small broken mirror, wrapped in black cloth. A candle. A notebook open to a page in Latin.\n\n“Vale. This isn't ritual. It's diagnostic. You'll look at the mirror while I read three lines. If the reflection obeys you, you're you. If it doesn't — at any point — tell me, and I'll handle it. Agreed?”\n\nHis voice is drained of drama. Which is worse than if he were afraid.",
+      "backgroundArt": "bg_camp",
+      "narrativeID": "mirror_test",
+      "choices": [
+        {
+          "id": "submit",
+          "label": "Accept the test",
+          "costHint": "-3 HP · +8 Max Morale · +Attentive Listen",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": -3
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": 8
+            },
+            {
+              "type": "addCard",
+              "templateID": "attentive_listen"
+            }
+          ],
+          "resultText": "You sit. Look at the mirror. Ashcroft reads three lines in Latin, slowly, without inflection. The reflection blinks when you blink. Smiles when you smile. Cries when you weren't crying — and you notice, a second later, that you were.\n\n“You passed,” Ashcroft says quietly. “But learn to listen to yourself. You'll need it.” He teaches you an inner-listening technique that doubles your perception in combat. It costs — because now you also HEAR what you'd rather not hear."
+        },
+        {
+          "id": "refuse",
+          "label": "Refuse · trust your own judgement",
+          "costHint": "+5 Morale · -5 Max Morale",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 5
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": -5
+            }
+          ],
+          "resultText": "“Captain. I'm me. I don't need a mirror to prove it. If one day I'm not me anymore, shoot.”\n\nAshcroft looks at you for a long time. Then nods. Puts the mirror away in the black cloth without doing the test. “Fair, Vale. I'll trust.”\n\nYou leave the tent lighter — but something in you knows that refusing diagnosis doesn't cure the disease. You gain calm now and pay in ceiling later."
+        },
+        {
+          "id": "reverse",
+          "label": "Test Ashcroft first",
+          "costHint": "-3 Morale · +5 Max HP · +Silent Reserve",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -3
+            },
+            {
+              "type": "gainMaxHP",
+              "value": 5
+            },
+            {
+              "type": "addCard",
+              "templateID": "silent_reserve"
+            }
+          ],
+          "resultText": "“Captain. If the test is good, it's good for both of us. You first.”\n\nAshcroft stops. Smiles without joy. “Fair.” He sits. You read the three lines — he pushes the notebook toward you with a finger. His reflection blinks late. Half a second. Nobody who wasn't looking would notice.\n\nYou both pretend you didn't see it. You finish the test. He teaches you a technique for storing resources in silence to use later — “you'll need it.” You leave the tent knowing something very large about Ashcroft. And you'll carry it alone."
+        }
+      ]
+    }
+  ],
+  "procedural": [
+    {
+      "id": "wounded_soldier",
+      "act": 1,
+      "title": "A Wounded Man",
+      "narrative": "A British soldier lies in a crater. Broken leg, high fever. Not from your unit. He recognises you by the Corps emblem and whispers:\n\n“Lieutenant. Please. Don't leave me here.”",
+      "backgroundArt": "bg_no_mans_land",
+      "choices": [
+        {
+          "id": "help",
+          "label": "Carry him to allied lines",
+          "costHint": "-3 HP · +5 Morale",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": -3
+            },
+            {
+              "type": "gainMoral",
+              "value": 5
+            }
+          ],
+          "resultText": "You carry him for two kilometres through mud. You reach the aid station exhausted, your shoulder in flames. He survives.\n\nTwo days later he writes you a short note: “Thank you.” You keep it in your uniform pocket."
+        },
+        {
+          "id": "leave",
+          "label": "Mark the position and move on",
+          "costHint": "-5 Morale · +3 Max HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -5
+            },
+            {
+              "type": "gainMaxHP",
+              "value": 3
+            }
+          ],
+          "resultText": "You note the exact coordinates. Mark them with a white handkerchief tied to a bayonet. You move on.\n\nA rescue team may find him before nightfall. Or not. You will not go back to know. The choice hardens something in you — a kind that may serve later."
+        },
+        {
+          "id": "mercy",
+          "label": "Give him a quick death",
+          "costHint": "-8 Morale · +3 HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -8
+            },
+            {
+              "type": "gainHP",
+              "value": 3
+            }
+          ],
+          "resultText": "He thanks you without words. Closes his eyes. You do what needs doing, fast and without ceremony.\n\nSomething in you stops working after that. But you keep walking. You have a mission."
+        }
+      ],
+      "narrativeID": null
+    },
+    {
+      "id": "abandoned_supplies",
+      "act": 1,
+      "title": "Abandoned Supplies",
+      "narrative": "An untouched crate of rations, dropped in haste when the owner was forced to retreat. Tins, dry biscuits, a bit of bacon. Enough for three men for two days.",
+      "backgroundArt": "bg_trench",
+      "choices": [
+        {
+          "id": "take",
+          "label": "Take it all for yourself",
+          "costHint": "+8 HP",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": 8
+            }
+          ],
+          "resultText": "You eat until you feel human again. Your body thanks you — HP significantly recovered. No one in the bivouac asks where the extra food in your pack came from."
+        },
+        {
+          "id": "share",
+          "label": "Share with the unit",
+          "costHint": "+4 HP · +5 Morale",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": 4
+            },
+            {
+              "type": "gainMoral",
+              "value": 5
+            }
+          ],
+          "resultText": "You split it evenly. Petrov smiles for the first time in days. Wren gives you her piece of bacon, saying her “last decent meal was before the Somme”.\n\nEating together, even little, does more good than eating a lot alone."
+        },
+        {
+          "id": "leave",
+          "label": "Leave it for someone who needs it more",
+          "costHint": "+3 Morale",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 3
+            }
+          ],
+          "resultText": "You close the crate carefully. Mark it with a chalk cross — “next Corps to pass, use it”. You do not tell anyone you found it.\n\nSometimes doing the right thing is private. No one needs to know."
+        }
+      ],
+      "narrativeID": null
+    },
+    {
+      "id": "strange_dream",
+      "act": 1,
+      "title": "A Strange Dream",
+      "narrative": "You wake before dawn. Cold sweat. In the dream, you were walking through a trench that had no end, with your brother's face on every soldier who passed. None of them recognised you.",
+      "backgroundArt": "bg_trench",
+      "choices": [
+        {
+          "id": "reflect",
+          "label": "Reflect on its meaning",
+          "costHint": "-3 Morale · +5 Max Morale",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -3
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": 5
+            }
+          ],
+          "resultText": "You lie awake, staring at the earth ceiling. The dream sits heavy for hours. But you understand something about guilt — that it can turn into something useful if you look straight at it."
+        },
+        {
+          "id": "dismiss",
+          "label": "Dismiss it as fatigue",
+          "costHint": "+3 Morale",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 3
+            }
+          ],
+          "resultText": "You shake your head, get up, make coffee. A dream is a dream. A tired body invents things. You drink the coffee and the bitterness anchors you in the real morning."
+        },
+        {
+          "id": "write",
+          "label": "Note it down — Ashcroft may want to see it",
+          "costHint": "-5 Morale · +8 Max Morale",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -5
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": 8
+            }
+          ],
+          "resultText": "You write down every detail. The light in the trench, the smell, the identical faces. When you finish, you have half a dozen pages. You hand them to Ashcroft days later. He reads in silence, folds them, tucks them into a book.\n\n“Vale. I'll need more of these. Keep writing.”\n\nDocumenting hurts. But it gives the chaos a structure."
+        }
+      ],
+      "narrativeID": null
+    },
+    {
+      "id": "letter_from_home",
+      "act": 1,
+      "title": "A Letter from Home",
+      "narrative": "The post has come. There is a letter for you — your mother's handwriting, envelope creased. You recognise the seal from the village in Yorkshire. Three months since the last one.",
+      "backgroundArt": "bg_trench",
+      "choices": [
+        {
+          "id": "read",
+          "label": "Read it now, calmly",
+          "costHint": "+8 Morale · -3 HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 8
+            },
+            {
+              "type": "gainHP",
+              "value": -3
+            }
+          ],
+          "resultText": "She tells you about the chickens, the cat, the garden. Mentions Henry once — “The Reverend asked for a mass for him last Sunday. I went.” Nothing more.\n\nYou cry for the first time in months. The body does not like it, but the soul needs it. You lose HP from a poor night's sleep — gain something more important."
+        },
+        {
+          "id": "postpone",
+          "label": "Save it for later — not the moment",
+          "costHint": "no effect",
+          "effects": [],
+          "resultText": "You put the envelope in your coat pocket, unopened. You'll read it when you're on safe ground. If ever.\n\nThe letter goes with you for weeks, a warm weight against your chest, reminding you that another world is waiting."
+        },
+        {
+          "id": "burn",
+          "label": "Burn it unread — better not to know",
+          "costHint": "-5 Morale · +5 Max HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -5
+            },
+            {
+              "type": "gainMaxHP",
+              "value": 5
+            }
+          ],
+          "resultText": "You strike a match. As it burns, you try not to look. If she sent bad news, you cannot carry that now. If she sent good news, it would hurt even more.\n\nSomething in you hardens forever after that act. But hardening is also surviving. Gain physical resistance in the long run."
+        }
+      ],
+      "narrativeID": null
+    },
+    {
+      "id": "anomalous_light",
+      "act": 1,
+      "title": "An Anomalous Light on the Horizon",
+      "narrative": "Midnight. You see a blue-green light pulsing on the western horizon. Not a flare. Not a rocket. Not the moon — the moon is full behind you. The light pulses every four seconds exactly, like a clock.",
+      "backgroundArt": "bg_no_mans_land",
+      "choices": [
+        {
+          "id": "investigate",
+          "label": "Go and investigate alone",
+          "costHint": "-5 HP · +5 Max Morale",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": -5
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": 5
+            }
+          ],
+          "resultText": "You walk for three hours. The light always looks close but never arrives. When it finally stops, dawn is beginning and you are far from the bivouac.\n\nGoing back costs another day. You learn something — you do not know what exactly — about the difference between seeing and understanding. Some part of your mind grows."
+        },
+        {
+          "id": "avoid",
+          "label": "Keep your distance and tell no one",
+          "costHint": "-3 Morale · +3 Max HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -3
+            },
+            {
+              "type": "gainMaxHP",
+              "value": 3
+            }
+          ],
+          "resultText": "You turn your back. Go back to the dugout. Sleep poorly, but sleep. Mention it to no one.\n\nThe choice protects you — no one will investigate on your suggestion. But something builds up in you. Seeing and not speaking has a cost."
+        },
+        {
+          "id": "report",
+          "label": "Report it to Ashcroft at dawn",
+          "costHint": "+3 Morale",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 3
+            }
+          ],
+          "resultText": "Ashcroft listens with full attention. Notes everything. Asks the exact number of pulses per minute. Asks the EXACT blue — cerulean? aquamarine? “Important matter, Vale. Keep this. We shall revisit.”\n\nSharing the weight works. You sleep better."
+        }
+      ],
+      "narrativeID": null
+    },
+    {
+      "id": "faceless_body",
+      "act": 2,
+      "title": "A Body Without a Face",
+      "narrative": "A dead soldier. British uniform. British boots. British rifle. No identification tag. Where the face should be — nothing. Not disfigured. Absent. As if the face had been erased from existence between one blink and the next.",
+      "backgroundArt": "bg_no_mans_land",
+      "choices": [
+        {
+          "id": "study",
+          "label": "Study the body closely",
+          "costHint": "-5 Morale · +5 Max HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -5
+            },
+            {
+              "type": "gainMaxHP",
+              "value": 5
+            }
+          ],
+          "resultText": "You examine it for fifteen minutes. The skin where the face should be is smooth, continuous with the rest of the skull. No scar, no trauma. Simply absent.\n\nYou store the information. It changes you inside — in a way that hardens the body for what comes next. You know now that a catalogue of horrors exists that you know personally."
+        },
+        {
+          "id": "bury",
+          "label": "Bury him with improvised military honours",
+          "costHint": "+5 Morale · -3 HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 5
+            },
+            {
+              "type": "gainHP",
+              "value": -3
+            }
+          ],
+          "resultText": "You dig a shallow grave. Make a cross of two boards. Say the Our Father quietly — the words your mother taught you. You don't know if he was Catholic, Protestant, Jewish. It doesn't matter.\n\nThe gesture of dignity costs hours of work and aching muscles. But you remain human."
+        },
+        {
+          "id": "leave",
+          "label": "Leave it where it is and don't look again",
+          "costHint": "-3 Morale",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -3
+            }
+          ],
+          "resultText": "You move on without a second look. You won't tell anyone. You won't note it in the report. The body will rot or become crow food, and no one in London will know he existed.\n\nSomething in you shrinks from that refusal. You try not to think about it."
+        }
+      ],
+      "narrativeID": null
+    },
+    {
+      "id": "voice_that_calls",
+      "act": 2,
+      "title": "The Voice That Calls",
+      "narrative": "Third consecutive night. Someone calls your name on the wind — “Edmund”. A woman's voice. A voice you recognise from somewhere but cannot name.\n\nThe voice comes from beyond the German line.",
+      "backgroundArt": "bg_no_mans_land",
+      "choices": [
+        {
+          "id": "answer",
+          "label": "Answer — one word only",
+          "costHint": "+8 Max HP · -5 Max Morale",
+          "effects": [
+            {
+              "type": "gainMaxHP",
+              "value": 8
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": -5
+            }
+          ],
+          "resultText": "You say “Who is it?” to the wind. The voice stops immediately. The silence after is louder than the noise.\n\nThe next day, something in you has changed. You endure more. Wounds that bled before close faster. But something has also consumed a part of you — forever."
+        },
+        {
+          "id": "ignore",
+          "label": "Ignore completely, turn your face away",
+          "costHint": "-5 Morale · +5 Max Morale",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -5
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": 5
+            }
+          ],
+          "resultText": "You put your hand over your ear. You hum to yourself a silly childhood song. The voice continues for half an hour. Then vanishes.\n\nThe immediate emotional cost is high — refusing contact with whatever that is hurts. But you learn to resist. Next time will hurt less."
+        },
+        {
+          "id": "refuse",
+          "label": "Stand up and answer “Go away”",
+          "costHint": "-3 Morale",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -3
+            }
+          ],
+          "resultText": "You speak firmly, loud. Without anger. Just the command: “Go away. I don't know you. I won't answer.”\n\nIt passes. The wind goes back to being only wind. You feel a strange calm — as if you had refused a proposal you should not even have heard. Your body relaxes.\n\nBut something in you becomes smaller that night. You don't know what it was. You never will."
+        }
+      ],
+      "narrativeID": null
+    },
+    {
+      "id": "strange_vial",
+      "act": 2,
+      "title": "A Strange Vial",
+      "narrative": "In an abandoned rucksack of a German officer, you find a thick glass vial sealed with red wax. Inside, an amber liquid that moves on its own when you don't look directly. A German label: “Für den letzten Einsatz” — for the last operation.",
+      "backgroundArt": "bg_trench",
+      "choices": [
+        {
+          "id": "keep",
+          "label": "Take the vial",
+          "costHint": "+ Gas Release · -3 Morale",
+          "effects": [
+            {
+              "type": "addCard",
+              "templateID": "gas_release"
+            },
+            {
+              "type": "gainMoral",
+              "value": -3
+            }
+          ],
+          "resultText": "You store the vial at your belt, away from your face. You don't ask what it is. You don't want to know yet. You know that at some hour you will use it. And that when you do, someone on the other side will die in a way he did not deserve.\n\nYou keep the vial anyway."
+        },
+        {
+          "id": "smash",
+          "label": "Break the vial on the ground",
+          "costHint": "+5 Morale · -3 HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 5
+            },
+            {
+              "type": "gainHP",
+              "value": -3
+            }
+          ],
+          "resultText": "You throw the vial against a stone. The gas rises yellow. You pull the cloth over your face quickly and step back. The gas lingers for two minutes, then vanishes — as if it had gone back inside.\n\nYour throat burns for a day. But you sleep better that night."
+        },
+        {
+          "id": "ignore",
+          "label": "Leave it where it was",
+          "costHint": "no effect",
+          "effects": [],
+          "resultText": "You put the vial back in the dead officer's rucksack. You move on.\n\nSomeone, some day, will find it again. Perhaps make a different choice. Perhaps the same. You prefer not to be part of the story."
+        }
+      ],
+      "narrativeID": null
+    },
+    {
+      "id": "torn_page",
+      "act": 2,
+      "title": "A Torn Page",
+      "narrative": "At the bottom of an abandoned German trench, you find torn pages from a diary. The handwriting is rushed, almost desperate. Most of it is illegible or in obscure German, but one line stands out, underlined three times:\n\n“Sag ihm seinen wahren Namen. Nur das trifft.”\n— Tell it its true name. Only that strikes.",
+      "backgroundArt": "bg_trench",
+      "choices": [
+        {
+          "id": "study",
+          "label": "Study the pages",
+          "costHint": "+ Whisper Truth · -5 Morale",
+          "effects": [
+            {
+              "type": "addCard",
+              "templateID": "whisper_truth"
+            },
+            {
+              "type": "gainMoral",
+              "value": -5
+            }
+          ],
+          "resultText": "You keep the pages. You spend three nights deciphering. What you learn cannot be unlearned. An old technique — calling the thing by the name it denies having, and watching it crack from within.\n\nYou understand now that these things HAVE true names. And that speaking them is a weapon only those who know can use. But using it costs you — because now you are one of the people who know."
+        },
+        {
+          "id": "burn",
+          "label": "Burn the pages",
+          "costHint": "+8 Morale · -3 Max Morale",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 8
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": -3
+            }
+          ],
+          "resultText": "You strike a match. The pages catch fire slowly, as if resisting. You hold them until they burn your fingers.\n\nYou sleep better that night. But something wakes you before dawn — the feeling that someone on the other side of the war knew something important and now no one else knows. And that this may have been your mistake."
+        },
+        {
+          "id": "pocket",
+          "label": "Keep them without reading",
+          "costHint": "-3 HP",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": -3
+            }
+          ],
+          "resultText": "You fold the pages carefully. Tuck them deep in your coat. You do not read. You will decide later. Later never comes.\n\nThe pages will go with you the whole war. You will forget them sometimes. You will remember them in bad moments. You will never read.\n\nSome people carry the weight of what they know. You carry the weight of what you chose not to know."
+        }
+      ],
+      "narrativeID": null
+    },
+    {
+      "id": "petrov_sleepwalking",
+      "act": 2,
+      "title": "Petrov Speaks in His Sleep",
+      "narrative": "Three in the morning. You wake to drink water and see Petrov standing in the middle of the bivouac, eyes open, not seeing you. He speaks in low Russian, continuous, like someone praying. You don't understand the words. One repeats: “Fyodor”.\n\nHis brother's name.",
+      "backgroundArt": "bg_camp",
+      "choices": [
+        {
+          "id": "wake",
+          "label": "Wake Petrov gently",
+          "costHint": "+5 Morale · -3 HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 5
+            },
+            {
+              "type": "gainHP",
+              "value": -3
+            }
+          ],
+          "resultText": "You touch his shoulder. Petrov wakes with a jolt, grabs you by the coat, eyes still empty for a second. Then focuses. Then lets go.\n\n“Was I walking?”\n“You were.”\n“Thank you.”\n\nHe goes back to bed. You never speak of it again. But the next morning, Petrov offers you the first tea — something he had never done before."
+        },
+        {
+          "id": "watch",
+          "label": "Watch in silence",
+          "costHint": "-3 Morale · +5 Max Morale",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -3
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": 5
+            }
+          ],
+          "resultText": "You stand still, listening. Petrov keeps speaking for ten minutes. Twice he looks directly at you — through you — and says something you almost understand. It is not Russian, those two sentences. It is something else.\n\nThen he goes back to bed alone. You stay awake till dawn, digesting what you saw. You grow a little stronger mentally — but never sleep the same at this camp again."
+        },
+        {
+          "id": "note",
+          "label": "Note what he says and sleep",
+          "costHint": "+3 Morale · +3 Max HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 3
+            },
+            {
+              "type": "gainMaxHP",
+              "value": 3
+            }
+          ],
+          "resultText": "You take out the diary and transcribe every word phonetically. You don't know what it means. You know you can show it to Ashcroft later. That gives you purpose — and purpose tires less than confusion.\n\nYou sleep. You dream of snow."
+        }
+      ],
+      "narrativeID": null
+    },
+    {
+      "id": "strange_banner",
+      "act": 2,
+      "title": "A Banner That Is Not",
+      "narrative": "An empty German post. Not abandoned — empty, as if everyone had left in the middle of a meal. Soup still warm. Coffee half drunk. Above the radio, a banner that is not the Kaiser's: a black rectangle with a symbol in dull gold. Nine lines radiating from a central point. You have seen that symbol before — in a dream you chose to forget.",
+      "backgroundArt": "bg_trench",
+      "choices": [
+        {
+          "id": "take",
+          "label": "Take the folded banner",
+          "costHint": "-3 HP · +5 Max Morale",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": -3
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": 5
+            }
+          ],
+          "resultText": "You fold the banner in eight parts and stuff it in your pack. The fabric is heavier than it should be for the size. You do not show it to anyone in the squad.\n\nOn the following nights, you study it in secret. You do not decipher the symbol. But you learn to look at it without turning away — and that is a skill the war will demand."
+        },
+        {
+          "id": "burn",
+          "label": "Burn it in the post's fire",
+          "costHint": "+5 Morale · -3 Max HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 5
+            },
+            {
+              "type": "gainMaxHP",
+              "value": -3
+            }
+          ],
+          "resultText": "You throw the banner into the German stove. The fabric does not catch quickly — it resists three, four match attempts. When it finally lights, the flame is blue-green for two seconds, then yellow.\n\nThe symbol twists as it burns, as if trying to form something else before turning to ash. You leave the post quickly. You sleep better that night, but something inside you becomes more fragile forever."
+        },
+        {
+          "id": "photograph",
+          "label": "Sketch it in the diary and leave",
+          "costHint": "+3 Morale",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 3
+            }
+          ],
+          "resultText": "You take out the diary and draw the symbol with precision — nine lines, exact angles, correct proportions. You put the banner back on the radio exactly as it was. You leave the post without a trace.\n\nAshcroft will look at the sketch later and say nothing for a long minute. Then he will say: “That is a very old thing, Vale. Very.” And change the subject."
+        }
+      ],
+      "narrativeID": null
+    },
+    {
+      "id": "listening_post",
+      "act": 2,
+      "title": "Abandoned Listening Post",
+      "narrative": "You find a forgotten British listening post — not destroyed, just forgotten. Amplification horns pointed at German territory. Notes in a notebook in handwritten Morse code. And a small manual: “Silent Observation Techniques — Internal Use”.",
+      "backgroundArt": "bg_trench",
+      "choices": [
+        {
+          "id": "study",
+          "label": "Study the techniques",
+          "costHint": "+ Attentive Listen · -3 Morale",
+          "effects": [
+            {
+              "type": "addCard",
+              "templateID": "attentive_listen"
+            },
+            {
+              "type": "gainMoral",
+              "value": -3
+            }
+          ],
+          "resultText": "You read the manual twice that night. The techniques are simple but require practice: press an ear to the ground, breathe in sync with the wind, listen to the intervals between sounds.\n\nYou learn. And learning costs: you begin to hear things you do not want to hear, too. But in combat, this will save you."
+        },
+        {
+          "id": "supplies",
+          "label": "Take supplies and ignore the manual",
+          "costHint": "+5 HP · +3 Morale",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": 5
+            },
+            {
+              "type": "gainMoral",
+              "value": 3
+            }
+          ],
+          "resultText": "You fill your pockets: rations, a full canteen, two packs of English cigarettes. You leave the manual where it was.\n\nSomeone, some day, will find it again. Will learn what you refused. You prefer not to be part of that chain."
+        },
+        {
+          "id": "destroy",
+          "label": "Destroy it all — cannot fall into German hands",
+          "costHint": "+3 Morale · -3 HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 3
+            },
+            {
+              "type": "gainHP",
+              "value": -3
+            }
+          ],
+          "resultText": "You break the horns with the rifle butt. Burn the code notebook. Tear the manual into small pieces and bury them in mud.\n\nThe work costs physical effort and takes almost an hour. But you leave the post knowing you did the right thing by the Corps. That counts — even if no one knows."
+        }
+      ],
+      "narrativeID": null
+    },
+    {
+      "id": "empty_barracks",
+      "act": 3,
+      "title": "Barracks With No One",
+      "narrative": "A dozen British barracks lined up, cots made, boots arranged at the foot of each bed. Coffee still warm in the common kitchen. Letters half-written on the table. No bodies. No signs of struggle. Just absence — as if every man had stood up in the middle of a sentence and walked out.",
+      "choices": [
+        {
+          "id": "read_letters",
+          "label": "Read the unfinished letters",
+          "costHint": "-8 Morale · +5 Max Morale",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -8
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": 5
+            }
+          ],
+          "resultText": "You read six, seven letters. All stop at the same sentence, nearly word for word: “Mother, there's something here I need to go see, but when I get back…”\n\nNone were finished. You keep three — the three with a full address. A silent promise that if you get out of this, those families will know their sons left mid-writing. It WEIGHS. But weight is also anchor — you stand steadier after."
+        },
+        {
+          "id": "supplies",
+          "label": "Grab supplies and leave fast",
+          "costHint": "+8 HP · +3 Morale",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": 8
+            },
+            {
+              "type": "gainMoral",
+              "value": 3
+            }
+          ],
+          "resultText": "You fill your pack in three minutes: rations, bandages, ammo bandolier, a full canteen. Petrov does the same in silence. You head into the woods without looking back.\n\nThe next night is the best sleep you've had in weeks. You prefer not to think about why."
+        },
+        {
+          "id": "burn",
+          "label": "Burn it all · keep another unit from falling here",
+          "costHint": "-3 HP · +8 Morale",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": -3
+            },
+            {
+              "type": "gainMoral",
+              "value": 8
+            }
+          ],
+          "resultText": "You spread kerosene from the lamps. Petrov helps without asking. You light the barracks one by one, starting with the kitchen. The fire catches slowly — the wet canvas resists — but when it catches, it catches for good.\n\nYou retreat into the trees. From far off, the camp glows orange against the dark sky. No other British unit will sleep in those cots. You did what the hierarchy wouldn't. That strengthens you from the inside."
+        }
+      ]
+    },
+    {
+      "id": "dead_radio",
+      "act": 3,
+      "title": "A Voice on the Dead Frequency",
+      "narrative": "The unit's radio operator calls you at dawn. Face white. He hands you the headset.\n\n“Lieutenant. This frequency was decommissioned in 1916. There shouldn't be anyone here. Listen.”\n\nYou put on the headset. Static. And then, through the noise, a male voice reading a list of names. The voice is yours. The list is your squad — every one of them, in the exact order they're sleeping out there right now.",
+      "choices": [
+        {
+          "id": "keep_listening",
+          "label": "Keep listening to the end of the list",
+          "costHint": "-10 Morale · +Attentive Listen",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -10
+            },
+            {
+              "type": "addCard",
+              "templateID": "attentive_listen"
+            }
+          ],
+          "resultText": "The voice — your voice — reads 47 names. Wren. Petrov. Wardell. Ashcroft. Every private. Every corporal. Every sergeant. At the end, a pause, then: “Vale, Edmund.”\n\nAnd the radio falls silent.\n\nYou sit for twenty minutes without moving. The operator says nothing. Never mentions it to anyone. You learn something that dawn about listening without interrupting — a skill that is now YOURS, and one you didn't ask for."
+        },
+        {
+          "id": "cut_off",
+          "label": "Cut it off · destroy the radio",
+          "costHint": "+5 Morale · -3 Max HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 5
+            },
+            {
+              "type": "gainMaxHP",
+              "value": -3
+            }
+          ],
+          "resultText": "You rip off the headset. Cut the radio wires. Crush the tube with your holster. The operator looks, looks again, then nods once.\n\n“Good sense, sir.” He stands. Never speaks of it again. You sleep better that night — but the following week you start sweating more in combat, and you don't know if it's fatigue, fear, or the system starting to give."
+        },
+        {
+          "id": "write_down",
+          "label": "Write down every name you hear",
+          "costHint": "-5 HP · +5 Max Morale",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": -5
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": 5
+            }
+          ],
+          "resultText": "You take the notebook. Write each name as the voice reads. The voice is yours. The handwriting is yours. The paper turns damp — not from sweat, from something else. You don't look.\n\nAt the end, you have a complete roster of your unit. Signed, in writing, by your own voice on a dead frequency. You keep the sheet. You'll look at it in silence over the next days. You'll learn to bear your own name at the bottom of the list."
+        }
+      ]
+    },
+    {
+      "id": "homecoming_letter",
+      "act": 3,
+      "title": "She Wrote As If It Already Was",
+      "narrative": "The mail came in. A letter from your mother, in her hand, royal seal.\n\nShe writes as if you'd already come home.\n\n“My son, last night at dinner you had two helpings of the pie and I was so happy. You laughed at that story about Mr. Whitby. You're putting weight back on. You're sleeping well in your old room. Tomorrow I'll get up early and bake bread for you.”\n\nThe date at the top of the letter is tomorrow's.",
+      "choices": [
+        {
+          "id": "keep",
+          "label": "Keep the letter close to your chest",
+          "costHint": "+10 Morale · -5 HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 10
+            },
+            {
+              "type": "gainHP",
+              "value": -5
+            }
+          ],
+          "resultText": "You fold the letter in quarters. Slip it into the inner pocket of your coat, against your heart. You'll reread it many times in the days to come.\n\nSomething in you starts believing you've already come back — that this version of the war is the dream, that the real thing is your mother's morning bread. It gives you strength — and it also takes you off your guard. It costs. But you accept."
+        },
+        {
+          "id": "burn",
+          "label": "Burn it without rereading",
+          "costHint": "-5 Morale · +8 Max HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -5
+            },
+            {
+              "type": "gainMaxHP",
+              "value": 8
+            }
+          ],
+          "resultText": "You strike a match. The letter catches slowly — the thick paper resists. You hold it until your fingers burn. Only then do you let it drop into the mud.\n\nSomething hurts. But you refused a promise that couldn't be true, and refusing false promises STRENGTHENS you. Your body endures more. Your real mother will get a real letter from you in three weeks, if you survive."
+        },
+        {
+          "id": "reply",
+          "label": "Reply as if it were true",
+          "costHint": "+5 Morale · -3 Max Morale · +Whispered Truth",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 5
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": -3
+            },
+            {
+              "type": "addCard",
+              "templateID": "whisper_truth"
+            }
+          ],
+          "resultText": "You take paper. Write back.\n\n“Mother, the pie was perfect. Tomorrow I'll help with the bread. I'm sleeping more than I have in years. Thank you for waiting for me.”\n\nYou address it, seal it, drop it in the unit's mail. You know the letter will never arrive — not to your real mother. It will arrive somewhere else. Someone, or something, will read what you wrote, and will learn you already know how to speak to the other side. That's a weapon. You have that weapon now."
+        }
+      ]
+    },
+    {
+      "id": "henrys_coat",
+      "act": 3,
+      "title": "The Coat on the Wire",
+      "narrative": "In the middle of a field cut by barbed wire, a British greatcoat hanging. Caught by the shoulder, as if someone pulled away in a hurry. Good condition. Inner label embroidered with a name:\n\n“H. VALE”\n\nHenry.\n\nYou bought that coat for him in 1913. That label you embroidered by hand, three nights awake before he shipped out.",
+      "choices": [
+        {
+          "id": "take",
+          "label": "Take the coat and wear it underneath",
+          "costHint": "-3 HP · +8 Max HP",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": -3
+            },
+            {
+              "type": "gainMaxHP",
+              "value": 8
+            }
+          ],
+          "resultText": "You lift the coat off the wire carefully. It's heavier than it should be. Smells of old tobacco and something you can't name.\n\nYou take off your own greatcoat, put Henry's on beneath it, then put yours back on. Warmer. Better protected. And with a strange sense that someone is hugging you from behind — all the time, even when you're alone. You learn to get used to it. It makes you endure more."
+        },
+        {
+          "id": "cut_down",
+          "label": "Cut it down and bury it with respect",
+          "costHint": "+8 Morale · -3 HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 8
+            },
+            {
+              "type": "gainHP",
+              "value": -3
+            }
+          ],
+          "resultText": "You cut the coat off the wire with the bayonet. Dig a shallow hole in a corner of the field, off the road. Bury the coat folded. Mark it with two stones — one for the head, one for the feet.\n\nYou say no prayer. You don't know how to pray properly. But you crouch a full minute with your hand on the cold earth. Stand up lighter. Something that needed to happen happened."
+        },
+        {
+          "id": "leave",
+          "label": "Leave it and keep walking",
+          "costHint": "-8 Morale · +5 HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -8
+            },
+            {
+              "type": "gainHP",
+              "value": 5
+            }
+          ],
+          "resultText": "You look for twenty seconds. Then turn. Keep walking with the unit. You say nothing. Petrov notices, later — from your silence over the next two days — that something happened, but he doesn't ask.\n\nYour body is preserved. Your mind also pays a price you don't feel yet. You will. It's still coming."
+        }
+      ]
+    },
+    {
+      "id": "officer_without_name",
+      "act": 3,
+      "title": "An Officer Who Does Not Introduce Himself",
+      "narrative": "A man in a British major's uniform arrives at camp on horseback. Insignia correct. Boots polished. Horse healthy. He asks for the lieutenant in charge — for you.\n\nWhen you present yourself, he salutes by the book. Says he brings orders from Whitehall. Passes you a sealed envelope.\n\nYou ask his name. He smiles and doesn't answer. Just says: “You don't need my name. You only need my orders.”",
+      "choices": [
+        {
+          "id": "open",
+          "label": "Open the envelope in front of him",
+          "costHint": "-3 Morale · +5 Max Morale",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -3
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": 5
+            }
+          ],
+          "resultText": "You break the seal. Take out the page. It's blank. Completely. No line, no signature, no header.\n\nYou look at the major. He keeps smiling. “Excellent. You understood.” He salutes again, mounts, rides off. You're left with the blank sheet in your hand.\n\nYou learn something important there: sometimes the order is the gesture of receiving the order. Your mind becomes stronger for recognizing that — but also more tired."
+        },
+        {
+          "id": "detain",
+          "label": "Detain the man to interrogate",
+          "costHint": "-8 HP · +8 Max HP",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": -8
+            },
+            {
+              "type": "gainMaxHP",
+              "value": 8
+            }
+          ],
+          "resultText": "“Petrov. Wardell. Hold this man until identity is confirmed.”\n\nThe two step forward. The major doesn't resist — drops the reins, extends his hands, still smiling. You take him to the command tent. Ashcroft wires Whitehall.\n\nBy dawn the tent is empty. The ropes cut from inside. The horse gone. No answer to the telegram. You march on knowing you did the right thing — the effort strengthens the squad from inside out. It costs physically. Worth it."
+        },
+        {
+          "id": "accept",
+          "label": "Accept without question",
+          "costHint": "+5 HP · -5 Max Morale",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": 5
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": -5
+            }
+          ],
+          "resultText": "You put the envelope in the inner pocket of your coat. Salute back. The major mounts and rides off down the road.\n\nYou sleep well that night. You don't open the envelope. You'll carry it through the whole war without breaking the seal. Your mind shrinks a little from not wanting to know — but your body thanks you for the peace. It's a trade-off the war teaches."
+        }
+      ]
+    },
+    {
+      "id": "rear_guard_orders",
+      "act": 3,
+      "title": "Contradictory Orders",
+      "narrative": "Two couriers arrive the same day, an hour apart. Each carries sealed orders from Whitehall. You open both.\n\nThe first order tells you to advance immediately on the German position at Bec-sur-Meuse.\n\nThe second order tells you to retreat immediately to Amiens and await instructions.\n\nBoth are signed by the same general. Both bear the authentic seal. Both are dated today.",
+      "choices": [
+        {
+          "id": "advance",
+          "label": "Obey the order to advance",
+          "costHint": "-5 HP · +8 Morale",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": -5
+            },
+            {
+              "type": "gainMoral",
+              "value": 8
+            }
+          ],
+          "resultText": "You call the unit together. Explain briefly. March to Bec-sur-Meuse. The German position is empty when you arrive — not abandoned, EMPTY, as if it had never been occupied. You take the position without firing a shot.\n\nWeeks later, the general sends a decoration. You don't know which of the two orders was real. It doesn't matter now. You acted. Action strengthens the unit's morale — including yours."
+        },
+        {
+          "id": "retreat",
+          "label": "Obey the order to retreat",
+          "costHint": "+8 HP · -3 Morale",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": 8
+            },
+            {
+              "type": "gainMoral",
+              "value": -3
+            }
+          ],
+          "resultText": "You retreat to Amiens. When you arrive, the headquarters is deserted. No superior. No further instructions. You camp for three days. On the fourth day news arrives: the unit that was supposed to advance on Bec-sur-Meuse was wiped out.\n\nYou don't know if you saved your men or if you were manipulated. Your body rested — you're in good physical shape. Your conscience doesn't rest. But you accept the cost."
+        },
+        {
+          "id": "burn_both",
+          "label": "Burn both · follow your gut",
+          "costHint": "-3 Morale · +10 Max HP · +Silent Reserve",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -3
+            },
+            {
+              "type": "gainMaxHP",
+              "value": 10
+            },
+            {
+              "type": "addCard",
+              "templateID": "silent_reserve"
+            }
+          ],
+          "resultText": "You burn both envelopes. Call Petrov and Ashcroft. Explain that neither order is reliable. The three of you decide together to march to the nearest village, set up a perimeter, wait for real information.\n\nThe group spends a week there. Nobody dies. Nobody fires. You learn to command WITHOUT orders from above — to trust your own group's judgement. It makes you stronger in a way military structure would never have taught you."
+        }
+      ]
+    },
+    {
+      "id": "nine_pointed_flag_again",
+      "act": 3,
+      "title": "The Banner Again",
+      "narrative": "You see the symbol for the third time.\n\nNine lines from a central point. Matte gold. This time painted on the wall of an abandoned chapel in the village of Meaulte. It's fresh. Paint still runs a little at the bottom.\n\nInside the chapel, someone has set a table for two. Wine. Bread. Two chairs. One tucked in. The other pulled out, as if waiting for you to sit.",
+      "choices": [
+        {
+          "id": "sit",
+          "label": "Sit in the chair",
+          "costHint": "-10 Morale · +Whispered Truth",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -10
+            },
+            {
+              "type": "addCard",
+              "templateID": "whisper_truth"
+            }
+          ],
+          "resultText": "You sit. No one appears. You wait ten minutes, an hour, two hours. No one appears. But you begin to hear — not with your ears, with something else — a conversation in a language you don't know but UNDERSTAND.\n\nThe conversation teaches you the true name of that thing. You don't repeat it aloud. You keep it. You leave the chapel knowing how to speak the last word — the one that STRIKES. And it now lives inside you and won't leave."
+        },
+        {
+          "id": "destroy",
+          "label": "Erase the symbol with earth",
+          "costHint": "+8 Morale · -5 Max Morale",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 8
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": -5
+            }
+          ],
+          "resultText": "You take handfuls of earth from the ground outside, rub it against the symbol, cover line by line until the gold disappears under brown. Takes twenty minutes. Your hands go raw.\n\nYou leave the chapel without touching the table. Sleep better that night — but something of the depth that was going to open NEVER will. You refused. You'll carry the silent weight of not knowing a truth that was yours to know."
+        },
+        {
+          "id": "photograph",
+          "label": "Sketch it in the diary and leave",
+          "costHint": "+3 Morale · -3 HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 3
+            },
+            {
+              "type": "gainHP",
+              "value": -3
+            }
+          ],
+          "resultText": "You take out the diary. Copy the symbol with maximum precision. Note the date, place, condition of the paint, the arrangement of the table. You're an officer who documents.\n\nYou leave the chapel without touching anything. Ashcroft will look at the drawing later. He'll recognize the symbol. He'll close the notebook in silence. Then he'll look at you a long time before saying: “Vale. Some very large people are interested in you now.”"
+        }
+      ]
+    }
+  ]
+}

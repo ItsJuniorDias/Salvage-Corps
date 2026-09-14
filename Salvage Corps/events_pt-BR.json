@@ -1,0 +1,1292 @@
+{
+  "fixed": [
+    {
+      "id": "petrov_warning",
+      "act": 1,
+      "title": "Petrov Quer Falar",
+      "narrative": "Petrov te chama pra fora do abrigo. Ele tem um cigarro entre os dedos que não acendeu. Não olha pra você quando fala.\n\n“Tenente. Sobre a última operação. Preciso te contar uma coisa antes que fique tarde.”",
+      "backgroundArt": "bg_trench",
+      "choices": [
+        {
+          "id": "listen",
+          "label": "Escutar até o fim",
+          "costHint": "+5 Moral",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 5
+            }
+          ],
+          "resultText": "Ele fala baixo, direto, sem drama. Kholm, 1915. Vinte e três homens, três sobreviventes. Uma coisa que não era alemã. Uma coisa que sussurrava em uma língua que ninguém aprendeu.\n\nVocê não sabe se acredita, mas o alívio de saber que alguém antes de você viu — que não está sozinho na loucura — vale mais que qualquer explicação."
+        },
+        {
+          "id": "reject",
+          "label": "Rejeitar o aviso",
+          "costHint": "-3 Moral · +5 Max HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -3
+            },
+            {
+              "type": "gainMaxHP",
+              "value": 5
+            }
+          ],
+          "resultText": "Você corta ele: “Sargento. Nós estamos numa guerra. Focamos em coisas reais.”\n\nPetrov assente devagar. Guarda o cigarro. Sai sem uma palavra.\n\nA rejeição custa alguma coisa em você. Mas o foco também fortalece — se você não se permite acreditar em fantasmas, seu corpo aguenta mais que os que acreditam."
+        },
+        {
+          "id": "ask_brother",
+          "label": "Perguntar sobre o irmão dele",
+          "costHint": "+3 Moral · +3 Max Moral",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 3
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": 3
+            }
+          ],
+          "resultText": "Você mudou de assunto. Ele te olha pela primeira vez.\n\n“Fyodor. Enterrei com essas mãos. Vinte anos. Ele acreditava em Deus, e no Tsar, e no fim eu acho que ele acreditou que eu ia salvá-lo. Mas eu não salvei.”\n\nO silêncio depois é longo. Nenhum dos dois sabe o que dizer. Mas algo entre vocês fica diferente. Mais forte, talvez."
+        }
+      ],
+      "narrativeID": "petrov_warning"
+    },
+    {
+      "id": "ashcroft_revelation",
+      "act": 2,
+      "title": "Ashcroft, Enfim, Fala",
+      "narrative": "Ashcroft te chama pra a barraca dele à meia-noite. Sem champanhe hoje. Nenhum manuscrito latino sobre a mesa. Só ele, uma vela, três livros grossos e um envelope selado com cera.\n\n“Vale. Preciso te contar tudo. Se você me interromper, eu paro. Você decide se quer ouvir.”",
+      "backgroundArt": "bg_camp",
+      "choices": [
+        {
+          "id": "trust",
+          "label": "Confiar nele — pedir os livros",
+          "costHint": "+3 Moral · +5 Max HP · +Carta",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 3
+            },
+            {
+              "type": "gainMaxHP",
+              "value": 5
+            },
+            {
+              "type": "addCard",
+              "templateID": "silent_reserve"
+            }
+          ],
+          "resultText": "Ashcroft te entrega três livros que ele carregava escondidos: traduções latinas de textos gnósticos, notas de campo de um capitão francês em 1871, e um diário do próprio Salvage Corps de 1876.\n\nVocê lê tudo naquela noite. Não dorme. Mas quando amanhece, você sabe o que está enfrentando. E saber tem um peso — mas também dá estrutura. Você pode se preparar pra estrutura.\n\nAshcroft também te ensina uma técnica antiga de reservar recursos em silêncio, sem alarmar o inimigo. “Vai precisar.”"
+        },
+        {
+          "id": "distance",
+          "label": "Escutar mas sem se comprometer",
+          "costHint": "+5 Moral · -5 Max Moral",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 5
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": -5
+            }
+          ],
+          "resultText": "Ele fala por duas horas. Você anota mentalmente. Não pega os livros. Ao sair, ele te olha com uma pena estranha.\n\n“Boa noite, Vale. Vou torcer que a distância te sirva.”\n\nVocê sente conforto no momento — não se sujou. Mas dias depois, quando os pesadelos começam, você percebe que a distância protege o corpo e machuca a mente."
+        },
+        {
+          "id": "report_him",
+          "label": "Reportar Ashcroft ao QG por conduta suspeita",
+          "costHint": "+5 Max HP · -8 Max Moral",
+          "effects": [
+            {
+              "type": "gainMaxHP",
+              "value": 5
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": -8
+            }
+          ],
+          "resultText": "Você escreve o relatório com precisão. Ashcroft é transferido em 48 horas. Ninguém pergunta pra onde. Você é promovido silenciosamente e ganha acesso a suprimentos melhores.\n\nDurante meses depois, você sonha com ele numa cela pequena, lendo os mesmos três livros. Você não sabe se é premonição ou culpa. Provavelmente as duas."
+        }
+      ],
+      "narrativeID": "ashcroft_revelation"
+    },
+    {
+      "id": "henry_appears",
+      "act": 3,
+      "title": "Alguém Andando à Frente",
+      "narrative": "A coluna avança devagar pela estrada. Você vê uma silhueta trinta metros à frente — um soldado britânico com capote comum, sem fila, sem cadência. Você conhece aqueles ombros. Você enterrou aqueles ombros em 1914.\n\n“Henry?”\n\nEle não vira. Continua andando no mesmo passo. Petrov, ao seu lado, olha pra frente e depois pra você. Não pergunta o que você viu. Pergunta apenas: “Você conhece?”",
+      "backgroundArt": "bg_no_mans_land",
+      "narrativeID": "henry_appears",
+      "choices": [
+        {
+          "id": "run_to_him",
+          "label": "Correr até ele",
+          "costHint": "-8 HP · +8 Max Moral",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": -8
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": 8
+            }
+          ],
+          "resultText": "Você quebra a formação. Corre. A estrada é mais longa do que parecia. Cada passo dobra a distância. Quando você chega no ponto onde ele estava, não há ninguém — só pegadas na lama, mesmo tamanho das suas, mesmo padrão de bota.\n\nVocê volta pra coluna arrastando as pernas. Petrov te dá o braço nos últimos metros. Não faz perguntas. Você aprende, ali, que consegue perseguir uma coisa sem esperar entendê-la — e esse tipo de coragem vai pesar no fim."
+        },
+        {
+          "id": "hold_position",
+          "label": "Segurar posição · não quebrar formação",
+          "costHint": "+5 Moral · +5 Max HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 5
+            },
+            {
+              "type": "gainMaxHP",
+              "value": 5
+            }
+          ],
+          "resultText": "Você aperta o rifle. Continua andando no ritmo da coluna. Os olhos não saem da silhueta à frente. Ela caminha por mais dois minutos e depois some numa curva — como se tivesse virado, ainda que a estrada não tenha curva ali.\n\nPetrov não fala. Ninguém fala. Você segue com a unidade e algo em você fica MAIS DURO — a disciplina de não obedecer o próprio coração é uma armadura que a guerra recompensa."
+        },
+        {
+          "id": "call_out",
+          "label": "Gritar o nome dele",
+          "costHint": "-5 Moral · +Sussurrar Verdade",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -5
+            },
+            {
+              "type": "addCard",
+              "templateID": "whisper_truth"
+            }
+          ],
+          "resultText": "“HENRY!”\n\nSua voz corta o silêncio da estrada. A silhueta para. Fica parada um segundo inteiro. Depois vira devagar. Não é o rosto do Henry — é o rosto DELE tentando ser o do Henry, e quase conseguindo, errando por uma vírgula.\n\nVocê aprende naquele instante que essas coisas têm nomes falsos e que chamá-las pelo nome errado as ATRASA. Você agora sabe uma arma. E ninguém devia saber essa arma."
+        }
+      ]
+    },
+    {
+      "id": "mirror_test",
+      "act": 3,
+      "title": "O Teste do Espelho",
+      "narrative": "Ashcroft te chama pra dentro da tenda de comando. Sobre a mesa: um espelho pequeno, quebrado, envolvido em pano preto. Uma vela. Um caderno aberto numa página em latim.\n\n“Vale. Isso não é ritual. É diagnóstico. Você vai olhar pro espelho enquanto eu leio três linhas. Se o reflexo obedecer a você, você é você. Se não obedecer — em qualquer momento — você me avisa, e eu resolvo. Concorda?”\n\nA voz dele está sem drama. É pior do que se estivesse assustado.",
+      "backgroundArt": "bg_camp",
+      "narrativeID": "mirror_test",
+      "choices": [
+        {
+          "id": "submit",
+          "label": "Aceitar o teste",
+          "costHint": "-3 HP · +8 Max Moral · +Escuta Atenta",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": -3
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": 8
+            },
+            {
+              "type": "addCard",
+              "templateID": "attentive_listen"
+            }
+          ],
+          "resultText": "Você senta. Olha pro espelho. Ashcroft lê três linhas em latim, devagar, sem inflexão. O reflexo pisca quando você pisca. Sorri quando você sorri. Chora quando você não estava chorando — e você percebe, um segundo depois, que estava.\n\n“Você passou”, Ashcroft diz baixinho. “Mas aprenda a escutar você mesmo. Vai precisar.” Ele te ensina uma técnica de escuta interna que dobra sua percepção em combate. Custa — porque agora você OUVE também o que preferiria não ouvir."
+        },
+        {
+          "id": "refuse",
+          "label": "Recusar · confiar no próprio julgamento",
+          "costHint": "+5 Moral · -5 Max Moral",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 5
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": -5
+            }
+          ],
+          "resultText": "“Capitão. Eu sou eu. Não preciso de um espelho pra provar isso. Se um dia eu não for mais eu, atire.”\n\nAshcroft te olha por muito tempo. Depois assente. Guarda o espelho no pano preto sem fazer o teste. “Tudo bem, Vale. Vou confiar.”\n\nVocê sai da tenda com o peito mais leve — mas alguma coisa em você sabe que recusar diagnóstico não cura a doença. Você ganha calma agora e paga em teto depois."
+        },
+        {
+          "id": "reverse",
+          "label": "Testar Ashcroft primeiro",
+          "costHint": "-3 Moral · +5 Max HP · +Reserva Silenciosa",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -3
+            },
+            {
+              "type": "gainMaxHP",
+              "value": 5
+            },
+            {
+              "type": "addCard",
+              "templateID": "silent_reserve"
+            }
+          ],
+          "resultText": "“Capitão. Se o teste é bom, é bom pra nós dois. Você primeiro.”\n\nAshcroft para. Sorri sem alegria. “Justo.” Ele senta. Você lê as três linhas — ele te empurra o caderno com o dedo. O reflexo dele piscA com atraso. Meio segundo. Ninguém que não estivesse procurando iria notar.\n\nVocês dois fingem que não viram. Terminam o teste. Ele te ensina uma técnica de guardar recursos em silêncio pra usar depois — “vai precisar”. Você sai da tenda sabendo alguma coisa muito grande sobre Ashcroft. E vai carregar isso sozinho."
+        }
+      ]
+    }
+  ],
+  "procedural": [
+    {
+      "id": "wounded_soldier",
+      "act": 1,
+      "title": "Um Ferido",
+      "narrative": "Um soldado britânico está caído numa cratera. Perna fraturada, febre alta. Não é da sua unidade. Ele te reconhece pelo emblema do Corps e sussurra:\n\n“Tenente. Por favor. Não me deixe aqui.”",
+      "backgroundArt": "bg_no_mans_land",
+      "choices": [
+        {
+          "id": "help",
+          "label": "Carregá-lo até a linha aliada",
+          "costHint": "-3 HP · +5 Moral",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": -3
+            },
+            {
+              "type": "gainMoral",
+              "value": 5
+            }
+          ],
+          "resultText": "Você o carrega por dois quilômetros de lama. Chega ao posto de socorro exausto, com o ombro em fogo. Ele sobrevive.\n\nDois dias depois, ele te escreve uma nota curta: “Obrigado.” Você guarda no bolso da farda."
+        },
+        {
+          "id": "leave",
+          "label": "Marcar posição e seguir",
+          "costHint": "-5 Moral · +3 Max HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -5
+            },
+            {
+              "type": "gainMaxHP",
+              "value": 3
+            }
+          ],
+          "resultText": "Você anota as coordenadas exatas. Marca com um lenço branco preso a uma baioneta. Segue em frente.\n\nUma equipe de resgate pode achá-lo antes do anoitecer. Ou não. Você não vai voltar pra saber. A escolha te endurece por dentro — de um jeito que pode servir mais tarde."
+        },
+        {
+          "id": "mercy",
+          "label": "Dar-lhe uma morte rápida",
+          "costHint": "-8 Moral · +3 HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -8
+            },
+            {
+              "type": "gainHP",
+              "value": 3
+            }
+          ],
+          "resultText": "Ele agradece sem palavras. Fecha os olhos. Você faz o que precisa fazer, rápido e sem cerimônia.\n\nAlguma coisa em você para de funcionar depois disso. Mas você continua andando. Você tem uma missão."
+        }
+      ],
+      "narrativeID": null
+    },
+    {
+      "id": "abandoned_supplies",
+      "act": 1,
+      "title": "Suprimentos Abandonados",
+      "narrative": "Uma caixa de rações intacta, jogada às pressas quando o dono foi obrigado a recuar. Latas, biscoitos secos, um pouco de bacon. Suficiente pra três homens por dois dias.",
+      "backgroundArt": "bg_trench",
+      "choices": [
+        {
+          "id": "take",
+          "label": "Pegar tudo pra você",
+          "costHint": "+8 HP",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": 8
+            }
+          ],
+          "resultText": "Você come até se sentir humano de novo. O corpo agradece — HP recuperado significativamente. Ninguém no bivaque pergunta de onde veio a comida extra na sua mochila."
+        },
+        {
+          "id": "share",
+          "label": "Dividir com a unidade",
+          "costHint": "+4 HP · +5 Moral",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": 4
+            },
+            {
+              "type": "gainMoral",
+              "value": 5
+            }
+          ],
+          "resultText": "Você distribui em partes iguais. Petrov sorri pela primeira vez em dias. Wren te dá o pedaço de bacon dela, dizendo que “sua última refeição decente foi antes da Somme”.\n\nComer junto, mesmo pouco, faz mais bem que comer muito sozinho."
+        },
+        {
+          "id": "leave",
+          "label": "Deixar pra outro que precise mais",
+          "costHint": "+3 Moral",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 3
+            }
+          ],
+          "resultText": "Você fecha a caixa cuidadosamente. Marca com uma cruz de giz — “próximo Corps que passar, use”. Não conta pra ninguém que encontrou.\n\nÀs vezes fazer o certo é privado. Ninguém precisa saber."
+        }
+      ],
+      "narrativeID": null
+    },
+    {
+      "id": "strange_dream",
+      "act": 1,
+      "title": "Um Sonho Estranho",
+      "narrative": "Você acorda antes do amanhecer. Suando frio. No sonho, você estava caminhando por uma trincheira que não terminava, com o rosto do seu irmão em cada soldado que passava. Nenhum deles te reconhecia.",
+      "backgroundArt": "bg_trench",
+      "choices": [
+        {
+          "id": "reflect",
+          "label": "Refletir sobre o significado",
+          "costHint": "-3 Moral · +5 Max Moral",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -3
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": 5
+            }
+          ],
+          "resultText": "Você fica acordado, olhando o teto de terra. O sonho fica pesado por horas. Mas você entende algo sobre culpa — que ela pode virar coisa útil se você olhar direto pra ela."
+        },
+        {
+          "id": "dismiss",
+          "label": "Descartar como cansaço",
+          "costHint": "+3 Moral",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 3
+            }
+          ],
+          "resultText": "Você balança a cabeça, se levanta, faz café. Sonho é sonho. Corpo cansado inventa coisas. Você toma o café e o gosto amargo te ancora na manhã real."
+        },
+        {
+          "id": "write",
+          "label": "Anotar no diário — Ashcroft pode querer ver",
+          "costHint": "-5 Moral · +8 Max Moral",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -5
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": 8
+            }
+          ],
+          "resultText": "Você escreve cada detalhe. A luz da trincheira, o cheiro, os rostos idênticos. Ao terminar, tem meia dúzia de páginas. Você entrega a Ashcroft dias depois. Ele lê em silêncio, dobra, guarda dentro de um livro.\n\n“Vale. Vou precisar de mais destes. Continue escrevendo.”\n\nDocumentar dói. Mas dá estrutura ao caos."
+        }
+      ],
+      "narrativeID": null
+    },
+    {
+      "id": "letter_from_home",
+      "act": 1,
+      "title": "Uma Carta de Casa",
+      "narrative": "O correio chegou. Tem uma carta pra você — letra da sua mãe, envelope amassado. Você reconhece o selo do vilarejo em Yorkshire. Faz três meses desde a última.",
+      "backgroundArt": "bg_trench",
+      "choices": [
+        {
+          "id": "read",
+          "label": "Ler agora, com calma",
+          "costHint": "+8 Moral · -3 HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 8
+            },
+            {
+              "type": "gainHP",
+              "value": -3
+            }
+          ],
+          "resultText": "Ela conta das galinhas, do gato, do jardim. Menciona Henry uma vez — “O Reverendo pediu missa por ele domingo passado. Fui.” Nada mais.\n\nVocê chora pela primeira vez em meses. O corpo não gosta, mas a alma precisa. Perde HP pela noite mal dormida — ganha algo mais importante."
+        },
+        {
+          "id": "postpone",
+          "label": "Guardar pra depois — não é a hora",
+          "costHint": "sem efeito",
+          "effects": [],
+          "resultText": "Você põe o envelope no bolso do casaco, sem abrir. Vai ler quando estiver em terreno seguro. Se estiver.\n\nA carta te acompanha por semanas, um peso quente contra o peito, lembrando que existe outro mundo esperando."
+        },
+        {
+          "id": "burn",
+          "label": "Queimar sem ler — melhor não saber",
+          "costHint": "-5 Moral · +5 Max HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -5
+            },
+            {
+              "type": "gainMaxHP",
+              "value": 5
+            }
+          ],
+          "resultText": "Você acende um fósforo. Enquanto queima, tenta não olhar. Se ela mandou notícia ruim, você não pode carregar isso agora. Se mandou notícia boa, doeria ainda mais.\n\nAlguma coisa em você endurece pra sempre depois desse ato. Mas endurecer também é sobreviver. Ganha resistência física a longo prazo."
+        }
+      ],
+      "narrativeID": null
+    },
+    {
+      "id": "anomalous_light",
+      "act": 1,
+      "title": "Luz Anômala no Horizonte",
+      "narrative": "Meia-noite. Você vê uma luz azul-esverdeada pulsando no horizonte oeste. Não é sinalização. Não é foguete. Não é lua — a lua está cheia atrás de você. A luz pulsa a cada quatro segundos exatos, como um relógio.",
+      "backgroundArt": "bg_no_mans_land",
+      "choices": [
+        {
+          "id": "investigate",
+          "label": "Ir investigar sozinho",
+          "costHint": "-5 HP · +5 Max Moral",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": -5
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": 5
+            }
+          ],
+          "resultText": "Você anda por três horas. A luz sempre parece próxima mas nunca chega. Quando finalmente para, o amanhecer está começando e você está muito longe do bivaque.\n\nVoltar custa outro dia. Você aprende algo — não sabe o quê exatamente — sobre a diferença entre ver e entender. Alguma parte da sua mente cresce."
+        },
+        {
+          "id": "avoid",
+          "label": "Manter distância e não contar a ninguém",
+          "costHint": "-3 Moral · +3 Max HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -3
+            },
+            {
+              "type": "gainMaxHP",
+              "value": 3
+            }
+          ],
+          "resultText": "Você vira as costas. Volta pro abrigo. Dorme mal, mas dorme. Não menciona a ninguém.\n\nA escolha te protege — ninguém vai investigar por sua sugestão. Mas alguma coisa se acumula em você. Ver e não falar tem um custo."
+        },
+        {
+          "id": "report",
+          "label": "Reportar a Ashcroft ao amanhecer",
+          "costHint": "+3 Moral",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 3
+            }
+          ],
+          "resultText": "Ashcroft ouve com atenção total. Anota tudo. Pergunta o número exato de pulsações por minuto. Pergunta o azul EXATO — cerúleo? aquamarine? “Coisa importante, Vale. Guarde isso. Vamos revisitar.”\n\nCompartilhar o peso funciona. Você dorme melhor."
+        }
+      ],
+      "narrativeID": null
+    },
+    {
+      "id": "faceless_body",
+      "act": 2,
+      "title": "Um Corpo sem Rosto",
+      "narrative": "Um soldado morto. Uniforme britânico. Botas britânicas. Rifle britânico. Sem placa de identificação. Onde deveria estar o rosto — nada. Não desfigurado. Ausente. Como se o rosto tivesse sido apagado da existência entre um piscar e o próximo.",
+      "backgroundArt": "bg_no_mans_land",
+      "choices": [
+        {
+          "id": "study",
+          "label": "Estudar o corpo com atenção",
+          "costHint": "-5 Moral · +5 Max HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -5
+            },
+            {
+              "type": "gainMaxHP",
+              "value": 5
+            }
+          ],
+          "resultText": "Você examina por quinze minutos. A pele onde o rosto deveria estar é lisa, contínua com o resto do crânio. Sem cicatriz, sem trauma. Simplesmente ausente.\n\nVocê guarda a informação. Ela te muda por dentro — de um jeito que endurece o corpo pro que vier. Sabe que agora existe um catálogo de horrores que você conhece pessoalmente."
+        },
+        {
+          "id": "bury",
+          "label": "Enterrar com honras militares improvisadas",
+          "costHint": "+5 Moral · -3 HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 5
+            },
+            {
+              "type": "gainHP",
+              "value": -3
+            }
+          ],
+          "resultText": "Você cava uma cova rasa. Faz uma cruz de duas tábuas. Diz o Pai Nosso baixinho — as palavras que sua mãe te ensinou. Não sabe se ele era católico, protestante, judeu. Não importa.\n\nO gesto de dignidade custa horas de trabalho e músculos doloridos. Mas você segue humano."
+        },
+        {
+          "id": "leave",
+          "label": "Deixar onde está e não olhar mais",
+          "costHint": "-3 Moral",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -3
+            }
+          ],
+          "resultText": "Você segue em frente sem olhar duas vezes. Não vai contar pra ninguém. Não vai anotar no relatório. O corpo vai apodrecer ou virar comida de corvo, e ninguém em Londres vai saber que ele existiu.\n\nAlguma coisa em você fica menor por essa recusa. Você tenta não pensar nisso."
+        }
+      ],
+      "narrativeID": null
+    },
+    {
+      "id": "voice_that_calls",
+      "act": 2,
+      "title": "A Voz que Chama",
+      "narrative": "Terceira noite consecutiva. Alguém chama seu nome no vento — “Edmund”. Voz de mulher. Voz que você reconhece de algum lugar mas não consegue nomear.\n\nA voz vem de além da linha alemã.",
+      "backgroundArt": "bg_no_mans_land",
+      "choices": [
+        {
+          "id": "answer",
+          "label": "Responder — só uma palavra",
+          "costHint": "+8 Max HP · -5 Max Moral",
+          "effects": [
+            {
+              "type": "gainMaxHP",
+              "value": 8
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": -5
+            }
+          ],
+          "resultText": "Você diz “Quem é?” pra o vento. A voz para imediatamente. O silêncio depois é mais alto que o barulho.\n\nNo dia seguinte, algo em você mudou. Você aguenta mais. Ferimentos que sangravam antes fecham mais rápido. Mas alguma coisa também consumiu uma parte de você — pra sempre."
+        },
+        {
+          "id": "ignore",
+          "label": "Ignorar completamente, virar o rosto",
+          "costHint": "-5 Moral · +5 Max Moral",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -5
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": 5
+            }
+          ],
+          "resultText": "Você põe a mão no ouvido. Cantarola pra si mesmo uma música idiota da infância. A voz continua por meia hora. Depois some.\n\nO custo emocional imediato é alto — recusar contato com o que quer que seja aquilo dói. Mas você aprende a resistir. A próxima vez vai doer menos."
+        },
+        {
+          "id": "refuse",
+          "label": "Levantar-se e responder “Vá embora”",
+          "costHint": "-3 Moral",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -3
+            }
+          ],
+          "resultText": "Você fala firme, alto. Sem raiva. Só o comando: “Vá embora. Não te conheço. Não vou responder.”\n\nPassa. O vento volta a ser só vento. Você sente uma calma estranha — como se tivesse recusado uma proposta que não devia sequer ter ouvido. Seu corpo relaxa.\n\nMas alguma coisa em você fica menor essa noite. Você não sabe o que era. Não vai saber nunca."
+        }
+      ],
+      "narrativeID": null
+    },
+    {
+      "id": "strange_vial",
+      "act": 2,
+      "title": "Frasco Estranho",
+      "narrative": "Numa mochila abandonada de um oficial alemão, você encontra um frasco de vidro grosso, selado com cera vermelha. Dentro, um líquido âmbar que se mexe sozinho quando você não olha diretamente. Um rótulo em alemão: “Für den letzten Einsatz” — pra a última missão.",
+      "backgroundArt": "bg_trench",
+      "choices": [
+        {
+          "id": "keep",
+          "label": "Levar o frasco",
+          "costHint": "+ Liberação de Gás · -3 Moral",
+          "effects": [
+            {
+              "type": "addCard",
+              "templateID": "gas_release"
+            },
+            {
+              "type": "gainMoral",
+              "value": -3
+            }
+          ],
+          "resultText": "Você guarda o frasco na cintura, longe do rosto. Não pergunta o que é. Não quer saber ainda. Sabe que uma hora vai usar. E que quando usar, alguém do outro lado vai morrer de um jeito que ele não merecia.\n\nVocê guarda o frasco mesmo assim."
+        },
+        {
+          "id": "smash",
+          "label": "Quebrar o frasco no chão",
+          "costHint": "+5 Moral · -3 HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 5
+            },
+            {
+              "type": "gainHP",
+              "value": -3
+            }
+          ],
+          "resultText": "Você joga o frasco contra uma pedra. O gás sobe amarelado. Você puxa o pano do rosto rápido e recua. O gás fica ali por dois minutos, depois some — como se tivesse voltado pra dentro.\n\nSua garganta arde por um dia. Mas você dorme melhor essa noite."
+        },
+        {
+          "id": "ignore",
+          "label": "Deixar onde estava",
+          "costHint": "sem efeito",
+          "effects": [],
+          "resultText": "Você recoloca o frasco na mochila do oficial morto. Segue em frente.\n\nAlguém, algum dia, vai encontrar de novo. Talvez faça uma escolha diferente. Talvez a mesma. Você prefere não fazer parte da história."
+        }
+      ],
+      "narrativeID": null
+    },
+    {
+      "id": "torn_page",
+      "act": 2,
+      "title": "Uma Página Rasgada",
+      "narrative": "No fundo de uma trincheira alemã abandonada, você encontra páginas rasgadas de um diário. A escrita é apressada, quase desesperada. A maior parte é ilegível ou em alemão obscuro, mas uma linha se destaca, sublinhada três vezes:\n\n“Sag ihm seinen wahren Namen. Nur das trifft.”\n— Diga a ele seu nome verdadeiro. Só isso atinge.",
+      "backgroundArt": "bg_trench",
+      "choices": [
+        {
+          "id": "study",
+          "label": "Estudar as páginas",
+          "costHint": "+ Sussurrar Verdade · -5 Moral",
+          "effects": [
+            {
+              "type": "addCard",
+              "templateID": "whisper_truth"
+            },
+            {
+              "type": "gainMoral",
+              "value": -5
+            }
+          ],
+          "resultText": "Você guarda as páginas. Passa três noites decifrando. O que aprende não pode ser desaprendido. Uma técnica antiga — chamar a coisa pelo nome que ela nega ter, e assistir isso rachar por dentro.\n\nVocê entende agora que essas coisas TÊM nomes verdadeiros. E que dizê-los é uma arma que só quem sabe pode usar. Mas usar te custa — porque agora você é uma das pessoas que sabem."
+        },
+        {
+          "id": "burn",
+          "label": "Queimar as páginas",
+          "costHint": "+8 Moral · -3 Max Moral",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 8
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": -3
+            }
+          ],
+          "resultText": "Você acende um fósforo. As páginas pegam fogo lentamente, como se resistissem. Você segura até queimarem os seus dedos.\n\nDorme melhor essa noite. Mas alguma coisa te acorda antes do amanhecer — a sensação de que alguém do outro lado da guerra sabia algo importante e agora ninguém mais sabe. E que isso pode ter sido erro seu."
+        },
+        {
+          "id": "pocket",
+          "label": "Guardar sem ler",
+          "costHint": "-3 HP",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": -3
+            }
+          ],
+          "resultText": "Você dobra as páginas com cuidado. Guarda no fundo do casaco. Não lê. Vai decidir depois. Depois nunca chega.\n\nAs páginas vão te acompanhar pela guerra inteira. Você vai esquecer delas às vezes. Vai lembrar delas em momentos ruins. Vai nunca ler.\n\nAlguém carrega o peso do que sabe. Você carrega o peso do que escolheu não saber."
+        }
+      ],
+      "narrativeID": null
+    },
+    {
+      "id": "petrov_sleepwalking",
+      "act": 2,
+      "title": "Petrov Fala Dormindo",
+      "narrative": "Três da manhã. Você acorda pra beber água e vê Petrov de pé no meio do bivaque, olhos abertos, sem enxergar você. Ele fala em russo baixo, contínuo, como quem reza. Você não entende as palavras. Uma se repete: “Fyodor”.\n\nO nome do irmão dele.",
+      "backgroundArt": "bg_camp",
+      "choices": [
+        {
+          "id": "wake",
+          "label": "Acordar Petrov com cuidado",
+          "costHint": "+5 Moral · -3 HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 5
+            },
+            {
+              "type": "gainHP",
+              "value": -3
+            }
+          ],
+          "resultText": "Você toca o ombro dele. Petrov acorda com um choque, pega você pelo casaco, olhos ainda vazios por um segundo. Depois foca. Depois solta.\n\n“Estava caminhando?”\n“Estava.”\n“Obrigado.”\n\nEle volta pra cama. Vocês nunca falam sobre isso de novo. Mas na manhã seguinte, Petrov te oferece o primeiro chá — algo que ele nunca fez antes."
+        },
+        {
+          "id": "watch",
+          "label": "Observar em silêncio",
+          "costHint": "-3 Moral · +5 Max Moral",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -3
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": 5
+            }
+          ],
+          "resultText": "Você fica parado, escutando. Petrov continua falando por dez minutos. Duas vezes olha diretamente pra você — através de você — e diz algo que você quase entende. Não é russo essas duas frases. É outra coisa.\n\nDepois ele volta pra cama sozinho. Você fica acordado até o amanhecer, digerindo o que viu. Fica um pouco mais forte mentalmente — mas nunca mais dorme igual nesse camp."
+        },
+        {
+          "id": "note",
+          "label": "Anotar o que ele diz e dormir",
+          "costHint": "+3 Moral · +3 Max HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 3
+            },
+            {
+              "type": "gainMaxHP",
+              "value": 3
+            }
+          ],
+          "resultText": "Você pega o diário e transcreve foneticamente cada palavra. Não sabe o que significa. Sabe que vai poder mostrar pra Ashcroft depois. Isso te dá objetivo — e objetivo cansa menos que confusão.\n\nVocê dorme. Sonha com neve."
+        }
+      ],
+      "narrativeID": null
+    },
+    {
+      "id": "strange_banner",
+      "act": 2,
+      "title": "Uma Bandeira que Não É",
+      "narrative": "Um posto alemão vazio. Não abandonado — vazio, como se todos tivessem saído no meio de uma refeição. Sopa ainda morna. Café pela metade. Sobre o rádio, uma bandeira que não é do Kaiser: um retângulo negro com um símbolo em ouro fosco. Nove linhas partindo de um ponto central. Você já viu esse símbolo antes — em um sonho que preferiu esquecer.",
+      "backgroundArt": "bg_trench",
+      "choices": [
+        {
+          "id": "take",
+          "label": "Levar a bandeira dobrada",
+          "costHint": "-3 HP · +5 Max Moral",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": -3
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": 5
+            }
+          ],
+          "resultText": "Você dobra a bandeira em oito partes e enfia dentro da mochila. O tecido é mais pesado do que devia ser pro tamanho. Você não mostra pra ninguém do esquadrão.\n\nNas noites seguintes, você a estuda em segredo. Não decifra o símbolo. Mas aprende a olhar pra ele sem desviar — e isso é uma habilidade que a guerra vai cobrar."
+        },
+        {
+          "id": "burn",
+          "label": "Queimar no fogo do posto",
+          "costHint": "+5 Moral · -3 Max HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 5
+            },
+            {
+              "type": "gainMaxHP",
+              "value": -3
+            }
+          ],
+          "resultText": "Você joga a bandeira no fogareiro alemão. O tecido não pega logo — resiste três, quatro tentativas com fósforos. Quando finalmente acende, a chama é verde-azulada por dois segundos, depois amarela.\n\nO símbolo se torce enquanto queima, como se tentasse formar outra coisa antes de virar cinza. Você sai do posto rapidamente. Dorme melhor essa noite, mas alguma coisa dentro de você fica mais frágil pra sempre."
+        },
+        {
+          "id": "photograph",
+          "label": "Desenhar no diário e deixar",
+          "costHint": "+3 Moral",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 3
+            }
+          ],
+          "resultText": "Você tira o diário e desenha o símbolo com precisão — nove linhas, ângulos exatos, proporções corretas. Devolve a bandeira ao rádio exatamente como estava. Sai do posto sem deixar rastro.\n\nAshcroft vai olhar pro desenho depois e não vai dizer nada por um longo minuto. Depois vai dizer: “Isso é uma coisa muito antiga, Vale. Muito.” E vai mudar de assunto."
+        }
+      ],
+      "narrativeID": null
+    },
+    {
+      "id": "listening_post",
+      "act": 2,
+      "title": "Posto de Escuta Abandonado",
+      "narrative": "Você encontra um posto de escuta britânico esquecido — não destruído, apenas esquecido. Cornetas de amplificação apontadas pro território alemão. Anotações num caderno em código Morse manuscrito. E um manual pequeno: “Técnicas Silenciosas de Observação — Uso Interno”.",
+      "backgroundArt": "bg_trench",
+      "choices": [
+        {
+          "id": "study",
+          "label": "Estudar as técnicas",
+          "costHint": "+ Escuta Atenta · -3 Moral",
+          "effects": [
+            {
+              "type": "addCard",
+              "templateID": "attentive_listen"
+            },
+            {
+              "type": "gainMoral",
+              "value": -3
+            }
+          ],
+          "resultText": "Você lê o manual duas vezes naquela noite. As técnicas são simples mas exigem prática: colocar a orelha na terra, respirar em sincronia com o vento, ouvir intervalos entre sons.\n\nVocê aprende. E aprender custa: você começa a escutar coisas que não quer escutar, também. Mas em combate, isso vai te salvar."
+        },
+        {
+          "id": "supplies",
+          "label": "Pegar suprimentos e ignorar o manual",
+          "costHint": "+5 HP · +3 Moral",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": 5
+            },
+            {
+              "type": "gainMoral",
+              "value": 3
+            }
+          ],
+          "resultText": "Você enche os bolsos: rações, um cantil cheio, dois pacotes de cigarros ingleses. Deixa o manual onde estava.\n\nAlguém, algum dia, vai encontrar de novo. Vai aprender o que você recusou. Você prefere não fazer parte dessa cadeia."
+        },
+        {
+          "id": "destroy",
+          "label": "Destruir tudo — não pode cair em mãos alemãs",
+          "costHint": "+3 Moral · -3 HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 3
+            },
+            {
+              "type": "gainHP",
+              "value": -3
+            }
+          ],
+          "resultText": "Você quebra as cornetas com o coronha do rifle. Queima o caderno de código. Rasga o manual em pedaços pequenos e enterra na lama.\n\nO trabalho custa esforço físico e leva quase uma hora. Mas você sai do posto sabendo que fez a coisa certa pelo Corps. Isso vale — ainda que ninguém saiba."
+        }
+      ],
+      "narrativeID": null
+    },
+    {
+      "id": "empty_barracks",
+      "act": 3,
+      "title": "Barracas Sem Ninguém",
+      "narrative": "Uma dúzia de barracas britânicas alinhadas, catres feitos, botas organizadas ao pé de cada cama. Café ainda morno na cozinha comum. Cartas metade escritas sobre a mesa. Nenhum corpo. Nenhum sinal de luta. Apenas ausência — como se cada homem tivesse levantado no meio de uma frase e caminhado pra fora.",
+      "choices": [
+        {
+          "id": "read_letters",
+          "label": "Ler as cartas inacabadas",
+          "costHint": "-8 Moral · +5 Max Moral",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -8
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": 5
+            }
+          ],
+          "resultText": "Você lê seis, sete cartas. Todas param na mesma frase, quase palavra por palavra: “Mãe, tem uma coisa aqui que eu preciso ir ver, mas quando eu voltar…”\n\nNenhuma foi terminada. Você guarda três — as três com endereço completo. Uma promessa silenciosa de que se você sair dessa, essas famílias vão saber que os filhos delas foram embora escrevendo. Isso PESA. Mas peso também é ancoragem — você fica mais firme depois."
+        },
+        {
+          "id": "supplies",
+          "label": "Pegar suprimentos e sair rápido",
+          "costHint": "+8 HP · +3 Moral",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": 8
+            },
+            {
+              "type": "gainMoral",
+              "value": 3
+            }
+          ],
+          "resultText": "Você enche a mochila em três minutos: rações, bandagens, bandolier de munição, um cantil cheio. Petrov faz o mesmo em silêncio. Vocês saem pela mata sem olhar pra trás.\n\nA noite seguinte é a melhor noite de sono que você tem em semanas. Você prefere não pensar em por quê."
+        },
+        {
+          "id": "burn",
+          "label": "Queimar tudo · impedir que outra unidade caia aqui",
+          "costHint": "-3 HP · +8 Moral",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": -3
+            },
+            {
+              "type": "gainMoral",
+              "value": 8
+            }
+          ],
+          "resultText": "Você espalha querosene das lamparinas. Petrov ajuda sem perguntar. Vocês acendem as barracas uma por uma, a começar pela cozinha. O fogo pega devagar — a lona úmida resiste — mas quando pega, pega de vez.\n\nVocês recuam pela mata. Olhando de longe, o acampamento fica laranja contra o céu escuro. Nenhuma outra unidade britânica vai dormir naqueles catres. Você fez o que a hierarquia não faria. Isso te fortalece por dentro."
+        }
+      ]
+    },
+    {
+      "id": "dead_radio",
+      "act": 3,
+      "title": "Uma Voz na Frequência Morta",
+      "narrative": "O operador de rádio da unidade te chama de madrugada. Cara branca. Ele te entrega o fone.\n\n“Tenente. Essa frequência foi desativada em 1916. Não deveria ter ninguém aqui. Escuta.”\n\nVocê põe o fone. Ruído estático. E depois, atravessando o ruído, uma voz masculina lendo uma lista de nomes. A voz é a sua. A lista de nomes são os homens do seu esquadrão — todos, na ordem em que estão agora, dormindo lá fora.",
+      "choices": [
+        {
+          "id": "keep_listening",
+          "label": "Continuar escutando até o fim da lista",
+          "costHint": "-10 Moral · +Escuta Atenta",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -10
+            },
+            {
+              "type": "addCard",
+              "templateID": "attentive_listen"
+            }
+          ],
+          "resultText": "A voz — sua voz — lê 47 nomes. Wren. Petrov. Wardell. Ashcroft. Cada praça. Cada cabo. Cada sargento. Ao fim, uma pausa, e depois: “Vale, Edmund.”\n\nE o rádio se cala.\n\nVocê fica sentado por vinte minutos sem se mover. O operador não fala nada. Nunca comenta com ninguém. Você aprende algo naquela madrugada sobre escutar sem interromper — uma habilidade que agora É SUA, e que você não pediu."
+        },
+        {
+          "id": "cut_off",
+          "label": "Desligar imediatamente · destruir o rádio",
+          "costHint": "+5 Moral · -3 Max HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 5
+            },
+            {
+              "type": "gainMaxHP",
+              "value": -3
+            }
+          ],
+          "resultText": "Você arranca o fone. Corta os fios do rádio. Amassa a válvula com o coldre. O operador olha, olha de novo, depois assente uma única vez.\n\n“Bom senso, senhor.” Ele se levanta. Nunca mais fala do assunto. Você dorme melhor essa noite — mas na semana seguinte, começa a suar mais em combate, e você não sabe se é cansaço, se é medo, se é o sistema começando a ceder."
+        },
+        {
+          "id": "write_down",
+          "label": "Anotar cada nome que ouvir",
+          "costHint": "-5 HP · +5 Max Moral",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": -5
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": 5
+            }
+          ],
+          "resultText": "Você pega o caderno. Escreve cada nome à medida que a voz lê. A voz é a sua. A caligrafia é a sua. O papel fica úmido — não de suor, de outra coisa. Você não olha.\n\nAo fim, você tem uma lista completa da sua unidade. Assinada, por escrito, pela sua própria voz numa frequência morta. Você guarda a folha. Vai olhar pra ela em silêncio nos próximos dias. Vai aprender a suportar o próprio nome no fim da lista."
+        }
+      ]
+    },
+    {
+      "id": "homecoming_letter",
+      "act": 3,
+      "title": "Ela Escreveu Como Se Já Fosse",
+      "narrative": "A correspondência chegou. Uma carta de sua mãe, na letra dela, com o selo real.\n\nEla escreve como se você já tivesse voltado.\n\n“Meu filho, ontem no jantar você comeu duas porções da torta e eu fiquei tão feliz. Você riu daquela história do Sr. Whitby. Está engordando de novo. Está dormindo bem no seu quarto antigo. Amanhã eu acordo cedo e faço pão pra você.”\n\nA data no topo da carta é a de amanhã.",
+      "choices": [
+        {
+          "id": "keep",
+          "label": "Guardar a carta perto do peito",
+          "costHint": "+10 Moral · -5 HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 10
+            },
+            {
+              "type": "gainHP",
+              "value": -5
+            }
+          ],
+          "resultText": "Você dobra a carta em quatro. Enfia no bolso interno do casaco, encostada ao coração. Vai reler várias vezes nos próximos dias.\n\nAlguma coisa em você começa a acreditar que já voltou, que essa versão da guerra é o sonho, que a realidade é o pão da manhã da mãe. Isso te dá força — e também te tira da defensiva. Custa. Mas você aceita."
+        },
+        {
+          "id": "burn",
+          "label": "Queimar sem reler",
+          "costHint": "-5 Moral · +8 Max HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -5
+            },
+            {
+              "type": "gainMaxHP",
+              "value": 8
+            }
+          ],
+          "resultText": "Você acende um fósforo. A carta pega fogo lentamente — o papel grosso resiste. Você segura até queimarem os seus dedos. Só então deixa cair na lama.\n\nAlguma coisa dói. Mas você recusou uma promessa que não podia ser verdade, e recusar promessas falsas te FORTALECE. Seu corpo aguenta mais. Sua mãe verdadeira vai receber uma carta sua daqui a três semanas, se você sobreviver."
+        },
+        {
+          "id": "reply",
+          "label": "Responder como se fosse verdade",
+          "costHint": "+5 Moral · -3 Max Moral · +Sussurrar Verdade",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 5
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": -3
+            },
+            {
+              "type": "addCard",
+              "templateID": "whisper_truth"
+            }
+          ],
+          "resultText": "Você pega papel. Escreve de volta.\n\n“Mãe, a torta estava perfeita. Amanhã eu ajudo com o pão. Estou dormindo mais que em anos. Obrigado por me esperar.”\n\nVocê endereça, sela, entrega ao correio da unidade. Sabe que a carta nunca vai chegar — não à mãe verdadeira. Vai chegar em outro lugar. Alguém, ou alguma coisa, vai ler o que você escreveu, e vai aprender que você já sabe conversar do outro lado. Isso é uma arma. Você agora tem essa arma."
+        }
+      ]
+    },
+    {
+      "id": "henrys_coat",
+      "act": 3,
+      "title": "O Casaco no Arame",
+      "narrative": "No meio de um campo cortado por arame farpado, um casaco britânico pendurado. Preso pelo ombro, como se alguém tivesse tirado com pressa. Bom estado. Etiqueta interna com nome bordado:\n\n“H. VALE”\n\nHenry.\n\nVocê comprou aquele casaco pra ele em 1913. Aquela etiqueta você bordou, à mão, três noites acordado antes dele embarcar.",
+      "choices": [
+        {
+          "id": "take",
+          "label": "Pegar o casaco e vestir por baixo",
+          "costHint": "-3 HP · +8 Max HP",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": -3
+            },
+            {
+              "type": "gainMaxHP",
+              "value": 8
+            }
+          ],
+          "resultText": "Você retira o casaco do arame com cuidado. É pesado — mais do que devia ser. Cheira a tabaco velho e a algo que você não consegue nomear.\n\nVocê tira o próprio capote, veste o de Henry por baixo do seu, e recoloca o capote. Fica mais quente. Fica mais protegido. E fica com uma sensação estranha de que alguém está te abraçando por trás — o tempo todo, mesmo quando você está sozinho. Você aprende a se acostumar. Isso te faz aguentar mais."
+        },
+        {
+          "id": "cut_down",
+          "label": "Cortar e enterrar com respeito",
+          "costHint": "+8 Moral · -3 HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 8
+            },
+            {
+              "type": "gainHP",
+              "value": -3
+            }
+          ],
+          "resultText": "Você corta o casaco do arame com a baioneta. Cava um buraco raso num canto do campo, longe da estrada. Enterra o casaco dobrado. Marca com duas pedras — uma pra cabeça, uma pra os pés.\n\nNão diz nenhuma prece. Não sabe rezar direito. Mas fica agachado por um minuto inteiro com a mão sobre a terra fria. Se levanta com o peito mais leve. Uma coisa que precisava acontecer aconteceu."
+        },
+        {
+          "id": "leave",
+          "label": "Deixar e continuar caminhando",
+          "costHint": "-8 Moral · +5 HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -8
+            },
+            {
+              "type": "gainHP",
+              "value": 5
+            }
+          ],
+          "resultText": "Você olha por vinte segundos. Depois vira. Continua com a unidade. Não fala nada. Petrov percebe, depois — pelo teu silêncio nos próximos dois dias — que aconteceu alguma coisa, mas ele não pergunta.\n\nSeu corpo se conserva. Sua mente também paga um preço que você não sente ainda. Vai sentir. Ainda vai chegar."
+        }
+      ]
+    },
+    {
+      "id": "officer_without_name",
+      "act": 3,
+      "title": "Um Oficial que Não Se Apresenta",
+      "narrative": "Um homem em uniforme britânico de major chega ao acampamento à cavalo. Insígnias corretas. Botas polidas. Cavalo saudável. Ele pergunta pelo tenente responsável — por você.\n\nQuando você se apresenta, ele saúda como manual. Diz que traz ordens de Whitehall. Passa um envelope selado.\n\nVocê pergunta o nome dele. Ele sorri e não responde. Diz apenas: “Você não precisa do meu nome. Só precisa das minhas ordens.”",
+      "choices": [
+        {
+          "id": "open",
+          "label": "Abrir o envelope na frente dele",
+          "costHint": "-3 Moral · +5 Max Moral",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -3
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": 5
+            }
+          ],
+          "resultText": "Você quebra o selo. Tira a folha. Ela é branca. Completamente. Sem uma linha, sem uma assinatura, sem cabeçalho.\n\nVocê olha pro major. Ele mantém o sorriso. “Excelente. Você entendeu.” Ele saúda de novo, monta, sai. Você fica com a folha branca na mão.\n\nAprende algo importante ali: às vezes a ordem é o gesto de receber a ordem. Você fica com a mente mais forte por reconhecer isso — mas também mais cansado."
+        },
+        {
+          "id": "detain",
+          "label": "Deter o homem pra interrogar",
+          "costHint": "-8 HP · +8 Max HP",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": -8
+            },
+            {
+              "type": "gainMaxHP",
+              "value": 8
+            }
+          ],
+          "resultText": "“Petrov. Wardell. Prender esse homem até identificação confirmada.”\n\nOs dois avançam. O major não resiste — deixa cair as rédeas, estende as mãos, ainda sorrindo. Vocês o levam pra tenda de comando. Ashcroft manda telegrama pra Whitehall.\n\nAo amanhecer, a tenda está vazia. As cordas cortadas por dentro. O cavalo desaparecido. Nenhuma resposta do telegrama. Vocês seguem em frente sabendo que fizeram a coisa certa — o esforço fortalece o esquadrão de dentro pra fora. Custa fisicamente. Vale."
+        },
+        {
+          "id": "accept",
+          "label": "Aceitar sem questionar",
+          "costHint": "+5 HP · -5 Max Moral",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": 5
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": -5
+            }
+          ],
+          "resultText": "Você guarda o envelope no bolso interno do casaco. Saúda de volta. O major monta e sai a cavalo pela estrada.\n\nVocê dorme bem essa noite. Não abre o envelope. Vai carregar ele pela guerra inteira sem quebrar o selo. Sua mente encolhe um pouco por não querer saber — mas seu corpo agradece a paz. É um trade-off que a guerra ensina."
+        }
+      ]
+    },
+    {
+      "id": "rear_guard_orders",
+      "act": 3,
+      "title": "Ordens Contraditórias",
+      "narrative": "Dois mensageiros chegam no mesmo dia, com uma hora de diferença. Cada um traz ordens seladas de Whitehall. Você abre as duas.\n\nA primeira ordem manda avançar imediatamente contra a posição alemã de Bec-sur-Meuse.\n\nA segunda ordem manda recuar imediatamente pra Amiens e aguardar instruções.\n\nAmbas são assinadas pelo mesmo general. Ambas têm o selo autêntico. Ambas datadas hoje.",
+      "choices": [
+        {
+          "id": "advance",
+          "label": "Obedecer a ordem de avançar",
+          "costHint": "-5 HP · +8 Moral",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": -5
+            },
+            {
+              "type": "gainMoral",
+              "value": 8
+            }
+          ],
+          "resultText": "Você chama a unidade. Explica sucintamente. Marcha pra Bec-sur-Meuse. A posição alemã está vazia quando vocês chegam — não abandonada, VAZIA, como se nunca tivesse sido ocupada. Vocês tomam a posição sem disparar um tiro.\n\nSemanas depois, o general envia uma condecoração. Você não sabe qual das duas ordens era real. Não faz diferença agora. Você agiu. Ação fortalece o moral da unidade — inclusive o seu."
+        },
+        {
+          "id": "retreat",
+          "label": "Obedecer a ordem de recuar",
+          "costHint": "+8 HP · -3 Moral",
+          "effects": [
+            {
+              "type": "gainHP",
+              "value": 8
+            },
+            {
+              "type": "gainMoral",
+              "value": -3
+            }
+          ],
+          "resultText": "Você recua pra Amiens. Chegando lá, o quartel-general está deserto. Nenhum superior. Nenhuma instrução seguinte. Vocês acampam por três dias. No quarto dia, chega notícia: a unidade que devia ter avançado pra Bec-sur-Meuse foi aniquilada.\n\nVocê não sabe se salvou seus homens ou se foi manipulado. Seu corpo descansou — vocês estão em boa forma física. Sua consciência não descansa. Mas você aceita o custo."
+        },
+        {
+          "id": "burn_both",
+          "label": "Queimar as duas · seguir intuição",
+          "costHint": "-3 Moral · +10 Max HP · +Reserva Silenciosa",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -3
+            },
+            {
+              "type": "gainMaxHP",
+              "value": 10
+            },
+            {
+              "type": "addCard",
+              "templateID": "silent_reserve"
+            }
+          ],
+          "resultText": "Você queima os dois envelopes. Chama Petrov e Ashcroft. Explica que nenhuma das ordens é confiável. Vocês três decidem, em conjunto, marchar pra o vilarejo mais próximo, estabelecer perímetro, aguardar informação real.\n\nO grupo passa uma semana lá. Ninguém morre. Ninguém dispara. Você aprende a comandar SEM ordens vindas de cima — a confiar na avaliação do próprio grupo. Isso te faz mais forte de um jeito que a estrutura militar não teria ensinado."
+        }
+      ]
+    },
+    {
+      "id": "nine_pointed_flag_again",
+      "act": 3,
+      "title": "A Bandeira de Novo",
+      "narrative": "Você vê o símbolo pela terceira vez.\n\nNove linhas partindo de um ponto central. Ouro fosco. Dessa vez pintado na parede de uma capela abandonada no vilarejo de Meaulte. Está fresco. A tinta ainda escorre um pouco na parte de baixo.\n\nDo lado de dentro da capela, alguém deixou uma mesa arrumada pra duas pessoas. Vinho. Pão. Duas cadeiras. Uma delas está encostada. A outra está afastada, como se esperando você sentar.",
+      "choices": [
+        {
+          "id": "sit",
+          "label": "Sentar na cadeira",
+          "costHint": "-10 Moral · +Sussurrar Verdade",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": -10
+            },
+            {
+              "type": "addCard",
+              "templateID": "whisper_truth"
+            }
+          ],
+          "resultText": "Você senta. Ninguém aparece. Você espera dez minutos, uma hora, duas horas. Ninguém aparece. Mas você começa a ouvir — não com os ouvidos, com outra coisa — uma conversa em uma língua que você não conhece mas ENTENDE.\n\nA conversa te ensina o nome verdadeiro daquela coisa. Você não repete em voz alta. Você guarda. Sai da capela sabendo falar a última palavra — a que ATINGE. E isso agora vive dentro de você e não vai sair."
+        },
+        {
+          "id": "destroy",
+          "label": "Apagar o símbolo com terra",
+          "costHint": "+8 Moral · -5 Max Moral",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 8
+            },
+            {
+              "type": "gainMaxMoral",
+              "value": -5
+            }
+          ],
+          "resultText": "Você pega punhados de terra do chão de fora, esfrega contra o símbolo, cobre linha por linha até que o ouro suma sob o marrom. Leva vinte minutos. Suas mãos ficam em carne viva.\n\nVocê sai da capela sem tocar na mesa. Dorme melhor essa noite — mas alguma coisa da profundidade que ia se abrir NUNCA vai se abrir. Você recusou. Vai carregar o peso silencioso de não saber uma verdade que era sua pra saber."
+        },
+        {
+          "id": "photograph",
+          "label": "Desenhar no diário e sair",
+          "costHint": "+3 Moral · -3 HP",
+          "effects": [
+            {
+              "type": "gainMoral",
+              "value": 3
+            },
+            {
+              "type": "gainHP",
+              "value": -3
+            }
+          ],
+          "resultText": "Você tira o diário. Copia o símbolo com precisão máxima. Anota data, local, condição da tinta, o arranjo da mesa. Você é um oficial que documenta.\n\nSai da capela sem tocar em nada. Ashcroft vai olhar pro desenho depois. Vai reconhecer o símbolo. Vai fechar o caderno em silêncio. Depois vai olhar pra você por um tempo longo antes de dizer: “Vale. Tem gente muito grande interessada em você agora.”"
+        }
+      ]
+    }
+  ]
+}
