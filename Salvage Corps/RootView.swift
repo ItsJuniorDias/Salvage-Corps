@@ -248,12 +248,12 @@ struct RootView: View {
                     )
                 )
 
-            HStack(alignment: .center, spacing: 32) {
+            HStack(alignment: .center, spacing: 32.s) {
                 titleColumn.frame(maxWidth: .infinity)
-                actionsColumn.frame(maxWidth: 380)
+                actionsColumn.frame(maxWidth: 380.s)
             }
-            .padding(.horizontal, 40)
-            .padding(.vertical, 24)
+            .padding(.horizontal, 40.s)
+            .padding(.vertical, 24.s)
         }
         .overlay(alignment: .topTrailing) { audioButton.padding() }
         .preferredColorScheme(.dark)
@@ -303,46 +303,46 @@ struct RootView: View {
     }
 
     private var titleColumn: some View {
-        VStack(alignment: .leading, spacing: 16) {
+        VStack(alignment: .leading, spacing: 16.s) {
             Spacer()
 
-            VStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .leading, spacing: 8.s) {
                 Text("SALVAGE")
                     .font(SalvageFont.titleXL(56))
                     .foregroundStyle(SalvageColor.boneWhite)
-                    .tracking(6)
+                    .tracking(6.s)
                     .changeEffect(.shine.delay(0.5), value: titleAppeared)
 
                 Text("CORPS")
                     .font(SalvageFont.titleXL(56))
                     .foregroundStyle(SalvageColor.boneWhite)
-                    .tracking(6)
+                    .tracking(6.s)
                     .changeEffect(.shine.delay(0.7), value: titleAppeared)
 
                 Text("ATO I · v0.2")
                     .font(SalvageFont.label(11))
                     .foregroundStyle(.white.opacity(0.4))
-                    .tracking(4)
-                    .padding(.top, 4)
+                    .tracking(4.s)
+                    .padding(.top, 4.s)
                     .onLongPressGesture(minimumDuration: 1.5) {
                         AudioManager.shared.playSFX(AudioTrack.sfxClick)
                         showDevMenu = true
                     }
             }
 
-            Rectangle().fill(SalvageColor.bloodAccent).frame(width: 60, height: 2).padding(.vertical, 8)
+            Rectangle().fill(SalvageColor.bloodAccent).frame(width: 60.s, height: 2.s).padding(.vertical, 8.s)
 
             Text("menu.epigraph")
                 .font(SalvageFont.flavor(15))
                 .italic()
                 .foregroundStyle(.white.opacity(0.75))
-                .lineSpacing(4)
+                .lineSpacing(4.s)
 
             Text("menu.epigraph_attribution")
                 .font(SalvageFont.label(9))
                 .foregroundStyle(.white.opacity(0.4))
-                .tracking(2)
-                .padding(.top, 4)
+                .tracking(2.s)
+                .padding(.top, 4.s)
 
             Spacer()
         }
@@ -350,14 +350,14 @@ struct RootView: View {
     }
 
     private var actionsColumn: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: 12.s) {
             Spacer()
 
             Text("menu.subtitle")
                 .font(SalvageFont.label(10))
                 .foregroundStyle(.white.opacity(0.55))
-                .tracking(3)
-                .padding(.bottom, 6)
+                .tracking(3.s)
+                .padding(.bottom, 6.s)
 
             // "Continuar" — só aparece se tem run em andamento
             if mapStore.hasActiveRun {
@@ -426,23 +426,25 @@ struct RootView: View {
 
                 // Preview do ending path se já tem escolhas
                 if let prediction = progressStore.consequences.currentEndingPrediction {
-                    HStack(spacing: 6) {
+                    HStack(spacing: 6.s) {
                         Image(systemName: "sparkles")
-                            .font(.system(size: 9))
+                            .font(.system(size: 9.s))
                         Text("menu.current_path \(prediction.localizedName)")
                             .font(SalvageFont.label(9))
-                            .tracking(2)
+                            .tracking(2.s)
                     }
                     .foregroundStyle(SalvageColor.scarGold.opacity(0.8))
-                    .padding(.top, 8)
+                    .padding(.top, 8.s)
                 }
             }
 
             // Botão Duelos — SEMPRE clicável. A DuelsMenuView mostra o estado
             // real do auth (autenticado, aguardando, ou erro). Se ficasse
             // desabilitado, um erro de auth ficava invisível — pior UX.
+            #if !ITCH
             duelsButton()
-                .padding(.top, 8)
+                .padding(.top, 8.s)
+            #endif
 
             Spacer()
         }
@@ -457,17 +459,17 @@ struct RootView: View {
             AudioManager.shared.playSFX(AudioTrack.sfxClick)
             withAnimation { currentScreen = .duels }
         } label: {
-            HStack(spacing: 10) {
+            HStack(spacing: 10.s) {
                 Image(systemName: "person.2.crop.square.stack.fill")
-                    .font(.title3)
+                    .font(.system(size: 20.s))
                     .foregroundStyle(SalvageColor.bloodAccent)
-                    .frame(width: 24)
+                    .frame(width: 24.s)
 
-                VStack(alignment: .leading, spacing: 2) {
+                VStack(alignment: .leading, spacing: 2.s) {
                     Text("menu.duels.title")
                         .font(SalvageFont.header(13))
                         .foregroundStyle(SalvageColor.boneWhite)
-                        .tracking(2)
+                        .tracking(2.s)
 
                     Text(authed
                          ? LocalizedStringKey("menu.duels.subtitle")
@@ -481,18 +483,18 @@ struct RootView: View {
                 // Indicador visual do status sem impedir click
                 if !authed {
                     Image(systemName: "exclamationmark.circle")
-                        .font(.caption)
+                        .font(.system(size: 12.s))
                         .foregroundStyle(Color.orange.opacity(0.8))
                 }
             }
-            .padding(.horizontal, 14)
-            .padding(.vertical, 10)
+            .padding(.horizontal, 14.s)
+            .padding(.vertical, 10.s)
             .background(Color.black.opacity(0.5))
             .overlay(
-                RoundedRectangle(cornerRadius: 4)
-                    .stroke(SalvageColor.bloodAccent.opacity(0.4), lineWidth: 1)
+                RoundedRectangle(cornerRadius: 4.s)
+                    .stroke(SalvageColor.bloodAccent.opacity(0.4), lineWidth: 1.s)
             )
-            .clipShape(RoundedRectangle(cornerRadius: 4))
+            .clipShape(RoundedRectangle(cornerRadius: 4.s))
         }
         .buttonStyle(.plain)
     }
@@ -508,14 +510,14 @@ struct RootView: View {
         Button(action: action) {
             HStack {
                 Image(systemName: icon)
-                    .font(.title3)
+                    .font(.system(size: 20.s))
                     .foregroundStyle(
                         disabled ? .white.opacity(0.3)
                         : (prominent ? SalvageColor.energyOrange : .white.opacity(0.5))
                     )
-                    .frame(width: 24)
+                    .frame(width: 24.s)
 
-                VStack(alignment: .leading, spacing: 2) {
+                VStack(alignment: .leading, spacing: 2.s) {
                     Text(title)
                         .font(SalvageFont.header(15))
                         .foregroundStyle(
@@ -533,22 +535,22 @@ struct RootView: View {
                 // Cadeado no canto direito quando disabled
                 if disabled {
                     Image(systemName: "lock.fill")
-                        .font(.caption)
+                        .font(.system(size: 12.s))
                         .foregroundStyle(.white.opacity(0.3))
                 }
             }
-            .padding(.horizontal, 14)
-            .padding(.vertical, 10)
+            .padding(.horizontal, 14.s)
+            .padding(.vertical, 10.s)
             .background(Color.black.opacity(disabled ? 0.35 : (prominent ? 0.65 : 0.4)))
             .overlay(
-                RoundedRectangle(cornerRadius: 4)
+                RoundedRectangle(cornerRadius: 4.s)
                     .stroke(
                         disabled ? Color.white.opacity(0.12)
                         : (prominent ? SalvageColor.energyOrange.opacity(0.6) : Color.white.opacity(0.2)),
                         lineWidth: disabled ? 1 : (prominent ? 1.5 : 1)
                     )
             )
-            .clipShape(RoundedRectangle(cornerRadius: 4))
+            .clipShape(RoundedRectangle(cornerRadius: 4.s))
         }
         .buttonStyle(.plain)
         .disabled(disabled)
@@ -561,9 +563,9 @@ struct RootView: View {
             audio.isMuted.toggle()
         } label: {
             Image(systemName: audio.isMuted ? "speaker.slash.fill" : "speaker.wave.2.fill")
-                .font(.title3)
+                .font(.system(size: 20.s))
                 .foregroundStyle(.white.opacity(0.7))
-                .padding(8)
+                .padding(8.s)
                 .background(Color.black.opacity(0.5))
                 .clipShape(Circle())
         }
@@ -578,7 +580,7 @@ struct RootView: View {
             }
         } label: {
             Image(systemName: "chevron.left.circle.fill")
-                .font(.title2)
+                .font(.system(size: 22.s))
                 .foregroundStyle(.white, .black.opacity(0.7))
         }
         .padding()

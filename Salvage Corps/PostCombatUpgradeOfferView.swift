@@ -47,12 +47,12 @@ struct PostCombatUpgradeOfferView: View {
     }
 
     private var offerScreen: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 20.s) {
             Spacer()
 
             Text("post_combat.header")
                 .font(SalvageFont.label(11))
-                .tracking(6)
+                .tracking(6.s)
                 .foregroundStyle(SalvageColor.scarGold)
 
             Text("post_combat.title")
@@ -60,35 +60,35 @@ struct PostCombatUpgradeOfferView: View {
                 .foregroundStyle(SalvageColor.boneWhite)
                 .changeEffect(.shine.delay(0.3), value: appeared)
 
-            Rectangle().fill(SalvageColor.bloodAccent).frame(width: 60, height: 2)
+            Rectangle().fill(SalvageColor.bloodAccent).frame(width: 60.s, height: 2.s)
 
             Text("\u{201C}Você olha pra sua mão. Percebe algo sobre \(card.localizedName.uppercased()). Algo que poderia fazer diferente.\u{201D}")
                 .font(SalvageFont.flavor(14))
                 .italic()
                 .foregroundStyle(.white.opacity(0.75))
                 .multilineTextAlignment(.center)
-                .padding(.horizontal, 60)
-                .lineSpacing(4)
+                .padding(.horizontal, 60.s)
+                .lineSpacing(4.s)
 
             Spacer()
 
-            HStack(spacing: 16) {
+            HStack(spacing: 16.s) {
                 Button {
                     AudioManager.shared.playSFX(AudioTrack.sfxClick)
                     onSkip()
                 } label: {
                     Text("common.skip")
                         .font(SalvageFont.label(10))
-                        .tracking(2)
+                        .tracking(2.s)
                         .foregroundStyle(.white.opacity(0.55))
-                        .padding(.horizontal, 24)
-                        .padding(.vertical, 10)
+                        .padding(.horizontal, 24.s)
+                        .padding(.vertical, 10.s)
                         .background(Color.black.opacity(0.5))
                         .overlay(
-                            RoundedRectangle(cornerRadius: 4)
-                                .stroke(Color.white.opacity(0.2), lineWidth: 1)
+                            RoundedRectangle(cornerRadius: 4.s)
+                                .stroke(Color.white.opacity(0.2), lineWidth: 1.s)
                         )
-                        .clipShape(RoundedRectangle(cornerRadius: 4))
+                        .clipShape(RoundedRectangle(cornerRadius: 4.s))
                 }
                 .buttonStyle(.plain)
 
@@ -96,19 +96,19 @@ struct PostCombatUpgradeOfferView: View {
                     AudioManager.shared.playSFX(AudioTrack.sfxClick)
                     withAnimation { showingUpgrade = true }
                 } label: {
-                    HStack(spacing: 6) {
+                    HStack(spacing: 6.s) {
                         Image(systemName: "sparkles")
-                            .font(.caption)
+                            .font(.system(size: 12.s))
                         Text("post_combat.reflect_button")
                             .font(SalvageFont.label(11))
-                            .tracking(2)
+                            .tracking(2.s)
                     }
                     .foregroundStyle(SalvageColor.boneWhite)
-                    .padding(.horizontal, 24)
-                    .padding(.vertical, 10)
+                    .padding(.horizontal, 24.s)
+                    .padding(.vertical, 10.s)
                     .background(SalvageColor.scarGold.opacity(0.8))
-                    .clipShape(RoundedRectangle(cornerRadius: 4))
-                    .shadow(color: SalvageColor.scarGold.opacity(0.4), radius: 6)
+                    .clipShape(RoundedRectangle(cornerRadius: 4.s))
+                    .shadow(color: SalvageColor.scarGold.opacity(0.4), radius: 6.s)
                 }
                 .buttonStyle(.plain)
             }

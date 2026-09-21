@@ -7,10 +7,60 @@
 
 import SwiftUI
 
+/// Escala global da UI. O layout foi desenhado pra um iPhone em landscape
+/// (852×393 pt); no Mac a janela é bem maior, então tudo — fontes, cartas,
+/// espaçamentos — é multiplicado por `factor`. No iPhone o fator fica em 1.
+///
+/// É `@Observable`: qualquer `body` que lê `factor` (via `.s` ou
+/// `SalvageFont`) re-renderiza quando a janela muda de tamanho.
+@Observable
+final class UIScale {
+    static let shared = UIScale()
+
+    /// Tamanho de referência do design original (iPhone landscape).
+    static let designSize = CGSize(width: 852, height: 393)
+
+    private(set) var factor: CGFloat = 1
+
+    /// Tamanho atual da janela, pra layouts que precisam saber o espaço real.
+    private(set) var windowSize: CGSize = designSize
+
+    private init() {}
+
+    func update(for size: CGSize) {
+        guard size.width > 0, size.height > 0 else { return }
+        windowSize = size
+        #if targetEnvironment(macCatalyst)
+        let raw = min(size.width / Self.designSize.width,
+                      size.height / Self.designSize.height)
+        let newFactor = (min(max(raw, 1), 2.6) * 20).rounded() / 20
+        #else
+        let newFactor: CGFloat = 1
+        #endif
+        if newFactor != factor { factor = newFactor }
+    }
+}
+
+extension Int {
+    /// Valor em pontos escalado pela janela (`UIScale`).
+    var s: CGFloat { CGFloat(self) * UIScale.shared.factor }
+}
+
+extension Double {
+    /// Valor em pontos escalado pela janela (`UIScale`).
+    var s: CGFloat { CGFloat(self) * UIScale.shared.factor }
+}
+
+extension CGFloat {
+    /// Valor em pontos escalado pela janela (`UIScale`).
+    var s: CGFloat { self * UIScale.shared.factor }
+}
+
 /// Tipografia do jogo.
 ///
 /// Combinação temática:
-/// - **New York** (serif Apple nativa): títulos, headers, números — feel
+/// - **New York** (serif Apple nativa, via `design: .serif` — não existe
+///   por nome PostScript, `.custom("NewYork-…")` caía na fonte padrão): títulos, headers, números — feel
 ///   histórico refinado, como livro antigo ou documento oficial
 /// - **American Typewriter**: corpo, cartas, flavor — feel de diário de
 ///   campo, telegrama, memorando militar
@@ -23,22 +73,22 @@ enum SalvageFont {
 
     /// Título gigante (tela de menu, fim de combate)
     static func titleXL(_ size: CGFloat = 44) -> Font {
-        .custom("NewYork-Bold", size: size, relativeTo: .largeTitle)
+        .system(size: size.s, weight: .bold, design: .serif)
     }
 
     /// Título de seção (nome de encontro, VITÓRIA/DERROTA)
     static func title(_ size: CGFloat = 22) -> Font {
-        .custom("NewYork-Semibold", size: size, relativeTo: .title2)
+        .system(size: size.s, weight: .semibold, design: .serif)
     }
 
     /// Header pequeno (nome de carta, nome de inimigo)
     static func header(_ size: CGFloat = 13) -> Font {
-        .custom("NewYork-Semibold", size: size, relativeTo: .headline)
+        .system(size: size.s, weight: .semibold, design: .serif)
     }
 
     /// Números importantes (HP, custos, dano) — monospaced digit
     static func number(_ size: CGFloat = 13) -> Font {
-        .custom("NewYork-Bold", size: size, relativeTo: .body)
+        .system(size: size.s, weight: .bold, design: .serif)
             .monospacedDigit()
     }
 
@@ -46,28 +96,28 @@ enum SalvageFont {
 
     /// Corpo geral (subtítulo, descrição de encontro, efeito de carta)
     static func body(_ size: CGFloat = 12) -> Font {
-        .custom("AmericanTypewriter", size: size, relativeTo: .body)
+        .custom("AmericanTypewriter", size: size.s, relativeTo: .body)
     }
 
     /// Corpo bold (labels de recurso "HP:", "MORAL:")
     static func bodyBold(_ size: CGFloat = 11) -> Font {
-        .custom("AmericanTypewriter-Bold", size: size, relativeTo: .body)
+        .custom("AmericanTypewriter-Bold", size: size.s, relativeTo: .body)
     }
 
     /// Flavor text (quote do menu, flavor de carta, diálogos)
     /// Italic feita via .italic() no Text porque AmericanTypewriter não tem italic PostScript
     static func flavor(_ size: CGFloat = 12) -> Font {
-        .custom("AmericanTypewriter-Light", size: size, relativeTo: .caption)
+        .custom("AmericanTypewriter-Light", size: size.s, relativeTo: .caption)
     }
 
     /// Uppercase label pequeno (categoria, tipo, tracking)
     static func label(_ size: CGFloat = 10) -> Font {
-        .custom("AmericanTypewriter-Bold", size: size, relativeTo: .caption)
+        .custom("AmericanTypewriter-Bold", size: size.s, relativeTo: .caption)
     }
 
     /// Legendinha (contadores de pilha, texto secundário)
     static func caption(_ size: CGFloat = 10) -> Font {
-        .custom("AmericanTypewriter", size: size, relativeTo: .caption2)
+        .custom("AmericanTypewriter", size: size.s, relativeTo: .caption2)
             .monospacedDigit()
     }
 }

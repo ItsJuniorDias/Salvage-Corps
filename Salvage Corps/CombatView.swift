@@ -29,6 +29,7 @@ struct CombatView: View {
 
     @State private var showAbandonConfirm: Bool = false
     @State private var selectedCardIndex: Int? = nil
+    @State private var hoveredCardIndex: Int? = nil
 
     @State private var lastPlayerHPDelta: Int = 0
     @State private var lastMoralDelta: Int = 0
@@ -36,7 +37,7 @@ struct CombatView: View {
     @State private var lastDamageByEnemy: [UUID: Int] = [:]
 
     @State private var shakeTriggerByCard: [UUID: Int] = [:]
-    @State private var screenShakeOffset: CGFloat = 0
+    @State private var screenShakeOffset: CGFloat = 0.s
 
     @State private var showDamageFlash: Bool = false
     @State private var showMoralFlash: Bool = false
@@ -54,22 +55,28 @@ struct CombatView: View {
         ZStack {
             backgroundLayer
 
-            VStack(spacing: 8) {
-                // TOP ZONE: enemies (left) + player stats + end turn (right)
-                topZone
+            if Self.isMacLayout {
+                macLayout
+                    .offset(x: screenShakeOffset)
+            } else {
+                VStack(spacing: 8.s) {
+                    // TOP ZONE: enemies (left) + player stats + end turn (right)
+                    topZone
 
-                Spacer(minLength: 0)
+                    Spacer(minLength: 0.s)
 
-                // BOTTOM ZONE: hand cards + info
-                handSection
+                    // BOTTOM ZONE: hand cards + info
+                    handSection
 
-                infoBar
+                    infoBar
+                }
+                .padding(.horizontal, 20.s)
+                .padding(.top, 28.s)
+                .padding(.bottom, 6.s)
+                .offset(x: screenShakeOffset)
             }
-            .padding(.horizontal, 20)
-            .padding(.top, 28)
-            .padding(.bottom, 6)
-            .offset(x: screenShakeOffset)
         }
+        .background { keyboardShortcuts }
         .overlay { damageFlashOverlay }
         .overlay { moralFlashOverlay }
         .overlay { turnBannerOverlay }
@@ -128,15 +135,86 @@ struct CombatView: View {
             .overlay(Color.black.opacity(0.55))
     }
 
+    // MARK: - Mac layout
+
+    /// No Mac a janela é bem mais alta (proporcionalmente) que um iPhone em
+    /// landscape: inimigos vão pro centro da tela e ocupam o espaço vertical
+    /// livre; a mão fica centralizada embaixo com cartas maiores.
+    static var isMacLayout: Bool {
+        #if targetEnvironment(macCatalyst)
+        true
+        #else
+        false
+        #endif
+    }
+
+    /// Multiplicador do tamanho das cartas na mão (base: 112×152 do iPhone).
+    private var cardScale: CGFloat { Self.isMacLayout ? 1.15 : 1 }
+
+    /// Medida de carta: valor base × cardScale × escala da janela.
+    private func c(_ value: CGFloat) -> CGFloat { (value * cardScale).s }
+
+    private var macLayout: some View {
+        VStack(spacing: 8.s) {
+            HStack(alignment: .top, spacing: 20.s) {
+                GeometryReader { geo in
+                    // topo alinhado com o painel do jogador
+                    enemiesSection(artHeight: enemyArtHeight(fitting: geo.size))
+                        .frame(width: geo.size.width, height: geo.size.height, alignment: .top)
+                }
+                playerPanel
+                    .frame(width: 330.s)
+            }
+            .frame(maxHeight: .infinity)
+
+            handSection
+            infoBar
+        }
+        .padding(.leading, 56.s)  // espaço pro botão de voltar
+        .padding(.trailing, 28.s)
+        .padding(.top, 20.s)
+        .padding(.bottom, 10.s)
+    }
+
+    /// Maior altura de arte que faz todos os inimigos vivos caberem na área,
+    /// contando nome/HP/status embaixo e o espaçamento entre eles.
+    private func enemyArtHeight(fitting size: CGSize) -> CGFloat {
+        let count = CGFloat(max(store.state.enemies.filter(\.isAlive).count, 1))
+        let textHeight: CGFloat = 80.s
+        let byHeight = size.height - textHeight
+        // largura de cada inimigo = 82/108 da arte; espaço entre eles = 0.12 da arte
+        let byWidth = size.width / (count * 82 / 108 + (count - 1) * 0.12)
+        return max(min(byHeight, byWidth, 340.s), 60.s)
+    }
+
+    // MARK: - Keyboard (Mac)
+
+    /// Atalhos: 1–9 jogam/selecionam a carta, Espaço encerra o turno,
+    /// Esc cancela a seleção. Botões invisíveis só pra registrar os atalhos.
+    private var keyboardShortcuts: some View {
+        ZStack {
+            ForEach(0..<min(store.state.hand.count, 9), id: \.self) { i in
+                Button("") { handleCardTap(index: i, viaKeyboard: true) }
+                    .keyboardShortcut(KeyEquivalent(Character("\(i + 1)")), modifiers: [])
+            }
+            Button("") { endTurn() }
+                .keyboardShortcut(.space, modifiers: [])
+            Button("") { selectedCardIndex = nil }
+                .keyboardShortcut(.escape, modifiers: [])
+        }
+        .opacity(0)
+        .accessibilityHidden(true)
+    }
+
     // MARK: - Top zone (enemies + stats + END TURN)
 
     private var topZone: some View {
-        HStack(alignment: .top, spacing: 20) {
+        HStack(alignment: .top, spacing: 20.s) {
             enemiesSection
                 .frame(maxWidth: .infinity, alignment: .leading)
 
             playerPanel
-                .frame(width: 360)
+                .frame(width: 360.s)
         }
     }
 
@@ -150,7 +228,7 @@ struct CombatView: View {
             showAbandonConfirm = true
         } label: {
             Image(systemName: "chevron.left.circle.fill")
-                .font(.title2)
+                .font(.system(size: 22.s))
                 .foregroundStyle(.white, .black.opacity(0.7))
         }
         .padding()
@@ -159,10 +237,14 @@ struct CombatView: View {
     // MARK: - Enemies
 
     private var enemiesSection: some View {
-        HStack(alignment: .top, spacing: 10) {
+        enemiesSection(artHeight: 108.s)
+    }
+
+    private func enemiesSection(artHeight: CGFloat) -> some View {
+        HStack(alignment: .top, spacing: artHeight * 0.12) {
             ForEach(store.state.enemies) { enemy in
                 if enemy.isAlive {
-                    enemyView(enemy)
+                    enemyView(enemy, artHeight: artHeight)
                         .transition(.movingParts.vanish(.red.opacity(0.7)))
                 }
             }
@@ -170,24 +252,29 @@ struct CombatView: View {
         .animation(.spring(response: 0.5), value: store.state.enemies.map(\.isAlive))
     }
 
-    private func enemyView(_ enemy: Enemy) -> some View {
+    private func enemyView(_ enemy: Enemy, artHeight: CGFloat) -> some View {
+        // k: quanto o inimigo está maior que o tamanho base (76×108)
+        let k = artHeight / 108.s
+        let artWidth = 76.s * k
+        // Texto e selos crescem menos que a arte, pra não virar cartaz.
+        let kt = min(k, 1.6)
         let isTargetable = selectedCardIndex.map { idx in
             let card = store.state.hand[idx]
             return card.targeting == .singleEnemy && enemy.isAlive
         } ?? false
 
-        return VStack(spacing: 2) {
+        return VStack(spacing: 2.s * kt) {
             ZStack {
                 if let art = enemy.artFilename {
                     Image(art)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(width: 76, height: 108)
+                        .frame(width: artWidth, height: artHeight)
                         .clipped()
                 } else {
                     Rectangle()
                         .fill(Color.red.opacity(0.3))
-                        .frame(width: 76, height: 108)
+                        .frame(width: artWidth, height: artHeight)
                 }
 
                 VStack {
@@ -196,70 +283,70 @@ struct CombatView: View {
                         if enemy.isIntentHidden {
                             // Fog of War: intent oculta — mostra ? em roxo
                             Text("?")
-                                .font(SalvageFont.number(11))
+                                .font(SalvageFont.number(11 * kt))
                                 .foregroundStyle(.white)
-                                .frame(width: 20, height: 20)
+                                .frame(width: 20.s * kt, height: 20.s * kt)
                                 .background(SalvageColor.moralPurple.opacity(0.85))
-                                .clipShape(RoundedRectangle(cornerRadius: 3))
+                                .clipShape(RoundedRectangle(cornerRadius: 3.s * kt))
                                 .overlay(
-                                    RoundedRectangle(cornerRadius: 3)
-                                        .stroke(Color.white.opacity(0.4), lineWidth: 1)
+                                    RoundedRectangle(cornerRadius: 3.s * kt)
+                                        .stroke(Color.white.opacity(0.4), lineWidth: 1.s * kt)
                                 )
                         } else {
                             Text(intentText(for: enemy.currentIntent))
-                                .font(SalvageFont.label(8))
+                                .font(SalvageFont.label(8 * kt))
                                 .foregroundStyle(.white)
-                                .padding(.horizontal, 4)
-                                .padding(.vertical, 2)
+                                .padding(.horizontal, 4.s * kt)
+                                .padding(.vertical, 2.s * kt)
                                 .background(SalvageColor.energyOrange.opacity(0.95))
-                                .clipShape(RoundedRectangle(cornerRadius: 3))
+                                .clipShape(RoundedRectangle(cornerRadius: 3.s * kt))
                                 .changeEffect(
-                                    .jump(height: 6),
+                                    .jump(height: 6.s * kt),
                                     value: intentHash(enemy.currentIntent)
                                 )
                         }
                     }
                     Spacer()
                 }
-                .padding(3)
+                .padding(3.s * kt)
             }
-            .frame(width: 76, height: 108)
+            .frame(width: artWidth, height: artHeight)
             .overlay(
-                RoundedRectangle(cornerRadius: 4)
+                RoundedRectangle(cornerRadius: 4.s * kt)
                     .stroke(isTargetable ? Color.green : Color.black.opacity(0.6),
                             lineWidth: isTargetable ? 2.5 : 1)
             )
-            .clipShape(RoundedRectangle(cornerRadius: 4))
+            .clipShape(RoundedRectangle(cornerRadius: 4.s * kt))
             .changeEffect(.shake(rate: .fast), value: enemy.hp)
 
             Text(enemy.localizedName)
-                .font(SalvageFont.header(9))
+                .font(SalvageFont.header(9 * kt))
                 .foregroundStyle(SalvageColor.boneWhite)
                 .lineLimit(1)
                 .minimumScaleFactor(0.7)
-                .frame(width: 78)
+                .frame(width: 78.s * k)
 
             Text("\(enemy.hp)/\(enemy.maxHP)")
-                .font(SalvageFont.number(9))
+                .font(SalvageFont.number(9 * kt))
                 .foregroundStyle(SalvageColor.hpRed)
                 .changeEffect(
                     .rise(origin: .center) {
                         Text("-\(lastDamageByEnemy[enemy.id] ?? 0)")
-                            .font(SalvageFont.number(20))
+                            .font(SalvageFont.number(20 * kt))
                             .foregroundStyle(SalvageColor.hpRed.gradient)
-                            .shadow(color: .black.opacity(0.8), radius: 2)
+                            .shadow(color: .black.opacity(0.8), radius: 2.s * kt)
                     },
                     value: enemy.hp
                 )
 
             if !enemy.statusEffects.isEmpty {
-                HStack(spacing: 2) {
+                HStack(spacing: 2.s * kt) {
                     ForEach(Array(enemy.statusEffects.keys), id: \.self) { status in
                         Text("\(statusIcon(status))\(enemy.statusEffects[status] ?? 0)")
-                            .font(SalvageFont.label(7))
+                            .font(SalvageFont.label(7 * kt))
                             .foregroundStyle(.white)
-                            .padding(.horizontal, 3)
-                            .padding(.vertical, 1)
+                            .padding(.horizontal, 3.s * kt)
+                            .padding(.vertical, 1.s * kt)
                             .background(statusColor(status))
                             .clipShape(Capsule())
                             .transition(.movingParts.pop(statusColor(status)))
@@ -267,7 +354,8 @@ struct CombatView: View {
                 }
             }
         }
-        .frame(width: 82)
+        .frame(width: 82.s * k)
+        .contentShape(Rectangle())
         .onTapGesture {
             if isTargetable, let cardIdx = selectedCardIndex {
                 cardPlayHaptic += 1
@@ -280,21 +368,21 @@ struct CombatView: View {
     // MARK: - Player panel (stats + END TURN button)
 
     private var playerPanel: some View {
-        VStack(spacing: 6) {
+        VStack(spacing: 6.s) {
             // Row 1: retrato + barras
-            HStack(spacing: 8) {
+            HStack(spacing: 8.s) {
                 Image("edmund")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 52, height: 74)
-                    .clipShape(RoundedRectangle(cornerRadius: 4))
+                    .frame(width: 52.s, height: 74.s)
+                    .clipShape(RoundedRectangle(cornerRadius: 4.s))
                     .overlay(
-                        RoundedRectangle(cornerRadius: 4)
-                            .stroke(SalvageColor.boneWhite.opacity(0.4), lineWidth: 1)
+                        RoundedRectangle(cornerRadius: 4.s)
+                            .stroke(SalvageColor.boneWhite.opacity(0.4), lineWidth: 1.s)
                     )
                     .changeEffect(.shake(rate: .fast), value: store.state.player.hp)
 
-                VStack(alignment: .leading, spacing: 3) {
+                VStack(alignment: .leading, spacing: 3.s) {
                     statBar(
                         label: "HP",
                         value: store.state.player.hp,
@@ -315,7 +403,7 @@ struct CombatView: View {
             }
 
             // Row 2: recursos + END TURN
-            HStack(spacing: 10) {
+            HStack(spacing: 10.s) {
                 Label("\(store.state.player.block)", systemImage: "shield.fill")
                     .font(SalvageFont.number(11))
                     .foregroundStyle(SalvageColor.blockBlue)
@@ -350,26 +438,23 @@ struct CombatView: View {
                 Text("combat.turn_short \(store.state.turn)")
                     .font(SalvageFont.label(10))
                     .foregroundStyle(.white.opacity(0.65))
-                    .tracking(1)
+                    .tracking(1.s)
 
                 Spacer()
 
                 // BOTÃO PRINCIPAL — bem visível
                 Button {
-                    selectedCardIndex = nil
-                    cardPlayHaptic += 1
-                    AudioManager.shared.playSFX(AudioTrack.sfxClick)
-                    store.dispatch(.endTurn)
+                    endTurn()
                 } label: {
-                    HStack(spacing: 4) {
+                    HStack(spacing: 4.s) {
                         Text("combat.end_turn")
                             .font(SalvageFont.label(10))
-                            .tracking(1.5)
+                            .tracking(1.5.s)
                         Image(systemName: "arrow.right.circle.fill")
-                            .font(.caption)
+                            .font(.system(size: 12.s))
                     }
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 6)
+                    .padding(.horizontal, 10.s)
+                    .padding(.vertical, 6.s)
                 }
                 .buttonStyle(.borderedProminent)
                 .tint(SalvageColor.energyOrange)
@@ -383,9 +468,9 @@ struct CombatView: View {
                 )
             }
         }
-        .padding(10)
+        .padding(10.s)
         .background(Color.black.opacity(0.7))
-        .clipShape(RoundedRectangle(cornerRadius: 6))
+        .clipShape(RoundedRectangle(cornerRadius: 6.s))
     }
 
     private func statBar(
@@ -396,11 +481,11 @@ struct CombatView: View {
         floatingText: String,
         floatingColor: Color
     ) -> some View {
-        HStack(spacing: 5) {
+        HStack(spacing: 5.s) {
             Text("\(label):")
                 .font(SalvageFont.bodyBold(9))
                 .foregroundStyle(SalvageColor.boneWhite)
-                .frame(width: 42, alignment: .leading)
+                .frame(width: 42.s, alignment: .leading)
             GeometryReader { geo in
                 ZStack(alignment: .leading) {
                     Rectangle()
@@ -411,18 +496,18 @@ struct CombatView: View {
                         .animation(.spring(response: 0.4), value: value)
                 }
             }
-            .frame(height: 9)
-            .cornerRadius(2)
+            .frame(height: 9.s)
+            .cornerRadius(2.s)
             Text("\(value)/\(max)")
                 .font(SalvageFont.number(9))
                 .foregroundStyle(SalvageColor.boneWhite)
-                .frame(width: 44, alignment: .trailing)
+                .frame(width: 44.s, alignment: .trailing)
                 .changeEffect(
                     .rise(origin: .top) {
                         Text(floatingText)
                             .font(SalvageFont.number(18))
                             .foregroundStyle(floatingColor.gradient)
-                            .shadow(color: .black.opacity(0.8), radius: 2)
+                            .shadow(color: .black.opacity(0.8), radius: 2.s)
                     },
                     value: value
                 )
@@ -432,8 +517,9 @@ struct CombatView: View {
     // MARK: - Hand
 
     private var handSection: some View {
+        GeometryReader { geo in
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 8) {
+            HStack(spacing: c(8)) {
                 ForEach(Array(store.state.hand.enumerated()), id: \.element.id) { index, card in
                     cardView(card: card, index: index)
                         .transition(.asymmetric(
@@ -443,81 +529,84 @@ struct CombatView: View {
                         ))
                 }
             }
-            .padding(.horizontal, 4)
-            .padding(.vertical, 12)  // folga pro scaleEffect(1.06) + shadow radius 10
+            .padding(.horizontal, c(4))
+            .padding(.vertical, c(12))  // folga pro scaleEffect(1.06) + shadow radius 10
             .animation(.spring(response: 0.4, dampingFraction: 0.7), value: store.state.hand.map(\.id))
+            .frame(minWidth: geo.size.width)
         }
-        .frame(height: 184)  // 152 base + 12 top + 12 bottom + folga pra scale/shadow
+        }
+        .frame(height: c(184))  // 152 base + 12 top + 12 bottom + folga pra scale/shadow
     }
 
     private func cardView(card: Card, index: Int) -> some View {
         let canAfford = store.state.player.energy >= card.cost
         let isSelected = selectedCardIndex == index
+        let isHovered = hoveredCardIndex == index && !isSelected
 
-        return VStack(spacing: 0) {
-            HStack(spacing: 4) {
+        return VStack(spacing: c(0)) {
+            HStack(spacing: c(4)) {
                 Text("\(card.cost)")
-                    .font(SalvageFont.number(12))
+                    .font(SalvageFont.number(12 * cardScale))
                     .foregroundStyle(.white)
-                    .frame(width: 20, height: 20)
+                    .frame(width: c(20), height: c(20))
                     .background(Circle().fill(canAfford ? SalvageColor.energyOrange : Color.gray))
                 Text(card.localizedName)
-                    .font(SalvageFont.header(10))
+                    .font(SalvageFont.header(10 * cardScale))
                     .foregroundStyle(SalvageColor.boneWhite)
                     .lineLimit(2)
                     .minimumScaleFactor(0.7)
-                Spacer(minLength: 0)
+                Spacer(minLength: c(0))
             }
-            .padding(5)
+            .padding(c(5))
             .background(Color.black.opacity(0.85))
 
             if let art = card.artFilename {
                 Image(art)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 112, height: 80)
+                    .frame(width: c(112), height: c(80))
                     .clipped()
             } else {
                 Rectangle()
                     .fill(Color.gray.opacity(0.3))
-                    .frame(width: 112, height: 80)
+                    .frame(width: c(112), height: c(80))
             }
 
-            VStack(alignment: .leading, spacing: 1) {
+            VStack(alignment: .leading, spacing: c(1)) {
                 ForEach(card.effects.indices, id: \.self) { i in
                     Text(effectText(card.effects[i]))
-                        .font(SalvageFont.body(9))
+                        .font(SalvageFont.body(9 * cardScale))
                         .foregroundStyle(SalvageColor.boneWhite)
                         .lineLimit(1)
                         .minimumScaleFactor(0.7)
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(5)
+            .padding(c(5))
             .background(Color(white: 0.13))
         }
-        .frame(width: 112, height: 152)
+        .frame(width: c(112), height: c(152))
         .overlay(alignment: .topTrailing) {
             // Indicador visual de cicatriz
             if !card.scars.isEmpty {
                 Image(systemName: "sparkles")
-                    .font(.system(size: 11, weight: .bold))
+                    .font(.system(size: c(11), weight: .bold))
                     .foregroundStyle(SalvageColor.scarGold)
-                    .padding(4)
+                    .padding(c(4))
                     .background(Color.black.opacity(0.7))
                     .clipShape(Circle())
-                    .offset(x: 6, y: -6)
-                    .shadow(color: SalvageColor.scarGold.opacity(0.6), radius: 4)
+                    .offset(x: c(6), y: -c(6))
+                    .shadow(color: SalvageColor.scarGold.opacity(0.6), radius: c(4))
             }
         }
         .overlay(
-            RoundedRectangle(cornerRadius: 4)
+            RoundedRectangle(cornerRadius: c(4))
                 .stroke(
                     borderColor(isSelected: isSelected, hasScars: !card.scars.isEmpty),
                     lineWidth: borderWidth(isSelected: isSelected, hasScars: !card.scars.isEmpty)
                 )
         )
-        .clipShape(RoundedRectangle(cornerRadius: 4))
+        .clipShape(RoundedRectangle(cornerRadius: c(4)))
         .opacity(canAfford ? 1.0 : 0.45)
         .scaleEffect(isSelected ? 1.06 : 1.0)
         .shadow(
@@ -530,30 +619,67 @@ struct CombatView: View {
             .shake(rate: .fast),
             value: shakeTriggerByCard[card.id] ?? 0
         )
-        .onTapGesture {
-            guard canAfford else {
-                shakeTriggerByCard[card.id, default: 0] += 1
-                cardPlayHaptic += 1
-                return
-            }
-            AudioManager.shared.playSFX(AudioTrack.sfxCardPlay)
-            switch card.targeting {
-            case .none:
-                cardPlayHaptic += 1
-                store.dispatch(.playCard(handIndex: index))
-                selectedCardIndex = nil
-            case .singleEnemy:
-                selectedCardIndex = (selectedCardIndex == index) ? nil : index
-            case .cardInHand:
-                let others = store.state.hand.indices.filter { $0 != index }
-                if let target = others.first {
-                    cardPlayHaptic += 1
-                    store.dispatch(.playCard(handIndex: index, targetHandIndex: target))
-                }
-                selectedCardIndex = nil
+        .offset(y: isHovered ? -c(8) : 0)
+        .onHover { hovering in
+            if hovering {
+                hoveredCardIndex = index
+            } else if hoveredCardIndex == index {
+                hoveredCardIndex = nil
             }
         }
+        .onTapGesture { handleCardTap(index: index) }
         .animation(.easeInOut(duration: 0.15), value: isSelected)
+        .animation(.easeOut(duration: 0.12), value: isHovered)
+    }
+
+    // MARK: - Card actions
+
+    /// Clique (ou tecla 1–9) numa carta da mão.
+    private func handleCardTap(index: Int, viaKeyboard: Bool = false) {
+        guard store.state.hand.indices.contains(index), !store.state.isCombatOver else { return }
+        let card = store.state.hand[index]
+        let canAfford = store.state.player.energy >= card.cost
+        guard canAfford else {
+            shakeTriggerByCard[card.id, default: 0] += 1
+            cardPlayHaptic += 1
+            return
+        }
+        AudioManager.shared.playSFX(AudioTrack.sfxCardPlay)
+        switch card.targeting {
+        case .none:
+            cardPlayHaptic += 1
+            store.dispatch(.playCard(handIndex: index))
+            selectedCardIndex = nil
+        case .singleEnemy:
+            if viaKeyboard, autoTargetIfPossible(index: index) { return }
+            selectedCardIndex = (selectedCardIndex == index) ? nil : index
+        case .cardInHand:
+            let others = store.state.hand.indices.filter { $0 != index }
+            if let target = others.first {
+                cardPlayHaptic += 1
+                store.dispatch(.playCard(handIndex: index, targetHandIndex: target))
+            }
+            selectedCardIndex = nil
+        }
+    }
+
+    /// Pelo teclado não dá pra clicar no alvo: com um único inimigo vivo,
+    /// a carta de alvo único já é jogada nele.
+    private func autoTargetIfPossible(index: Int) -> Bool {
+        let alive = store.state.enemies.filter(\.isAlive)
+        guard alive.count == 1, let target = alive.first else { return false }
+        cardPlayHaptic += 1
+        store.dispatch(.playCard(handIndex: index, targetEnemyID: target.id))
+        selectedCardIndex = nil
+        return true
+    }
+
+    private func endTurn() {
+        guard !store.state.isCombatOver else { return }
+        selectedCardIndex = nil
+        cardPlayHaptic += 1
+        AudioManager.shared.playSFX(AudioTrack.sfxClick)
+        store.dispatch(.endTurn)
     }
 
     // MARK: - Card border helpers
@@ -589,7 +715,7 @@ struct CombatView: View {
                 .foregroundStyle(.white.opacity(0.55))
             Spacer()
         }
-        .tracking(1)
+        .tracking(1.s)
     }
 
     // MARK: - Overlays
@@ -621,13 +747,13 @@ struct CombatView: View {
                 Spacer()
                 Text(text)
                     .font(SalvageFont.titleXL(28))
-                    .tracking(6)
+                    .tracking(6.s)
                     .foregroundStyle(SalvageColor.boneWhite)
-                    .padding(.horizontal, 36)
-                    .padding(.vertical, 14)
+                    .padding(.horizontal, 36.s)
+                    .padding(.vertical, 14.s)
                     .background(.ultraThinMaterial)
                     .clipShape(Capsule())
-                    .shadow(radius: 10)
+                    .shadow(radius: 10.s)
                     .changeEffect(.shine, value: text)
                 Spacer()
             }
@@ -639,10 +765,10 @@ struct CombatView: View {
     // MARK: - Combat end
 
     private var combatEndOverlay: some View {
-        VStack(spacing: 14) {
+        VStack(spacing: 14.s) {
             Text(endTitle)
                 .font(SalvageFont.titleXL(42))
-                .tracking(6)
+                .tracking(6.s)
                 .foregroundStyle(SalvageColor.boneWhite)
                 .changeEffect(
                     .shine.delay(0.3),
@@ -651,7 +777,7 @@ struct CombatView: View {
 
             Rectangle()
                 .fill(SalvageColor.bloodAccent)
-                .frame(width: 60, height: 2)
+                .frame(width: 60.s, height: 2.s)
 
             Text(endSubtitle)
                 .font(SalvageFont.flavor(15))
@@ -662,12 +788,12 @@ struct CombatView: View {
             Text("combat.turns_count \(store.state.turn)")
                 .font(SalvageFont.label(10))
                 .foregroundStyle(.white.opacity(0.5))
-                .tracking(3)
-                .padding(.top, 6)
+                .tracking(3.s)
+                .padding(.top, 6.s)
         }
-        .padding(36)
+        .padding(36.s)
         .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 8))
+        .clipShape(RoundedRectangle(cornerRadius: 8.s))
         .padding()
     }
 
@@ -826,17 +952,17 @@ struct CombatView: View {
             ZStack {
                 Color.black.opacity(0.55).ignoresSafeArea()
 
-                VStack(spacing: 14) {
+                VStack(spacing: 14.s) {
                     Text(title)
                         .font(SalvageFont.titleXL(46))
-                        .tracking(8)
+                        .tracking(8.s)
                         .foregroundStyle(SalvageColor.bloodAccent)
-                        .shadow(color: SalvageColor.bloodAccent.opacity(0.7), radius: 12)
+                        .shadow(color: SalvageColor.bloodAccent.opacity(0.7), radius: 12.s)
                         .changeEffect(.shine, value: title)
 
                     Rectangle()
                         .fill(SalvageColor.bloodAccent)
-                        .frame(width: 80, height: 2)
+                        .frame(width: 80.s, height: 2.s)
 
                     if let intro = bossPhaseBannerIntro {
                         Text(intro)
@@ -844,9 +970,9 @@ struct CombatView: View {
                             .italic()
                             .foregroundStyle(SalvageColor.boneWhite.opacity(0.85))
                             .multilineTextAlignment(.center)
-                            .lineSpacing(4)
-                            .padding(.horizontal, 60)
-                            .frame(maxWidth: 640)
+                            .lineSpacing(4.s)
+                            .padding(.horizontal, 60.s)
+                            .frame(maxWidth: 640.s)
                     }
                 }
             }

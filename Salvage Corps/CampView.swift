@@ -133,23 +133,23 @@ struct CampView: View {
     // MARK: - Main layout
 
     private var campMainLayout: some View {
-        HStack(alignment: .center, spacing: 32) {
+        HStack(alignment: .center, spacing: 32.s) {
             leftColumn.frame(maxWidth: .infinity)
-            rightColumn.frame(width: 320)
+            rightColumn.frame(width: 320.s)
         }
-        .padding(.horizontal, 40)
-        .padding(.vertical, 24)
+        .padding(.horizontal, 40.s)
+        .padding(.vertical, 24.s)
     }
 
     // MARK: - Left column: narrative + player state
 
     private var leftColumn: some View {
-        VStack(alignment: .leading, spacing: 14) {
+        VStack(alignment: .leading, spacing: 14.s) {
             Spacer()
 
             Text("camp.title")
                 .font(SalvageFont.label(11))
-                .tracking(6)
+                .tracking(6.s)
                 .foregroundStyle(SalvageColor.energyOrange)
 
             Text("camp.subtitle")
@@ -159,15 +159,15 @@ struct CampView: View {
 
             Rectangle()
                 .fill(SalvageColor.bloodAccent)
-                .frame(width: 60, height: 2)
-                .padding(.vertical, 4)
+                .frame(width: 60.s, height: 2.s)
+                .padding(.vertical, 4.s)
 
             Text("camp.flavor")
                 .font(SalvageFont.flavor(13))
                 .italic()
                 .foregroundStyle(.white.opacity(0.75))
-                .lineSpacing(4)
-                .padding(.trailing, 20)
+                .lineSpacing(4.s)
+                .padding(.trailing, 20.s)
 
             Spacer()
 
@@ -176,10 +176,10 @@ struct CampView: View {
     }
 
     private var playerStateBox: some View {
-        VStack(alignment: .leading, spacing: 6) {
+        VStack(alignment: .leading, spacing: 6.s) {
             Text("camp.your_state")
                 .font(SalvageFont.label(9))
-                .tracking(3)
+                .tracking(3.s)
                 .foregroundStyle(.white.opacity(0.55))
 
             statBar(
@@ -198,12 +198,12 @@ struct CampView: View {
                 healFloat: lastHealMoral
             )
         }
-        .padding(12)
+        .padding(12.s)
         .background(Color.black.opacity(0.55))
-        .clipShape(RoundedRectangle(cornerRadius: 4))
+        .clipShape(RoundedRectangle(cornerRadius: 4.s))
         .overlay(
-            RoundedRectangle(cornerRadius: 4)
-                .stroke(Color.white.opacity(0.15), lineWidth: 1)
+            RoundedRectangle(cornerRadius: 4.s)
+                .stroke(Color.white.opacity(0.15), lineWidth: 1.s)
         )
     }
 
@@ -214,11 +214,11 @@ struct CampView: View {
         color: Color,
         healFloat: Int
     ) -> some View {
-        VStack(alignment: .leading, spacing: 3) {
+        VStack(alignment: .leading, spacing: 3.s) {
             HStack {
                 Text(label)
                     .font(SalvageFont.label(9))
-                    .tracking(2)
+                    .tracking(2.s)
                     .foregroundStyle(SalvageColor.boneWhite)
                 Spacer()
                 Text("\(current)/\(max)")
@@ -244,22 +244,22 @@ struct CampView: View {
                         .animation(.spring(response: 0.6), value: current)
                 }
             }
-            .frame(height: 8)
-            .clipShape(RoundedRectangle(cornerRadius: 2))
+            .frame(height: 8.s)
+            .clipShape(RoundedRectangle(cornerRadius: 2.s))
         }
     }
 
     // MARK: - Right column: actions
 
     private var rightColumn: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: 12.s) {
             Spacer()
 
             Text("camp.available_actions")
                 .font(SalvageFont.label(10))
-                .tracking(3)
+                .tracking(3.s)
                 .foregroundStyle(.white.opacity(0.55))
-                .padding(.bottom, 4)
+                .padding(.bottom, 4.s)
 
             actionButton(
                 icon: "bed.double.fill",
@@ -301,15 +301,15 @@ struct CampView: View {
                 AudioManager.shared.playSFX(AudioTrack.sfxClick)
                 onLeave()
             } label: {
-                HStack(spacing: 6) {
+                HStack(spacing: 6.s) {
                     Text("camp.move_on")
                         .font(SalvageFont.label(11))
-                        .tracking(2)
+                        .tracking(2.s)
                     Image(systemName: "arrow.right")
-                        .font(.caption)
+                        .font(.system(size: 12.s))
                 }
-                .padding(.horizontal, 18)
-                .padding(.vertical, 10)
+                .padding(.horizontal, 18.s)
+                .padding(.vertical, 10.s)
             }
             .buttonStyle(.borderedProminent)
             .tint(SalvageColor.energyOrange)
@@ -332,13 +332,13 @@ struct CampView: View {
         action: @escaping () -> Void
     ) -> some View {
         Button(action: action) {
-            HStack(spacing: 12) {
+            HStack(spacing: 12.s) {
                 Image(systemName: icon)
-                    .font(.title3)
+                    .font(.system(size: 20.s))
                     .foregroundStyle(enabled ? SalvageColor.energyOrange : .white.opacity(0.3))
-                    .frame(width: 26)
+                    .frame(width: 26.s)
 
-                VStack(alignment: .leading, spacing: 2) {
+                VStack(alignment: .leading, spacing: 2.s) {
                     Text(title)
                         .font(SalvageFont.header(14))
                         .foregroundStyle(enabled ? SalvageColor.boneWhite : .white.opacity(0.4))
@@ -353,20 +353,20 @@ struct CampView: View {
                 if !enabled {
                     Image(systemName: "checkmark.circle.fill")
                         .foregroundStyle(.white.opacity(0.3))
-                        .font(.caption)
+                        .font(.system(size: 12.s))
                 }
             }
-            .padding(.horizontal, 14)
-            .padding(.vertical, 12)
+            .padding(.horizontal, 14.s)
+            .padding(.vertical, 12.s)
             .background(Color.black.opacity(enabled ? 0.65 : 0.4))
             .overlay(
-                RoundedRectangle(cornerRadius: 4)
+                RoundedRectangle(cornerRadius: 4.s)
                     .stroke(
                         enabled ? SalvageColor.energyOrange.opacity(0.4) : Color.white.opacity(0.1),
-                        lineWidth: 1
+                        lineWidth: 1.s
                     )
             )
-            .clipShape(RoundedRectangle(cornerRadius: 4))
+            .clipShape(RoundedRectangle(cornerRadius: 4.s))
         }
         .buttonStyle(.plain)
         .disabled(!enabled)

@@ -33,15 +33,15 @@ struct DeckBuilderView: View {
                 .overlay(Color.black.opacity(0.7))
 
             ScrollView {
-                VStack(spacing: 20) {
-                    header.padding(.top, 20)
+                VStack(spacing: 20.s) {
+                    header.padding(.top, 20.s)
                     countBadge
                     templatesGrid
                     actionButtons
                 }
-                .padding(.horizontal, 20)
-                .padding(.bottom, 40)
-                .frame(maxWidth: 640)
+                .padding(.horizontal, 20.s)
+                .padding(.bottom, 40.s)
+                .frame(maxWidth: 640.s)
                 .frame(maxWidth: .infinity)
             }
         }
@@ -52,13 +52,13 @@ struct DeckBuilderView: View {
             if savedFlash {
                 Text("duel.deck.saved_toast")
                     .font(SalvageFont.label(11))
-                    .tracking(3)
+                    .tracking(3.s)
                     .foregroundStyle(SalvageColor.boneWhite)
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 8)
+                    .padding(.horizontal, 20.s)
+                    .padding(.vertical, 8.s)
                     .background(SalvageColor.energyOrange.opacity(0.9))
                     .clipShape(Capsule())
-                    .padding(.top, 60)
+                    .padding(.top, 60.s)
                     .transition(.move(edge: .top).combined(with: .opacity))
             }
         }
@@ -68,16 +68,16 @@ struct DeckBuilderView: View {
     // MARK: - Header
 
     private var header: some View {
-        VStack(spacing: 6) {
+        VStack(spacing: 6.s) {
             Text("duel.deck.builder_title")
                 .font(SalvageFont.titleXL(32))
                 .foregroundStyle(SalvageColor.boneWhite)
-                .tracking(6)
-            Rectangle().fill(SalvageColor.energyOrange).frame(width: 40, height: 2)
+                .tracking(6.s)
+            Rectangle().fill(SalvageColor.energyOrange).frame(width: 40.s, height: 2.s)
             Text("duel.deck.builder_subtitle")
                 .font(SalvageFont.label(9))
                 .foregroundStyle(.white.opacity(0.55))
-                .tracking(3)
+                .tracking(3.s)
                 .multilineTextAlignment(.center)
         }
     }
@@ -87,11 +87,11 @@ struct DeckBuilderView: View {
     private var countBadge: some View {
         let total = workingDeck.totalCards
         let isValid = total == DuelDeckConfig.deckSize
-        return HStack(spacing: 12) {
+        return HStack(spacing: 12.s) {
             Text("duel.deck.count_label \(total) \(DuelDeckConfig.deckSize)")
                 .font(SalvageFont.header(20))
                 .foregroundStyle(isValid ? SalvageColor.energyOrange : SalvageColor.bloodAccent)
-                .tracking(3)
+                .tracking(3.s)
 
             if !isValid {
                 Text(total < DuelDeckConfig.deckSize
@@ -101,15 +101,15 @@ struct DeckBuilderView: View {
                     .foregroundStyle(SalvageColor.bloodAccent.opacity(0.85))
             }
         }
-        .padding(.horizontal, 20)
-        .padding(.vertical, 10)
+        .padding(.horizontal, 20.s)
+        .padding(.vertical, 10.s)
         .background(Color.black.opacity(0.5))
         .overlay(
-            RoundedRectangle(cornerRadius: 6)
+            RoundedRectangle(cornerRadius: 6.s)
                 .stroke(isValid ? SalvageColor.energyOrange.opacity(0.4) : SalvageColor.bloodAccent.opacity(0.5),
-                        lineWidth: 1)
+                        lineWidth: 1.s)
         )
-        .clipShape(RoundedRectangle(cornerRadius: 6))
+        .clipShape(RoundedRectangle(cornerRadius: 6.s))
     }
 
     // MARK: - Templates grid
@@ -121,13 +121,13 @@ struct DeckBuilderView: View {
                 t.templateID.map { ($0, t) }
             }
         )
-        return VStack(alignment: .leading, spacing: 8) {
+        return VStack(alignment: .leading, spacing: 8.s) {
             Text("duel.deck.pool_title")
                 .font(SalvageFont.label(9))
                 .foregroundStyle(.white.opacity(0.55))
-                .tracking(3)
+                .tracking(3.s)
 
-            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 8) {
+            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 8.s) {
                 ForEach(DuelDeckConfig.allowedTemplates, id: \.self) { tid in
                     if let template = templateByID[tid] {
                         templateRow(template: template, templateID: tid)
@@ -141,14 +141,14 @@ struct DeckBuilderView: View {
         let count = workingDeck.count(for: templateID)
         let atMax = count >= DuelDeckConfig.maxCopiesPerTemplate
 
-        return HStack(spacing: 10) {
+        return HStack(spacing: 10.s) {
             // Card mini-preview
-            VStack(alignment: .leading, spacing: 2) {
-                HStack(spacing: 4) {
+            VStack(alignment: .leading, spacing: 2.s) {
+                HStack(spacing: 4.s) {
                     Text("\(template.cost)")
                         .font(SalvageFont.number(11))
                         .foregroundStyle(.white)
-                        .frame(width: 18, height: 18)
+                        .frame(width: 18.s, height: 18.s)
                         .background(Circle().fill(SalvageColor.energyOrange))
                     Text(template.localizedName)
                         .font(SalvageFont.header(11))
@@ -165,13 +165,13 @@ struct DeckBuilderView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
 
             // Counter controls
-            HStack(spacing: 6) {
+            HStack(spacing: 6.s) {
                 Button {
                     workingDeck.decrement(templateID)
                 } label: {
                     Image(systemName: "minus.circle.fill")
                         .foregroundStyle(count > 0 ? SalvageColor.bloodAccent.opacity(0.85) : .gray.opacity(0.4))
-                        .font(.title3)
+                        .font(.system(size: 20.s))
                 }
                 .buttonStyle(.plain)
                 .disabled(count == 0)
@@ -179,27 +179,27 @@ struct DeckBuilderView: View {
                 Text("\(count)")
                     .font(SalvageFont.number(14))
                     .foregroundStyle(SalvageColor.boneWhite)
-                    .frame(width: 18)
+                    .frame(width: 18.s)
 
                 Button {
                     workingDeck.increment(templateID)
                 } label: {
                     Image(systemName: "plus.circle.fill")
                         .foregroundStyle(atMax ? .gray.opacity(0.4) : SalvageColor.energyOrange.opacity(0.85))
-                        .font(.title3)
+                        .font(.system(size: 20.s))
                 }
                 .buttonStyle(.plain)
                 .disabled(atMax)
             }
         }
-        .padding(10)
+        .padding(10.s)
         .background(Color.black.opacity(count > 0 ? 0.55 : 0.35))
         .overlay(
-            RoundedRectangle(cornerRadius: 4)
+            RoundedRectangle(cornerRadius: 4.s)
                 .stroke(count > 0 ? SalvageColor.energyOrange.opacity(0.35) : Color.white.opacity(0.1),
-                        lineWidth: 1)
+                        lineWidth: 1.s)
         )
-        .clipShape(RoundedRectangle(cornerRadius: 4))
+        .clipShape(RoundedRectangle(cornerRadius: 4.s))
     }
 
     // MARK: - Actions
@@ -208,22 +208,22 @@ struct DeckBuilderView: View {
         let isValid = workingDeck.isValid
         let hasChanges = workingDeck != deckStore.currentDeck
 
-        return HStack(spacing: 12) {
+        return HStack(spacing: 12.s) {
             Button {
                 workingDeck = DuelDeckConfig.starterEdmund
             } label: {
-                HStack(spacing: 6) {
+                HStack(spacing: 6.s) {
                     Image(systemName: "arrow.counterclockwise")
                     Text("duel.deck.reset_default")
                         .font(SalvageFont.label(10))
-                        .tracking(2)
+                        .tracking(2.s)
                 }
                 .foregroundStyle(.white.opacity(0.75))
-                .padding(.horizontal, 14)
-                .padding(.vertical, 10)
+                .padding(.horizontal, 14.s)
+                .padding(.vertical, 10.s)
                 .background(Color.black.opacity(0.55))
-                .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.white.opacity(0.2), lineWidth: 1))
-                .clipShape(RoundedRectangle(cornerRadius: 4))
+                .overlay(RoundedRectangle(cornerRadius: 4.s).stroke(Color.white.opacity(0.2), lineWidth: 1.s))
+                .clipShape(RoundedRectangle(cornerRadius: 4.s))
             }
             .buttonStyle(.plain)
 
@@ -238,27 +238,27 @@ struct DeckBuilderView: View {
                     withAnimation { savedFlash = false }
                 }
             } label: {
-                HStack(spacing: 6) {
+                HStack(spacing: 6.s) {
                     Image(systemName: "checkmark.circle.fill")
                     Text("duel.deck.save")
                         .font(SalvageFont.label(10))
-                        .tracking(2)
+                        .tracking(2.s)
                 }
                 .foregroundStyle(isValid && hasChanges ? SalvageColor.boneWhite : .white.opacity(0.4))
-                .padding(.horizontal, 20)
-                .padding(.vertical, 10)
+                .padding(.horizontal, 20.s)
+                .padding(.vertical, 10.s)
                 .background(
                     isValid && hasChanges
                         ? SalvageColor.energyOrange.opacity(0.85)
                         : Color.black.opacity(0.4)
                 )
                 .overlay(
-                    RoundedRectangle(cornerRadius: 4).stroke(
+                    RoundedRectangle(cornerRadius: 4.s).stroke(
                         isValid && hasChanges ? SalvageColor.energyOrange : Color.white.opacity(0.15),
-                        lineWidth: 1
+                        lineWidth: 1.s
                     )
                 )
-                .clipShape(RoundedRectangle(cornerRadius: 4))
+                .clipShape(RoundedRectangle(cornerRadius: 4.s))
             }
             .buttonStyle(.plain)
             .disabled(!isValid || !hasChanges)
@@ -271,15 +271,15 @@ struct DeckBuilderView: View {
         Button {
             onBack()
         } label: {
-            HStack(spacing: 6) {
+            HStack(spacing: 6.s) {
                 Image(systemName: "chevron.left")
                 Text("duel.deck.back")
                     .font(SalvageFont.label(11))
-                    .tracking(2)
+                    .tracking(2.s)
             }
             .foregroundStyle(.white.opacity(0.75))
-            .padding(.horizontal, 12)
-            .padding(.vertical, 8)
+            .padding(.horizontal, 12.s)
+            .padding(.vertical, 8.s)
             .background(Color.black.opacity(0.5))
             .clipShape(Capsule())
         }

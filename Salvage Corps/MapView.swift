@@ -21,10 +21,10 @@ struct MapView: View {
 
     // MARK: - Constants
 
-    private let nodeSize: CGFloat = 52
-    private let columnSpacing: CGFloat = 90
-    private let rowSpacing: CGFloat = 70
-    private let mapPadding: CGFloat = 40
+    private var nodeSize: CGFloat { 52.s }
+    private var columnSpacing: CGFloat { 90.s }
+    private var rowSpacing: CGFloat { 70.s }
+    private var mapPadding: CGFloat { 40.s }
 
     var body: some View {
         if let map = mapStore.currentMap {
@@ -56,20 +56,20 @@ struct MapView: View {
     // MARK: - Header
 
     private var actHeader: some View {
-        VStack(spacing: 2) {
+        VStack(spacing: 2.s) {
             Text("map.act \(mapStore.currentAct)")
                 .font(SalvageFont.label(11))
-                .tracking(4)
+                .tracking(4.s)
                 .foregroundStyle(SalvageColor.energyOrange)
             Text(actTitle)
                 .font(SalvageFont.title(16))
                 .foregroundStyle(SalvageColor.boneWhite)
         }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 8)
+        .padding(.horizontal, 16.s)
+        .padding(.vertical, 8.s)
         .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 6))
-        .padding(.top, 12)
+        .clipShape(RoundedRectangle(cornerRadius: 6.s))
+        .padding(.top, 12.s)
     }
 
     private var actTitle: String {
@@ -79,7 +79,7 @@ struct MapView: View {
     // MARK: - Empty state
 
     private var emptyState: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: 12.s) {
             Text("map.no_run_title")
                 .font(SalvageFont.body(14))
                 .foregroundStyle(SalvageColor.boneWhite.opacity(0.6))
@@ -126,7 +126,7 @@ struct MapView: View {
                     )
 
                 Image(systemName: iconName(for: node.kind))
-                    .font(.title3)
+                    .font(.system(size: 20.s))
                     .foregroundStyle(iconColor(isVisited: isVisited))
             }
             .opacity(isVisited && !isCurrent ? 0.45 : 1.0)
@@ -166,7 +166,7 @@ struct MapView: View {
                 context.stroke(
                     path,
                     with: .color(strokeColor),
-                    style: StrokeStyle(lineWidth: 2, dash: isVisited ? [] : [4, 4])
+                    style: StrokeStyle(lineWidth: 2.s, dash: isVisited ? [] : [4, 4])
                 )
             }
         }

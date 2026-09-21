@@ -40,12 +40,12 @@ struct DialogueView: View {
                 .ignoresSafeArea()
                 .opacity(0.15)
 
-            HStack(alignment: .center, spacing: 32) {
-                portraitColumn.frame(maxWidth: 260)
+            HStack(alignment: .center, spacing: 32.s) {
+                portraitColumn.frame(maxWidth: 260.s)
                 dialogueColumn.frame(maxWidth: .infinity)
             }
-            .padding(.horizontal, 40)
-            .padding(.vertical, 24)
+            .padding(.horizontal, 40.s)
+            .padding(.vertical, 24.s)
         }
         .preferredColorScheme(.dark)
         .onTapGesture {
@@ -56,19 +56,19 @@ struct DialogueView: View {
     // MARK: - Portrait
 
     private var portraitColumn: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: 12.s) {
             Spacer()
 
             Image(dialogue.npc.artFilename)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(maxHeight: 280)
-                .clipShape(RoundedRectangle(cornerRadius: 4))
+                .frame(maxHeight: 280.s)
+                .clipShape(RoundedRectangle(cornerRadius: 4.s))
                 .overlay(
-                    RoundedRectangle(cornerRadius: 4)
-                        .stroke(SalvageColor.boneWhite.opacity(0.3), lineWidth: 1)
+                    RoundedRectangle(cornerRadius: 4.s)
+                        .stroke(SalvageColor.boneWhite.opacity(0.3), lineWidth: 1.s)
                 )
-                .shadow(color: .black.opacity(0.6), radius: 8, y: 4)
+                .shadow(color: .black.opacity(0.6), radius: 8.s, y: 4)
 
             Text(dialogue.npc.name)
                 .font(SalvageFont.title(18))
@@ -76,7 +76,7 @@ struct DialogueView: View {
 
             Text(dialogue.npc.role.uppercased())
                 .font(SalvageFont.label(9))
-                .tracking(2)
+                .tracking(2.s)
                 .foregroundStyle(SalvageColor.energyOrange.opacity(0.85))
 
             Spacer()
@@ -86,20 +86,20 @@ struct DialogueView: View {
     // MARK: - Dialogue text
 
     private var dialogueColumn: some View {
-        VStack(alignment: .leading, spacing: 16) {
+        VStack(alignment: .leading, spacing: 16.s) {
             Spacer()
 
             if let line = currentLine {
-                VStack(alignment: .leading, spacing: 8) {
+                VStack(alignment: .leading, spacing: 8.s) {
                     // Speaker header
                     Text(line.speaker)
                         .font(SalvageFont.label(10))
-                        .tracking(3)
+                        .tracking(3.s)
                         .foregroundStyle(speakerColor(line.speaker))
 
                     Rectangle()
                         .fill(speakerColor(line.speaker))
-                        .frame(width: 40, height: 1)
+                        .frame(width: 40.s, height: 1.s)
 
                     // Corpo do texto
                     Text(line.text)
@@ -109,30 +109,30 @@ struct DialogueView: View {
                             ? .white.opacity(0.7)
                             : SalvageColor.boneWhite
                         )
-                        .lineSpacing(5)
+                        .lineSpacing(5.s)
                         .transition(.opacity.combined(with: .move(edge: .bottom)))
                         .id(currentLineIndex)  // força re-render + transition
                         .changeEffect(.shine.delay(0.1), value: currentLineIndex)
                 }
-                .padding(.vertical, 20)
-                .padding(.horizontal, 24)
+                .padding(.vertical, 20.s)
+                .padding(.horizontal, 24.s)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(Color.black.opacity(0.6))
                 .overlay(
-                    RoundedRectangle(cornerRadius: 4)
-                        .stroke(Color.white.opacity(0.15), lineWidth: 1)
+                    RoundedRectangle(cornerRadius: 4.s)
+                        .stroke(Color.white.opacity(0.15), lineWidth: 1.s)
                 )
-                .clipShape(RoundedRectangle(cornerRadius: 4))
+                .clipShape(RoundedRectangle(cornerRadius: 4.s))
             }
 
             // Progresso + botão
             HStack {
                 // Progress dots
-                HStack(spacing: 4) {
+                HStack(spacing: 4.s) {
                     ForEach(0..<dialogue.lines.count, id: \.self) { i in
                         Circle()
                             .fill(i <= currentLineIndex ? SalvageColor.energyOrange : Color.white.opacity(0.2))
-                            .frame(width: 6, height: 6)
+                            .frame(width: 6.s, height: 6.s)
                     }
                 }
 
@@ -141,22 +141,22 @@ struct DialogueView: View {
                 Button {
                     advanceOrEnd()
                 } label: {
-                    HStack(spacing: 6) {
+                    HStack(spacing: 6.s) {
                         Text(isLastLine ? "common.close" : "common.continue")
                             .font(SalvageFont.label(10))
-                            .tracking(1.5)
+                            .tracking(1.5.s)
                         Image(systemName: isLastLine ? "xmark" : "arrow.right")
-                            .font(.caption)
+                            .font(.system(size: 12.s))
                     }
                     .foregroundStyle(SalvageColor.boneWhite)
-                    .padding(.horizontal, 14)
-                    .padding(.vertical, 8)
+                    .padding(.horizontal, 14.s)
+                    .padding(.vertical, 8.s)
                     .background(Color.black.opacity(0.7))
                     .overlay(
-                        RoundedRectangle(cornerRadius: 4)
-                            .stroke(SalvageColor.energyOrange.opacity(0.6), lineWidth: 1)
+                        RoundedRectangle(cornerRadius: 4.s)
+                            .stroke(SalvageColor.energyOrange.opacity(0.6), lineWidth: 1.s)
                     )
-                    .clipShape(RoundedRectangle(cornerRadius: 4))
+                    .clipShape(RoundedRectangle(cornerRadius: 4.s))
                 }
                 .buttonStyle(.plain)
             }

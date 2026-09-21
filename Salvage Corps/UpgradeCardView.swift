@@ -32,12 +32,12 @@ struct UpgradeCardView: View {
             Color.black.opacity(0.85).ignoresSafeArea()
                 .onTapGesture { onCancel() }
 
-            VStack(spacing: 20) {
+            VStack(spacing: 20.s) {
                 // Header
-                VStack(spacing: 4) {
+                VStack(spacing: 4.s) {
                     Text("upgrade.card_scar_header")
                         .font(SalvageFont.label(11))
-                        .tracking(6)
+                        .tracking(6.s)
                         .foregroundStyle(SalvageColor.energyOrange)
 
                     Text("upgrade.card_choose_path")
@@ -46,17 +46,17 @@ struct UpgradeCardView: View {
                         .changeEffect(.shine.delay(0.3), value: appeared)
                 }
 
-                Rectangle().fill(SalvageColor.bloodAccent).frame(width: 60, height: 2)
+                Rectangle().fill(SalvageColor.bloodAccent).frame(width: 60.s, height: 2.s)
 
                 // Layout: base card à esquerda, seta, 2 paths à direita
-                HStack(alignment: .center, spacing: 24) {
+                HStack(alignment: .center, spacing: 24.s) {
                     baseCardView
 
                     Image(systemName: "arrow.right")
-                        .font(.title)
+                        .font(.system(size: 28.s))
                         .foregroundStyle(SalvageColor.energyOrange.opacity(0.6))
 
-                    VStack(spacing: 14) {
+                    VStack(spacing: 14.s) {
                         if paths.indices.contains(0) {
                             pathButton(upgrade: paths[0], label: "PATH A")
                         }
@@ -64,9 +64,9 @@ struct UpgradeCardView: View {
                             pathButton(upgrade: paths[1], label: "PATH B")
                         }
                     }
-                    .frame(maxWidth: 380)
+                    .frame(maxWidth: 380.s)
                 }
-                .padding(.horizontal, 24)
+                .padding(.horizontal, 24.s)
 
                 // Cancel
                 Button {
@@ -75,13 +75,13 @@ struct UpgradeCardView: View {
                 } label: {
                     Text("upgrade.card_back_no_choice")
                         .font(SalvageFont.label(9))
-                        .tracking(2)
+                        .tracking(2.s)
                         .foregroundStyle(.white.opacity(0.5))
-                        .padding(.top, 8)
+                        .padding(.top, 8.s)
                 }
                 .buttonStyle(.plain)
             }
-            .padding(30)
+            .padding(30.s)
         }
         .preferredColorScheme(.dark)
         .onAppear { appeared = true }
@@ -90,10 +90,10 @@ struct UpgradeCardView: View {
     // MARK: - Base card
 
     private var baseCardView: some View {
-        VStack(spacing: 6) {
+        VStack(spacing: 6.s) {
             Text("upgrade.card_base")
                 .font(SalvageFont.label(8))
-                .tracking(2)
+                .tracking(2.s)
                 .foregroundStyle(.white.opacity(0.5))
 
             cardMiniView(name: baseCard.name, cost: baseCard.cost, effects: baseCard.effects, art: baseCard.artFilename, dimmed: true)
@@ -103,7 +103,7 @@ struct UpgradeCardView: View {
                 .font(SalvageFont.body(9))
                 .foregroundStyle(.white.opacity(0.55))
                 .multilineTextAlignment(.center)
-                .frame(width: 92)
+                .frame(width: 92.s)
                 .lineLimit(3)
         }
     }
@@ -115,9 +115,9 @@ struct UpgradeCardView: View {
             AudioManager.shared.playSFX(AudioTrack.sfxClick)
             onSelect(upgrade)
         } label: {
-            HStack(alignment: .center, spacing: 14) {
+            HStack(alignment: .center, spacing: 14.s) {
                 // Preview mini da versão upgraded
-                VStack(spacing: 4) {
+                VStack(spacing: 4.s) {
                     cardMiniView(
                         name: upgrade.name,
                         cost: upgrade.cost ?? baseCard.cost,
@@ -127,20 +127,20 @@ struct UpgradeCardView: View {
                     )
                     .overlay(alignment: .topTrailing) {
                         Image(systemName: "sparkles")
-                            .font(.system(size: 10, weight: .bold))
+                            .font(.system(size: 10.s, weight: .bold))
                             .foregroundStyle(SalvageColor.scarGold)
-                            .padding(3)
+                            .padding(3.s)
                             .background(Color.black.opacity(0.7))
                             .clipShape(Circle())
-                            .offset(x: 4, y: -4)
+                            .offset(x: 4.s, y: -4.s)
                     }
                 }
 
                 // Descrição
-                VStack(alignment: .leading, spacing: 6) {
+                VStack(alignment: .leading, spacing: 6.s) {
                     Text(label)
                         .font(SalvageFont.label(8))
-                        .tracking(2)
+                        .tracking(2.s)
                         .foregroundStyle(SalvageColor.scarGold)
 
                     Text(upgrade.name)
@@ -157,19 +157,19 @@ struct UpgradeCardView: View {
                             .italic()
                             .foregroundStyle(.white.opacity(0.55))
                             .lineLimit(3)
-                            .padding(.top, 2)
+                            .padding(.top, 2.s)
                     }
                 }
 
-                Spacer(minLength: 0)
+                Spacer(minLength: 0.s)
             }
-            .padding(10)
+            .padding(10.s)
             .background(Color.black.opacity(0.65))
             .overlay(
-                RoundedRectangle(cornerRadius: 4)
-                    .stroke(SalvageColor.scarGold.opacity(0.5), lineWidth: 1)
+                RoundedRectangle(cornerRadius: 4.s)
+                    .stroke(SalvageColor.scarGold.opacity(0.5), lineWidth: 1.s)
             )
-            .clipShape(RoundedRectangle(cornerRadius: 4))
+            .clipShape(RoundedRectangle(cornerRadius: 4.s))
         }
         .buttonStyle(.plain)
     }
@@ -179,10 +179,10 @@ struct UpgradeCardView: View {
         let effectiveCost = upgrade.cost ?? baseCard.cost
         let costChanged = upgrade.cost != nil && upgrade.cost != baseCard.cost
 
-        return VStack(alignment: .leading, spacing: 3) {
+        return VStack(alignment: .leading, spacing: 3.s) {
             // Cost diff
             if costChanged {
-                HStack(spacing: 4) {
+                HStack(spacing: 4.s) {
                     Text("upgrade.card_cost")
                         .font(SalvageFont.body(9))
                         .foregroundStyle(.white.opacity(0.55))
@@ -191,7 +191,7 @@ struct UpgradeCardView: View {
                         .foregroundStyle(.white.opacity(0.55))
                         .strikethrough()
                     Image(systemName: "arrow.right")
-                        .font(.system(size: 8))
+                        .font(.system(size: 8.s))
                         .foregroundStyle(SalvageColor.scarGold)
                     Text("\(effectiveCost)")
                         .font(SalvageFont.number(10))
@@ -258,39 +258,39 @@ struct UpgradeCardView: View {
     // MARK: - Mini card
 
     private func cardMiniView(name: String, cost: Int, effects: [CardEffect], art: String?, dimmed: Bool) -> some View {
-        VStack(spacing: 0) {
-            HStack(spacing: 4) {
+        VStack(spacing: 0.s) {
+            HStack(spacing: 4.s) {
                 Text("\(cost)")
                     .font(SalvageFont.number(10))
                     .foregroundStyle(.white)
-                    .frame(width: 18, height: 18)
+                    .frame(width: 18.s, height: 18.s)
                     .background(Circle().fill(SalvageColor.energyOrange))
                 Text(name)
                     .font(SalvageFont.header(9))
                     .foregroundStyle(SalvageColor.boneWhite)
                     .lineLimit(2)
                     .minimumScaleFactor(0.7)
-                Spacer(minLength: 0)
+                Spacer(minLength: 0.s)
             }
-            .padding(4)
+            .padding(4.s)
             .background(Color.black.opacity(0.85))
 
             if let art {
                 Image(art)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 92, height: 66)
+                    .frame(width: 92.s, height: 66.s)
                     .clipped()
             } else {
-                Rectangle().fill(Color.gray.opacity(0.3)).frame(width: 92, height: 66)
+                Rectangle().fill(Color.gray.opacity(0.3)).frame(width: 92.s, height: 66.s)
             }
         }
-        .frame(width: 92)
+        .frame(width: 92.s)
         .overlay(
-            RoundedRectangle(cornerRadius: 3)
-                .stroke(SalvageColor.boneWhite.opacity(0.3), lineWidth: 1)
+            RoundedRectangle(cornerRadius: 3.s)
+                .stroke(SalvageColor.boneWhite.opacity(0.3), lineWidth: 1.s)
         )
-        .clipShape(RoundedRectangle(cornerRadius: 3))
+        .clipShape(RoundedRectangle(cornerRadius: 3.s))
         .opacity(dimmed ? 0.55 : 1.0)
     }
 }

@@ -58,21 +58,21 @@ struct TerminalChoiceView: View {
     // MARK: - Choice screen
 
     private var choiceScreen: some View {
-        HStack(alignment: .center, spacing: 32) {
+        HStack(alignment: .center, spacing: 32.s) {
             narrativeColumn.frame(maxWidth: .infinity)
-            choicesColumn.frame(width: 380)
+            choicesColumn.frame(width: 380.s)
         }
-        .padding(.horizontal, 40)
-        .padding(.vertical, 24)
+        .padding(.horizontal, 40.s)
+        .padding(.vertical, 24.s)
     }
 
     private var narrativeColumn: some View {
-        VStack(alignment: .leading, spacing: 14) {
+        VStack(alignment: .leading, spacing: 14.s) {
             Spacer()
 
             Text("terminal.act_prefix \(romanNumeral(act))")
                 .font(SalvageFont.label(11))
-                .tracking(6)
+                .tracking(6.s)
                 .foregroundStyle(SalvageColor.bloodAccent)
 
             Text(actTitle)
@@ -80,28 +80,28 @@ struct TerminalChoiceView: View {
                 .foregroundStyle(SalvageColor.boneWhite)
                 .changeEffect(.shine.delay(0.3), value: appeared)
 
-            Rectangle().fill(SalvageColor.bloodAccent).frame(width: 60, height: 2).padding(.vertical, 8)
+            Rectangle().fill(SalvageColor.bloodAccent).frame(width: 60.s, height: 2.s).padding(.vertical, 8.s)
 
             Text(narrativeText)
                 .font(SalvageFont.flavor(14))
                 .italic()
                 .foregroundStyle(.white.opacity(0.85))
-                .lineSpacing(6)
-                .padding(.trailing, 20)
+                .lineSpacing(6.s)
+                .padding(.trailing, 20.s)
 
             Spacer()
         }
     }
 
     private var choicesColumn: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: 12.s) {
             Spacer()
 
             Text("terminal.your_decision")
                 .font(SalvageFont.label(10))
-                .tracking(3)
+                .tracking(3.s)
                 .foregroundStyle(.white.opacity(0.55))
-                .padding(.bottom, 4)
+                .padding(.bottom, 4.s)
 
             ForEach(availableChoices) { choice in
                 choiceButton(choice)
@@ -118,7 +118,7 @@ struct TerminalChoiceView: View {
                 chosen = choice
             }
         } label: {
-            VStack(alignment: .leading, spacing: 6) {
+            VStack(alignment: .leading, spacing: 6.s) {
                 Text(choiceLabel(choice))
                     .font(SalvageFont.header(14))
                     .foregroundStyle(SalvageColor.boneWhite)
@@ -129,14 +129,14 @@ struct TerminalChoiceView: View {
                     .foregroundStyle(SalvageColor.bloodAccent.opacity(0.9))
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.horizontal, 14)
-            .padding(.vertical, 14)
+            .padding(.horizontal, 14.s)
+            .padding(.vertical, 14.s)
             .background(Color.black.opacity(0.75))
             .overlay(
-                RoundedRectangle(cornerRadius: 4)
-                    .stroke(SalvageColor.bloodAccent.opacity(0.5), lineWidth: 1)
+                RoundedRectangle(cornerRadius: 4.s)
+                    .stroke(SalvageColor.bloodAccent.opacity(0.5), lineWidth: 1.s)
             )
-            .clipShape(RoundedRectangle(cornerRadius: 4))
+            .clipShape(RoundedRectangle(cornerRadius: 4.s))
         }
         .buttonStyle(.plain)
     }
@@ -144,50 +144,50 @@ struct TerminalChoiceView: View {
     // MARK: - Result screen
 
     private func resultScreen(choice: TerminalChoice) -> some View {
-        VStack(spacing: 22) {
+        VStack(spacing: 22.s) {
             Spacer()
 
             Text("terminal.consequence")
                 .font(SalvageFont.label(11))
-                .tracking(6)
+                .tracking(6.s)
                 .foregroundStyle(SalvageColor.bloodAccent)
 
             Text(choiceLabel(choice))
                 .font(SalvageFont.title(22))
                 .foregroundStyle(SalvageColor.boneWhite)
                 .multilineTextAlignment(.center)
-                .padding(.horizontal, 40)
+                .padding(.horizontal, 40.s)
 
-            Rectangle().fill(SalvageColor.bloodAccent).frame(width: 60, height: 2)
+            Rectangle().fill(SalvageColor.bloodAccent).frame(width: 60.s, height: 2.s)
 
             ScrollView {
                 Text(choiceResult(choice))
                     .font(SalvageFont.body(14))
                     .foregroundStyle(SalvageColor.boneWhite.opacity(0.9))
-                    .lineSpacing(6)
+                    .lineSpacing(6.s)
                     .multilineTextAlignment(.center)
-                    .padding(.horizontal, 60)
-                    .padding(.vertical, 8)
+                    .padding(.horizontal, 60.s)
+                    .padding(.vertical, 8.s)
             }
-            .frame(maxHeight: 260)
+            .frame(maxHeight: 260.s)
 
             // Ending path badge
-            HStack(spacing: 8) {
+            HStack(spacing: 8.s) {
                 Image(systemName: "sparkles")
-                    .font(.caption)
+                    .font(.system(size: 12.s))
                 Text("terminal.path_label \(choice.endingInfluence.localizedName.uppercased())")
                     .font(SalvageFont.label(10))
-                    .tracking(2)
+                    .tracking(2.s)
             }
             .foregroundStyle(SalvageColor.scarGold)
-            .padding(.horizontal, 14)
-            .padding(.vertical, 7)
+            .padding(.horizontal, 14.s)
+            .padding(.vertical, 7.s)
             .background(Color.black.opacity(0.7))
             .overlay(
-                RoundedRectangle(cornerRadius: 3)
-                    .stroke(SalvageColor.scarGold.opacity(0.5), lineWidth: 1)
+                RoundedRectangle(cornerRadius: 3.s)
+                    .stroke(SalvageColor.scarGold.opacity(0.5), lineWidth: 1.s)
             )
-            .clipShape(RoundedRectangle(cornerRadius: 3))
+            .clipShape(RoundedRectangle(cornerRadius: 3.s))
 
             Spacer()
 
@@ -195,15 +195,15 @@ struct TerminalChoiceView: View {
                 AudioManager.shared.playSFX(AudioTrack.sfxClick)
                 onChoice(choice)
             } label: {
-                HStack(spacing: 6) {
+                HStack(spacing: 6.s) {
                     Text("terminal.act_prefix \(romanNumeral(act))")
                         .font(SalvageFont.label(11))
-                        .tracking(2)
+                        .tracking(2.s)
                     Image(systemName: "arrow.right")
-                        .font(.caption)
+                        .font(.system(size: 12.s))
                 }
-                .padding(.horizontal, 26)
-                .padding(.vertical, 12)
+                .padding(.horizontal, 26.s)
+                .padding(.vertical, 12.s)
             }
             .buttonStyle(.borderedProminent)
             .tint(SalvageColor.energyOrange)

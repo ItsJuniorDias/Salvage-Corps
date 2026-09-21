@@ -71,21 +71,21 @@ struct EventView: View {
     // MARK: - Choice screen
 
     private func choiceScreen(event: GameEvent) -> some View {
-        HStack(alignment: .top, spacing: 32) {
+        HStack(alignment: .top, spacing: 32.s) {
             narrativeColumn(event: event).frame(maxWidth: .infinity)
-            choicesColumn(event: event).frame(width: 340)
+            choicesColumn(event: event).frame(width: 340.s)
         }
-        .padding(.horizontal, 40)
-        .padding(.vertical, 24)
+        .padding(.horizontal, 40.s)
+        .padding(.vertical, 24.s)
     }
 
     private func narrativeColumn(event: GameEvent) -> some View {
-        VStack(alignment: .leading, spacing: 14) {
+        VStack(alignment: .leading, spacing: 14.s) {
             Spacer()
 
             Text("event.header")
                 .font(SalvageFont.label(11))
-                .tracking(6)
+                .tracking(6.s)
                 .foregroundStyle(SalvageColor.energyOrange)
 
             Text(event.title)
@@ -93,28 +93,28 @@ struct EventView: View {
                 .foregroundStyle(SalvageColor.boneWhite)
                 .changeEffect(.shine.delay(0.3), value: appeared)
 
-            Rectangle().fill(SalvageColor.bloodAccent).frame(width: 60, height: 2).padding(.vertical, 6)
+            Rectangle().fill(SalvageColor.bloodAccent).frame(width: 60.s, height: 2.s).padding(.vertical, 6.s)
 
             Text(event.narrative)
                 .font(SalvageFont.flavor(13))
                 .italic()
                 .foregroundStyle(.white.opacity(0.85))
-                .lineSpacing(5)
-                .padding(.trailing, 20)
+                .lineSpacing(5.s)
+                .padding(.trailing, 20.s)
 
             Spacer()
         }
     }
 
     private func choicesColumn(event: GameEvent) -> some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 10.s) {
             Spacer()
 
             Text("event.decision")
                 .font(SalvageFont.label(10))
-                .tracking(3)
+                .tracking(3.s)
                 .foregroundStyle(.white.opacity(0.55))
-                .padding(.bottom, 4)
+                .padding(.bottom, 4.s)
 
             ForEach(event.choices) { choice in
                 choiceButton(choice)
@@ -132,16 +132,16 @@ struct EventView: View {
                 chosenChoice = choice
             }
         } label: {
-            VStack(alignment: .leading, spacing: 6) {
+            VStack(alignment: .leading, spacing: 6.s) {
                 Text(choice.label)
                     .font(SalvageFont.header(14))
                     .foregroundStyle(SalvageColor.boneWhite)
                     .multilineTextAlignment(.leading)
 
                 if let hint = choice.costHint {
-                    HStack(spacing: 4) {
+                    HStack(spacing: 4.s) {
                         Image(systemName: "arrow.right.circle")
-                            .font(.caption2)
+                            .font(.system(size: 11.s))
                         Text(hint)
                             .font(SalvageFont.body(10))
                     }
@@ -149,14 +149,14 @@ struct EventView: View {
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.horizontal, 14)
-            .padding(.vertical, 12)
+            .padding(.horizontal, 14.s)
+            .padding(.vertical, 12.s)
             .background(Color.black.opacity(0.65))
             .overlay(
-                RoundedRectangle(cornerRadius: 4)
-                    .stroke(SalvageColor.energyOrange.opacity(0.4), lineWidth: 1)
+                RoundedRectangle(cornerRadius: 4.s)
+                    .stroke(SalvageColor.energyOrange.opacity(0.4), lineWidth: 1.s)
             )
-            .clipShape(RoundedRectangle(cornerRadius: 4))
+            .clipShape(RoundedRectangle(cornerRadius: 4.s))
         }
         .buttonStyle(.plain)
     }
@@ -164,41 +164,41 @@ struct EventView: View {
     // MARK: - Result screen
 
     private func resultScreen(event: GameEvent, choice: EventChoice) -> some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 20.s) {
             Spacer()
 
             Text("event.consequence")
                 .font(SalvageFont.label(11))
-                .tracking(6)
+                .tracking(6.s)
                 .foregroundStyle(SalvageColor.bloodAccent)
 
             Text(choice.label)
                 .font(SalvageFont.title(20))
                 .foregroundStyle(SalvageColor.boneWhite)
                 .multilineTextAlignment(.center)
-                .padding(.horizontal, 40)
+                .padding(.horizontal, 40.s)
 
-            Rectangle().fill(SalvageColor.bloodAccent).frame(width: 60, height: 2)
+            Rectangle().fill(SalvageColor.bloodAccent).frame(width: 60.s, height: 2.s)
 
             ScrollView {
                 Text(choice.resultText)
                     .font(SalvageFont.body(14))
                     .foregroundStyle(SalvageColor.boneWhite.opacity(0.9))
-                    .lineSpacing(6)
+                    .lineSpacing(6.s)
                     .multilineTextAlignment(.center)
-                    .padding(.horizontal, 60)
-                    .padding(.vertical, 8)
+                    .padding(.horizontal, 60.s)
+                    .padding(.vertical, 8.s)
             }
-            .frame(maxHeight: 240)
+            .frame(maxHeight: 240.s)
 
             // Effects aplicados como pequenos badges
             if !choice.effects.isEmpty {
-                HStack(spacing: 8) {
+                HStack(spacing: 8.s) {
                     ForEach(choice.effects.indices, id: \.self) { i in
                         effectBadge(choice.effects[i])
                     }
                 }
-                .padding(.vertical, 4)
+                .padding(.vertical, 4.s)
             }
 
             Spacer()
@@ -207,15 +207,15 @@ struct EventView: View {
                 AudioManager.shared.playSFX(AudioTrack.sfxClick)
                 onResolve()
             } label: {
-                HStack(spacing: 6) {
+                HStack(spacing: 6.s) {
                     Text("common.continue")
                         .font(SalvageFont.label(11))
-                        .tracking(2)
+                        .tracking(2.s)
                     Image(systemName: "arrow.right")
-                        .font(.caption)
+                        .font(.system(size: 12.s))
                 }
-                .padding(.horizontal, 24)
-                .padding(.vertical, 12)
+                .padding(.horizontal, 24.s)
+                .padding(.vertical, 12.s)
             }
             .buttonStyle(.borderedProminent)
             .tint(SalvageColor.energyOrange)
@@ -228,16 +228,16 @@ struct EventView: View {
         let (text, color) = effectBadgeInfo(effect)
         return Text(text)
             .font(SalvageFont.number(11))
-            .tracking(1)
+            .tracking(1.s)
             .foregroundStyle(color)
-            .padding(.horizontal, 10)
-            .padding(.vertical, 5)
+            .padding(.horizontal, 10.s)
+            .padding(.vertical, 5.s)
             .background(Color.black.opacity(0.65))
             .overlay(
-                RoundedRectangle(cornerRadius: 3)
-                    .stroke(color.opacity(0.5), lineWidth: 1)
+                RoundedRectangle(cornerRadius: 3.s)
+                    .stroke(color.opacity(0.5), lineWidth: 1.s)
             )
-            .clipShape(RoundedRectangle(cornerRadius: 3))
+            .clipShape(RoundedRectangle(cornerRadius: 3.s))
     }
 
     private func effectBadgeInfo(_ effect: EventEffect) -> (String, Color) {
@@ -265,10 +265,10 @@ struct EventView: View {
     // MARK: - Fallback
 
     private var fallbackScreen: some View {
-        VStack(spacing: 16) {
+        VStack(spacing: 16.s) {
             Text("event.header")
                 .font(SalvageFont.label(11))
-                .tracking(6)
+                .tracking(6.s)
                 .foregroundStyle(SalvageColor.energyOrange)
 
             Text("event.nothing_happened")
@@ -280,9 +280,9 @@ struct EventView: View {
             } label: {
                 Text("common.continue")
                     .font(SalvageFont.label(11))
-                    .tracking(2)
-                    .padding(.horizontal, 24)
-                    .padding(.vertical, 10)
+                    .tracking(2.s)
+                    .padding(.horizontal, 24.s)
+                    .padding(.vertical, 10.s)
             }
             .buttonStyle(.borderedProminent)
             .tint(SalvageColor.energyOrange)
