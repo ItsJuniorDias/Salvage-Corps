@@ -21,11 +21,12 @@ final class DialogueEngine {
     }
 
     /// Carrega dialogues do bundle. Tenta na ordem:
-    /// 1. `dialogues_<preferredLanguage>.json` (ex: dialogues_en.json)
-    /// 2. `dialogues_pt-BR.json` (source original)
-    /// 3. `dialogues.json` (fallback legado)
+    /// 1. `dialogues_<preferredLanguage>.json` (ex: dialogues_es.json)
+    /// 2. `dialogues_en.json` (fallback pra idiomas sem tradução)
+    /// 3. `dialogues_pt-BR.json` (source original, último recurso)
+    /// 4. `dialogues.json` (fallback legado)
     private static func loadFromBundle() -> DialogueCatalog? {
-        let preferred = Bundle.main.preferredLocalizations.first ?? "pt-BR"
+        let preferred = Bundle.main.preferredLocalizations.first ?? "en"
 
         // Constrói lista de candidatos em ordem de preferência
         var candidates: [String] = ["dialogues_\(preferred)"]
@@ -39,6 +40,7 @@ final class DialogueEngine {
         if preferred.hasPrefix("pt") && preferred != "pt-BR" {
             candidates.append("dialogues_pt-BR")
         }
+        candidates.append("dialogues_en")     // fallback
         candidates.append("dialogues_pt-BR")  // source
         candidates.append("dialogues")        // fallback legado
 

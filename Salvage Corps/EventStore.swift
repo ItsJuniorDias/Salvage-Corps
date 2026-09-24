@@ -24,7 +24,7 @@ enum EventStore {
 
     /// Chamado no startup do app. Idempotente — chame quantas vezes quiser.
     static func loadAndInject() {
-        let preferred = Bundle.main.preferredLocalizations.first ?? "pt-BR"
+        let preferred = Bundle.main.preferredLocalizations.first ?? "en"
 
         // Candidatos em ordem de preferência (mesma lógica do DialogueEngine)
         var candidates: [String] = ["events_\(preferred)"]
@@ -37,7 +37,8 @@ enum EventStore {
         if preferred.hasPrefix("pt") && preferred != "pt-BR" {
             candidates.append("events_pt-BR")
         }
-        candidates.append("events_pt-BR")
+        candidates.append("events_en")     // fallback
+        candidates.append("events_pt-BR")  // source
 
         for name in candidates {
             if let catalog = tryLoadCatalog(named: name) {

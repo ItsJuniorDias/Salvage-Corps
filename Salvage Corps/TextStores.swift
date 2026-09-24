@@ -3,7 +3,7 @@
 //  Salvage Corps
 //
 //  Loaders app-side pra terminal_*.json e endings_*.json. Mesmo pattern do
-//  EventStore e DialogueEngine — escolhe idioma preferido, fallback pt-BR.
+//  EventStore e DialogueEngine — escolhe idioma preferido, fallback en.
 //
 
 import Foundation
@@ -86,9 +86,9 @@ enum EndingTextStore {
 // ============================================================================
 
 /// Loader genérico. Tenta `<prefix>_<lang>.json` com fallback normalizado
-/// (en-US → en, etc), depois `<prefix>_pt-BR.json`.
+/// (en-US → en, etc), depois `<prefix>_en.json` e por último `<prefix>_pt-BR.json`.
 private func loadCatalog<T: Decodable>(prefix: String) -> T? {
-    let preferred = Bundle.main.preferredLocalizations.first ?? "pt-BR"
+    let preferred = Bundle.main.preferredLocalizations.first ?? "en"
 
     var candidates: [String] = ["\(prefix)_\(preferred)"]
     if preferred.hasPrefix("en") && preferred != "en" {
@@ -100,7 +100,8 @@ private func loadCatalog<T: Decodable>(prefix: String) -> T? {
     if preferred.hasPrefix("pt") && preferred != "pt-BR" {
         candidates.append("\(prefix)_pt-BR")
     }
-    candidates.append("\(prefix)_pt-BR")
+    candidates.append("\(prefix)_en")     // fallback
+    candidates.append("\(prefix)_pt-BR")  // source
 
     for name in candidates {
         guard let url = Bundle.main.url(forResource: name, withExtension: "json") else {
